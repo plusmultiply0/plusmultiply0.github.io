@@ -11,8 +11,57 @@ category:
 ## 博客搭建记录
 对自己搭建博客功能的记录，仅供参考:
 
+- [博客部署小记](#blogstart)
 - [规避部署重复输入账号密码](#avoidpwd)
 - [统计博客运行时间](#runtime)
+
+#### <a id="blogstart"></a>博客部署小记
+**情景**：hexo博客+Github pages
+搭建博客不难--可参考[官方文档](https://hexo.io/zh-cn/docs/),以下命令仅供参考。
+```bash
+npm install -g hexo-cli
+hexo init <folder>
+cd <folder>
+hexo g     //生成静态文件
+```
+参照官方文档，部署的时候会有些问题：
+默认不调整分支的情况，[一键部署](https://hexo.io/zh-cn/docs/one-command-deployment)会把先前上传的站点文件覆盖，[部署](https://hexo.io/zh-cn/docs/github-pages)无法生成博客页面，因为Github强制要求User page必须在master分支上，而文档默认生成在gh-pages分支上。
+
+根据个人需求，我需要将站点文件用远程分支管理，所以我选择将站点文件放在别的分支上，master分支用来存放生成的博客文件(User Page)。
+
+部署基本步骤同[这里](https://hexo.io/zh-cn/docs/github-pages)，因为是利用 travis CI 自动构建博客，我们需要在这里修改 .travis.yml 配置文件--参考[这里](https://docs.travis-ci.com/user/deployment/pages/)
+以下为参考代码
+```yml
+sudo: false
+language: node_js
+node_js:
+  - 10 # use nodejs v10 LTS
+cache: npm
+branches:
+  only:
+    - hexo # build master branch only
+script:
+  - hexo generate # generate static files
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  on:
+    branch: hexo        # 设置站点文件所在分支
+  local-dir: public
+  target_branch: master # 这里设置public文件/博客文件生成的分支
+```
+之后的步骤比较简单，将站点文件从本地仓库推到远程设好的分支上(比如：hexo分支)。
+然后，travis CI 就会自动构建博客文件。在博客网址查看即可。
+注：Github可能会提示“minimist依赖版本”风险，根据提示修改下依赖的版本号就可以了。
+**参考链接**：
+- [GitHub Pages 站点的发布来源](https://help.github.com/cn/github/working-with-github-pages/about-github-pages)
+- [Github pages Deployment](https://docs.travis-ci.com/user/deployment/pages/)
+- [git本地分支与远程分支关联与解除关联](https://www.jianshu.com/p/526eb3eec83e)
+- [Why call git branch --unset-upstream to fixup?
+](https://stackoverflow.com/questions/21609781/why-call-git-branch-unset-upstream-to-fixup)
+
 
 #### <a id="avoidpwd"></a>规避部署重复输入账号密码
 **情景**：每次部署重复输入账号密码
