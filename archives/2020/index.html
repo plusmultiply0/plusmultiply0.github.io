@@ -81,13 +81,13 @@
     <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
     <header class="archive-article-header">
-      <a href="/2020/05/30/hello-world/" class="archive-article-date">
-  <time datetime="2020-05-30T13:06:50.116Z" itemprop="datePublished">5月 30</time>
+      <a href="/2020/05/28/hexo-blog-notes/" class="archive-article-date">
+  <time datetime="2020-05-28T08:22:38.000Z" itemprop="datePublished">5月 28</time>
 </a>
       
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/30/hello-world/">Hello World</a>
+      <a class="archive-article-title" href="/2020/05/28/hexo-blog-notes/">hexo-blog-notes</a>
     </h1>
   
 
@@ -100,13 +100,13 @@
     <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
     <header class="archive-article-header">
-      <a href="/2020/05/28/hexo-blog-notes/" class="archive-article-date">
-  <time datetime="2020-05-28T08:22:38.000Z" itemprop="datePublished">5月 28</time>
+      <a href="/2020/05/27/hello-world/" class="archive-article-date">
+  <time datetime="2020-05-27T16:00:01.000Z" itemprop="datePublished">5月 28</time>
 </a>
       
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/hexo-blog-notes/">hexo-blog-notes</a>
+      <a class="archive-article-title" href="/2020/05/27/hello-world/">Hello World</a>
     </h1>
   
 
@@ -169,11 +169,11 @@
       <ul>
         
           <li>
-            <a href="/2020/05/30/hello-world/">Hello World</a>
+            <a href="/2020/05/28/hexo-blog-notes/">hexo-blog-notes</a>
           </li>
         
           <li>
-            <a href="/2020/05/28/hexo-blog-notes/">hexo-blog-notes</a>
+            <a href="/2020/05/27/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -191,6 +191,20 @@
       &copy; 2020 plusmultiply0<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
+    <span>本站已运行 <span id="runningtime"></span></span>
+    <script>
+      let birthd = new Date(2020, 4, 28);//这里设置建站时间
+      setInterval(() => {
+        let nowtime = Date.now();
+        let mtimeInterval = nowtime - birthd;
+        let thisyear = Math.floor(mtimeInterval / (365 * 24 * 60 * 60 * 1000));
+        let today = Math.floor(((mtimeInterval / (24 * 60 * 60 * 1000)) - thisyear * 365));
+        let thishour = Math.floor((mtimeInterval / (60 * 60 * 1000)) - today * 24 - thisyear * 365 * 24);
+        let thisminute = Math.floor((mtimeInterval / (60 * 1000)) - thishour * 60 - today * 24 * 60 - thisyear * 365 * 24 * 60);
+        let thissecond = Math.floor((mtimeInterval / (1000)) - thisminute * 60 - thishour * 60 * 60 - today * 24 * 60 * 60 - thisyear * 365 * 24 * 60 * 60);
+        document.getElementById('runningtime').innerHTML = `${thisyear ? thisyear + '年' : ''}${today}天${thishour}小时${thisminute}分钟${thissecond}秒`;
+      }, 1000);
+    </script>
   </div>
 </footer>
     </div>
