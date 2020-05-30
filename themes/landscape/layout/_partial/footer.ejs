@@ -7,5 +7,19 @@
       &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
       <%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
+    <span>本站已运行 <span id="runningtime"></span></span>
+    <script>
+      let birthd = new Date(2020, 4, 28);//这里设置建站时间
+      setInterval(() => {
+        let nowtime = Date.now();
+        let mtimeInterval = nowtime - birthd;
+        let thisyear = Math.floor(mtimeInterval / (365 * 24 * 60 * 60 * 1000));
+        let today = Math.floor(((mtimeInterval / (24 * 60 * 60 * 1000)) - thisyear * 365));
+        let thishour = Math.floor((mtimeInterval / (60 * 60 * 1000)) - today * 24 - thisyear * 365 * 24);
+        let thisminute = Math.floor((mtimeInterval / (60 * 1000)) - thishour * 60 - today * 24 * 60 - thisyear * 365 * 24 * 60);
+        let thissecond = Math.floor((mtimeInterval / (1000)) - thisminute * 60 - thishour * 60 * 60 - today * 24 * 60 * 60 - thisyear * 365 * 24 * 60 * 60);
+        document.getElementById('runningtime').innerHTML = `${thisyear ? thisyear + '年' : ''}${today}天${thishour}小时${thisminute}分钟${thissecond}秒`;
+      }, 1000);
+    </script>
   </div>
 </footer>
