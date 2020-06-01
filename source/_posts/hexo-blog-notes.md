@@ -14,6 +14,7 @@ category:
 - [博客部署小记](#blogstart)
 - [规避部署重复输入账号密码](#avoidpwd)
 - [统计博客运行时间](#runtime)
+- [添加Google Analytics](#ga)
 
 #### <a id="blogstart"></a>博客部署小记
 **情景**：hexo博客+Github pages
@@ -100,3 +101,11 @@ setInterval(()=>{
 
 **参考链接：**
 - [统计博客运行时间](https://www.bingyublog.com/2019/02/20/hexo%E5%A2%9E%E5%8A%A0%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1/)
+
+#### <a id="ga"></a>添加Google Analytics
+首先注册Google Analytics,然后在全局_config.yml文件内，添加：
+```yml
+google_analytics: UA-[TrackingID]-1
+```
+**参考链接:**
+- [配置Google Analytics](http://wanderyt.github.io/2015/07/13/Apply-theme-and-other-features-in-Hexo/)
