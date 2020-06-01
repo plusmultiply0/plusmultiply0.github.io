@@ -7,15 +7,15 @@
   
   <title>hexo-blog-notes | plusmultiply0&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="博客搭建记录对自己搭建博客功能的记录，仅供参考:  博客部署小记 规避部署重复输入账号密码 统计博客运行时间  博客部署小记情景：hexo博客+Github pages搭建博客不难–可参考官方文档,以下命令仅供参考。 1234npm install -g hexo-clihexo init &lt;folder&gt;cd &lt;folder&gt;hexo g     &#x2F;&#x2F;生成静态文件 参照官">
+  <meta name="description" content="博客搭建记录对自己搭建博客功能的记录，仅供参考:  博客部署小记 规避部署重复输入账号密码 统计博客运行时间 添加Google Analytics  博客部署小记情景：hexo博客+Github pages搭建博客不难–可参考官方文档,以下命令仅供参考。 1234npm install -g hexo-clihexo init &lt;folder&gt;cd &lt;folder&gt;hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo-blog-notes">
 <meta property="og:url" content="http://yoursite.com/2020/05/28/hexo-blog-notes/index.html">
 <meta property="og:site_name" content="plusmultiply0&#39;s blog">
-<meta property="og:description" content="博客搭建记录对自己搭建博客功能的记录，仅供参考:  博客部署小记 规避部署重复输入账号密码 统计博客运行时间  博客部署小记情景：hexo博客+Github pages搭建博客不难–可参考官方文档,以下命令仅供参考。 1234npm install -g hexo-clihexo init &lt;folder&gt;cd &lt;folder&gt;hexo g     &#x2F;&#x2F;生成静态文件 参照官">
+<meta property="og:description" content="博客搭建记录对自己搭建博客功能的记录，仅供参考:  博客部署小记 规避部署重复输入账号密码 统计博客运行时间 添加Google Analytics  博客部署小记情景：hexo博客+Github pages搭建博客不难–可参考官方文档,以下命令仅供参考。 1234npm install -g hexo-clihexo init &lt;folder&gt;cd &lt;folder&gt;hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-28T08:22:38.000Z">
-<meta property="article:modified_time" content="2020-05-31T09:37:32.996Z">
+<meta property="article:modified_time" content="2020-06-01T10:32:53.118Z">
 <meta property="article:author" content="plusmultiply0">
 <meta property="article:tag" content="blog">
 <meta property="article:tag" content="hexo">
@@ -99,6 +99,7 @@
 <li><a href="#blogstart">博客部署小记</a></li>
 <li><a href="#avoidpwd">规避部署重复输入账号密码</a></li>
 <li><a href="#runtime">统计博客运行时间</a></li>
+<li><a href="#ga">添加Google Analytics</a></li>
 </ul>
 <h4 id="博客部署小记"><a href="#博客部署小记" class="headerlink" title="博客部署小记"></a><a id="blogstart"></a>博客部署小记</h4><p><strong>情景</strong>：hexo博客+Github pages<br>搭建博客不难–可参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a>,以下命令仅供参考。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">hexo g     //生成静态文件</span><br></pre></td></tr></table></figure>
@@ -129,11 +130,17 @@
 <ul>
 <li><a href="https://www.bingyublog.com/2019/02/20/hexo%E5%A2%9E%E5%8A%A0%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1/" target="_blank" rel="noopener">统计博客运行时间</a></li>
 </ul>
+<h4 id="添加Google-Analytics"><a href="#添加Google-Analytics" class="headerlink" title="添加Google Analytics"></a><a id="ga"></a>添加Google Analytics</h4><p>首先注册Google Analytics,然后在全局_config.yml文件内，添加：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">google_analytics:</span> <span class="string">UA-[TrackingID]-1</span></span><br></pre></td></tr></table></figure>
+<p><strong>参考链接:</strong></p>
+<ul>
+<li><a href="http://wanderyt.github.io/2015/07/13/Apply-theme-and-other-features-in-Hexo/" target="_blank" rel="noopener">配置Google Analytics</a></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/28/hexo-blog-notes/" data-id="ckauvf3vu000110q49y6qhmbz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/05/28/hexo-blog-notes/" data-id="ckawcu3if00013jox9lms3qrf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/" rel="tag">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
