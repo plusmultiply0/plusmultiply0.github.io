@@ -15,6 +15,7 @@ category:
 - [规避部署重复输入账号密码](#avoidpwd)
 - [统计博客运行时间](#runtime)
 - [添加Google Analytics](#ga)
+- [更换博客主题](#changetheme)
 
 #### <a id="blogstart"></a>博客部署小记
 **情景**：hexo博客+Github pages
@@ -60,8 +61,7 @@ deploy:
 - [GitHub Pages 站点的发布来源](https://help.github.com/cn/github/working-with-github-pages/about-github-pages)
 - [Github pages Deployment](https://docs.travis-ci.com/user/deployment/pages/)
 - [git本地分支与远程分支关联与解除关联](https://www.jianshu.com/p/526eb3eec83e)
-- [Why call git branch --unset-upstream to fixup?
-](https://stackoverflow.com/questions/21609781/why-call-git-branch-unset-upstream-to-fixup)
+- [Why call git branch --unset-upstream to fixup?](https://stackoverflow.com/questions/21609781/why-call-git-branch-unset-upstream-to-fixup)
 
 
 #### <a id="avoidpwd"></a>规避部署重复输入账号密码
@@ -109,3 +109,7 @@ google_analytics: UA-[TrackingID]-1
 ```
 **参考链接:**
 - [配置Google Analytics](http://wanderyt.github.io/2015/07/13/Apply-theme-and-other-features-in-Hexo/)
+
+#### <a id="#changetheme"></a>更换博客主题
+由于默认主题不够美观，所以更换了[card](https://github.com/ChrAlpha/hexo-theme-cards)主题。
+具体更换方法可以参考[文档](https://theme-cards.ichr.me/start/)
