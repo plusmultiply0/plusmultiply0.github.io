@@ -5,7 +5,7 @@
 # Site
 title: plusmultiply0's blog
 subtitle: ''
-description: ''
+description: 'personal blog'
 keywords: blog,notes,life
 author: plusmultiply0
 language: zh-CN
@@ -77,7 +77,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+use_date_for_updated: true
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -95,6 +95,7 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: cards
 
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
@@ -102,3 +103,5 @@ deploy:
 
 #
 google_analytics: UA-168103847-1
+
+
