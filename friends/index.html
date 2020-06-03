@@ -33,12 +33,12 @@
         <meta name="description" content="personal blog">
 <meta property="og:type" content="website">
 <meta property="og:title" content="plusmultiply0&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/friendlinks">
+<meta property="og:url" content="http://yoursite.com/friends/index.html">
 <meta property="og:site_name" content="plusmultiply0&#39;s blog">
 <meta property="og:description" content="personal blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-03T11:34:13.199Z">
-<meta property="article:modified_time" content="2020-06-03T11:34:13.199Z">
+<meta property="article:published_time" content="2020-06-03T12:09:29.139Z">
+<meta property="article:modified_time" content="2020-06-03T12:09:29.139Z">
 <meta property="article:author" content="plusmultiply0">
 <meta property="article:tag" content="blog">
 <meta property="article:tag" content="notes">
@@ -78,6 +78,10 @@
         
     </div>
     <div class="header__right">
+        
+            <a href="javaScript:void(0);" id="btn-toggle-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </a>
         
          
             <a href="javaScript:void(0);" id="b2t" style="">
@@ -119,6 +123,13 @@
                         <span class="separate-dot"></span>
                     
                 
+                    <a href="/categories/" class="cover-menu button">
+                        分类
+                    </a>
+                    
+                        <span class="separate-dot"></span>
+                    
+                
                     <a href="/archives/" class="cover-menu button">
                         归档
                     </a>
@@ -130,13 +141,6 @@
                         友链
                     </a>
                     
-                        <span class="separate-dot"></span>
-                    
-                
-                    <a href="/page/" class="cover-menu button">
-                        Page
-                    </a>
-                    
                 
             </div>
         
@@ -145,6 +149,19 @@
             <main class="main friends">
     <div class="links-list">
         <div class='links-content'>
+            
+                <a class='links-card button' style='background:#fff; color:#444' target="_blank" href='https://chralpha.com'>
+                    <div class='links-left'>
+                    
+                        <img no-lazy class='avatar' src='https://cdn.jsdelivr.net/npm/chrdnx@1.0.10/img/head-round.png'/>
+                    
+                    </div>
+                    <div class='links-right'>
+                    <p class="links-name">ChrAlpha Blog</p>
+                    
+                    
+                    </div>
+                </a>
             
         </div>
     </div>
@@ -183,6 +200,20 @@
         
     
     <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+    <span>本站已运行 <span id="runningtime"></span></span>
+    <script>
+        let birthd = new Date(2020, 4, 28);//这里设置建站时间
+        setInterval(() => {
+            let nowtime = Date.now();
+            let mtimeInterval = nowtime - birthd;
+            let thisyear = Math.floor(mtimeInterval / (365 * 24 * 60 * 60 * 1000));
+            let today = Math.floor(((mtimeInterval / (24 * 60 * 60 * 1000)) - thisyear * 365));
+            let thishour = Math.floor((mtimeInterval / (60 * 60 * 1000)) - today * 24 - thisyear * 365 * 24);
+            let thisminute = Math.floor((mtimeInterval / (60 * 1000)) - thishour * 60 - today * 24 * 60 - thisyear * 365 * 24 * 60);
+            let thissecond = Math.floor((mtimeInterval / (1000)) - thisminute * 60 - thishour * 60 * 60 - today * 24 * 60 * 60 - thisyear * 365 * 24 * 60 * 60);
+            document.getElementById('runningtime').innerHTML = `${thisyear ? thisyear + '年' : ''}${today}天${thishour}小时${thisminute}分钟${thissecond}秒`;
+        }, 1000);
+    </script>
 </footer>
 
 
@@ -224,6 +255,8 @@
     <script defer crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/hexo-theme-cards@0.2/dist/js/b2t.min.js"></script>
  
 
+
+    <script defer crossorigin="anonymous" src="/js/darkmode.js"></script>
 
 
 
