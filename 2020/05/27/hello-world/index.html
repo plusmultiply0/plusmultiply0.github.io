@@ -215,6 +215,22 @@
 </article>
 <br>
 
+    <div class="post__comment content-card">
+        
+    <h4 style="margin-top: 0;">评论</h4>
+    
+    
+    
+        <div id="gitalk-container"></div>
+    
+    
+    
+    
+    
+
+
+    </div>
+
 
     </div>
 
@@ -296,6 +312,11 @@
 
         
     
+    <!-- for comment -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <!-- other -->
     <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
     <span>本站已运行 <span id="runningtime"></span></span>
     <script>
@@ -356,6 +377,35 @@
     <script defer crossorigin="anonymous" src="/js/darkmode.js"></script>
 
 
+
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+        <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+        <script>
+            var gitalk = new Gitalk({
+                clientID: "4f43fbd7a9e1ce552151",
+                clientSecret: "8bb842efdb840ba8b1656f86e2d015f22299d407",
+                repo: "https://github.com/plusmultiply0/blog-comment",
+                owner: "plusmultiply0",
+                admin: "plusmultiply0",
+                id: window.location.pathname,
+                distractionFreeMode: false
+            });
+            gitalk.render('gitalk-container');
+        </script>
+    
+    
+    
+    
+    
+    
+    
+
+    
 
 
     </body>
