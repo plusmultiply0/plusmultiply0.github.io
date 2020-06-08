@@ -217,7 +217,11 @@
 <li><a href="http://wanderyt.github.io/2015/07/13/Apply-theme-and-other-features-in-Hexo/" target="_blank" rel="noopener">配置Google Analytics</a></li>
 </ul>
 <h4 id="更换博客主题"><a href="#更换博客主题" class="headerlink" title="更换博客主题"></a><a id="#changetheme"></a>更换博客主题</h4><p>由于默认主题不够美观，所以更换了<a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank" rel="noopener">card</a>主题。<br>具体更换方法可以参考<a href="https://theme-cards.ichr.me/start/" target="_blank" rel="noopener">文档</a></p>
-<h4 id="为博客添加评论"><a href="#为博客添加评论" class="headerlink" title="为博客添加评论"></a><a id="#addcomment"></a>为博客添加评论</h4><p>根据<a href="https://theme-cards.ichr.me/third-party/#Gitalk" target="_blank" rel="noopener">主题文档</a>，选择Gitalk作为博客评论， </p>
+<h4 id="为博客添加评论"><a href="#为博客添加评论" class="headerlink" title="为博客添加评论"></a><a id="#addcomment"></a>为博客添加评论</h4><p>根据<a href="https://theme-cards.ichr.me/third-party/#Gitalk" target="_blank" rel="noopener">主题文档</a>，选择Gitalk作为博客评论。<br>首先是申请 <strong>GitHub Application</strong> ，<br>Authorization callback URL这一项填写博客主页地址即可，评论成功会自动返回评论所在页面。<br>然后，复制粘贴 clientID 和 clientSecret 填写主题配置文件，repo 这一项填写存放评论的仓库名称即可。<br>最后，生成静态文件，检查评论即可。<br><strong>参考链接：</strong></p>
+<ul>
+<li><a href="https://auth0.com/docs/connections/social/github" target="_blank" rel="noopener">Register a new OAuth application</a></li>
+<li><a href="https://github.com/gitalk/gitalk/issues/98" target="_blank" rel="noopener">Error: Not Found</a></li>
+</ul>
 
         </div>
     </div>
