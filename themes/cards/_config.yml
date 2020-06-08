@@ -227,14 +227,14 @@ optimize:
 # ---------------------------------------------------------------
 
 comments: 
-  enable: 
+  enable: true
 
   ## Disqus
   disqus: 
-    enable: true
-    shortname: 
+    enable: #true
+    shortname: #https-plusmultiply0-github-io
     disqusjs:
-      enable: true
+      enable: #true
       siteName: 
       api: 
       apikey: 
@@ -261,11 +261,11 @@ comments:
 
   ## Gitalk
   gitalk:
-    enable:
-    repo:
-    owner:
-    clientID:
-    clientSecret:
+    enable: true
+    repo: https://github.com/plusmultiply0/blog-comment
+    owner: plusmultiply0
+    clientID: 4f43fbd7a9e1ce552151
+    clientSecret: 8bb842efdb840ba8b1656f86e2d015f22299d407
 
   ## Gitment
   gitment:
