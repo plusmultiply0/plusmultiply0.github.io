@@ -30,12 +30,12 @@
 
     <!--Social link-->
      
-        <meta name="description" content="博客搭建记录对自己搭建博客功能的记录，仅供参考:  博客部署小记 规避部署重复输入账号密码 统计博客运行时间 添加Google Analytics 更换博客主题  博客部署小记情景：hexo博客+Github pages搭建博客不难–可参考官方文档,以下命令仅供参考。 1234npm install -g hexo-clihexo init &lt;folder&gt;cd &lt;folder&amp;">
+        <meta name="description" content="博客搭建记录对自己搭建博客功能的记录，仅供参考:  博客部署小记 规避部署重复输入账号密码 统计博客运行时间 添加Google Analytics 更换博客主题 为博客添加评论  博客部署小记情景：hexo博客+Github pages搭建博客不难–可参考官方文档,以下命令仅供参考。 1234npm install -g hexo-clihexo init &lt;folder&gt;cd &amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo-blog-notes">
 <meta property="og:url" content="http://yoursite.com/2020/05/28/hexo-blog-notes/index.html">
 <meta property="og:site_name" content="plusmultiply0&#39;s blog">
-<meta property="og:description" content="博客搭建记录对自己搭建博客功能的记录，仅供参考:  博客部署小记 规避部署重复输入账号密码 统计博客运行时间 添加Google Analytics 更换博客主题  博客部署小记情景：hexo博客+Github pages搭建博客不难–可参考官方文档,以下命令仅供参考。 1234npm install -g hexo-clihexo init &lt;folder&gt;cd &lt;folder&amp;">
+<meta property="og:description" content="博客搭建记录对自己搭建博客功能的记录，仅供参考:  博客部署小记 规避部署重复输入账号密码 统计博客运行时间 添加Google Analytics 更换博客主题 为博客添加评论  博客部署小记情景：hexo博客+Github pages搭建博客不难–可参考官方文档,以下命令仅供参考。 1234npm install -g hexo-clihexo init &lt;folder&gt;cd &amp;lt">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-28T08:22:38.000Z">
 <meta property="article:modified_time" content="2020-05-28T08:22:38.000Z">
@@ -139,7 +139,7 @@
     <div class="post__with-side">
         <aside class="post-side">
             <div class="post-side__toc">
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#博客搭建记录"><span class="toc-number">1.</span> <span class="toc-text">博客搭建记录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#博客部署小记"><span class="toc-number">1.0.1.</span> <span class="toc-text">博客部署小记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#规避部署重复输入账号密码"><span class="toc-number">1.0.2.</span> <span class="toc-text">规避部署重复输入账号密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#统计博客运行时间"><span class="toc-number">1.0.3.</span> <span class="toc-text">统计博客运行时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加Google-Analytics"><span class="toc-number">1.0.4.</span> <span class="toc-text">添加Google Analytics</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更换博客主题"><span class="toc-number">1.0.5.</span> <span class="toc-text">更换博客主题</span></a></li></ol></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#博客搭建记录"><span class="toc-number">1.</span> <span class="toc-text">博客搭建记录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#博客部署小记"><span class="toc-number">1.0.1.</span> <span class="toc-text">博客部署小记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#规避部署重复输入账号密码"><span class="toc-number">1.0.2.</span> <span class="toc-text">规避部署重复输入账号密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#统计博客运行时间"><span class="toc-number">1.0.3.</span> <span class="toc-text">统计博客运行时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加Google-Analytics"><span class="toc-number">1.0.4.</span> <span class="toc-text">添加Google Analytics</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更换博客主题"><span class="toc-number">1.0.5.</span> <span class="toc-text">更换博客主题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#为博客添加评论"><span class="toc-number">1.0.6.</span> <span class="toc-text">为博客添加评论</span></a></li></ol></li></ol></li></ol>
             </div>
         </aside>
 
@@ -180,6 +180,7 @@
 <li><a href="#runtime">统计博客运行时间</a></li>
 <li><a href="#ga">添加Google Analytics</a></li>
 <li><a href="#changetheme">更换博客主题</a></li>
+<li><a href="#addcomment">为博客添加评论</a></li>
 </ul>
 <h4 id="博客部署小记"><a href="#博客部署小记" class="headerlink" title="博客部署小记"></a><a id="blogstart"></a>博客部署小记</h4><p><strong>情景</strong>：hexo博客+Github pages<br>搭建博客不难–可参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a>,以下命令仅供参考。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">hexo g     //生成静态文件</span><br></pre></td></tr></table></figure>
@@ -216,6 +217,7 @@
 <li><a href="http://wanderyt.github.io/2015/07/13/Apply-theme-and-other-features-in-Hexo/" target="_blank" rel="noopener">配置Google Analytics</a></li>
 </ul>
 <h4 id="更换博客主题"><a href="#更换博客主题" class="headerlink" title="更换博客主题"></a><a id="#changetheme"></a>更换博客主题</h4><p>由于默认主题不够美观，所以更换了<a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank" rel="noopener">card</a>主题。<br>具体更换方法可以参考<a href="https://theme-cards.ichr.me/start/" target="_blank" rel="noopener">文档</a></p>
+<h4 id="为博客添加评论"><a href="#为博客添加评论" class="headerlink" title="为博客添加评论"></a><a id="#addcomment"></a>为博客添加评论</h4><p>根据<a href="https://theme-cards.ichr.me/third-party/#Gitalk" target="_blank" rel="noopener">主题文档</a>，选择Gitalk作为博客评论， </p>
 
         </div>
     </div>
@@ -442,7 +444,7 @@
             var gitalk = new Gitalk({
                 clientID: "4f43fbd7a9e1ce552151",
                 clientSecret: "8bb842efdb840ba8b1656f86e2d015f22299d407",
-                repo: "https://github.com/plusmultiply0/blog-comment",
+                repo: "blog-comment",
                 owner: "plusmultiply0",
                 admin: "plusmultiply0",
                 id: window.location.pathname,
