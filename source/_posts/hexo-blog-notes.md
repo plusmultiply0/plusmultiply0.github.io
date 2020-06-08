@@ -16,6 +16,7 @@ category:
 - [统计博客运行时间](#runtime)
 - [添加Google Analytics](#ga)
 - [更换博客主题](#changetheme)
+- [为博客添加评论](#addcomment)
 
 #### <a id="blogstart"></a>博客部署小记
 **情景**：hexo博客+Github pages
@@ -113,3 +114,6 @@ google_analytics: UA-[TrackingID]-1
 #### <a id="#changetheme"></a>更换博客主题
 由于默认主题不够美观，所以更换了[card](https://github.com/ChrAlpha/hexo-theme-cards)主题。
 具体更换方法可以参考[文档](https://theme-cards.ichr.me/start/)
+
+#### <a id="#addcomment"></a>为博客添加评论
+根据[主题文档](https://theme-cards.ichr.me/third-party/#Gitalk)，选择Gitalk作为博客评论， 

@@ -262,7 +262,7 @@ comments:
   ## Gitalk
   gitalk:
     enable: true
-    repo: https://github.com/plusmultiply0/blog-comment
+    repo: blog-comment
     owner: plusmultiply0
     clientID: 4f43fbd7a9e1ce552151
     clientSecret: 8bb842efdb840ba8b1656f86e2d015f22299d407
