@@ -116,4 +116,11 @@ google_analytics: UA-[TrackingID]-1
 具体更换方法可以参考[文档](https://theme-cards.ichr.me/start/)
 
 #### <a id="#addcomment"></a>为博客添加评论
-根据[主题文档](https://theme-cards.ichr.me/third-party/#Gitalk)，选择Gitalk作为博客评论， 
+根据[主题文档](https://theme-cards.ichr.me/third-party/#Gitalk)，选择Gitalk作为博客评论。
+首先是申请 **GitHub Application** ，
+Authorization callback URL这一项填写博客主页地址即可，评论成功会自动返回评论所在页面。
+然后，复制粘贴 clientID 和 clientSecret 填写主题配置文件，repo 这一项填写存放评论的仓库名称即可。
+最后，生成静态文件，检查评论即可。
+**参考链接：**
+- [Register a new OAuth application](https://auth0.com/docs/connections/social/github)
+- [Error: Not Found](https://github.com/gitalk/gitalk/issues/98)
