@@ -30,12 +30,12 @@
 
     <!--Social link-->
      
-        <meta name="description" content="对自己搭建博客功能的记录，仅供参考">
+        <meta name="description" content="博客搭建记录对自己搭建博客功能的记录，仅供参考:  博客部署小记 规避部署重复输入账号密码 统计博客运行时间 添加Google Analytics 更换博客主题 为博客添加评论  博客部署小记情景：hexo博客+Github pages搭建博客不难–可参考官方文档,以下命令仅供参考。 1234npm install -g hexo-clihexo init &lt;folder&gt;cd &amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo-blog-notes">
 <meta property="og:url" content="https://plusmultiply0.github.io/2020/05/28/hexo-blog-notes/index.html">
 <meta property="og:site_name" content="plusmultiply0&#39;s blog">
-<meta property="og:description" content="对自己搭建博客功能的记录，仅供参考">
+<meta property="og:description" content="博客搭建记录对自己搭建博客功能的记录，仅供参考:  博客部署小记 规避部署重复输入账号密码 统计博客运行时间 添加Google Analytics 更换博客主题 为博客添加评论  博客部署小记情景：hexo博客+Github pages搭建博客不难–可参考官方文档,以下命令仅供参考。 1234npm install -g hexo-clihexo init &lt;folder&gt;cd &amp;lt">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-28T08:22:38.000Z">
 <meta property="article:modified_time" content="2020-05-28T08:22:38.000Z">
@@ -216,10 +216,7 @@
 <ul>
 <li><a href="http://wanderyt.github.io/2015/07/13/Apply-theme-and-other-features-in-Hexo/" target="_blank" rel="noopener">配置Google Analytics</a></li>
 </ul>
-<h4 id="更换博客主题"><a href="#更换博客主题" class="headerlink" title="更换博客主题"></a><a id="#changetheme"></a>更换博客主题</h4><ul>
-<li>由于默认主题不够美观，所以更换了<a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank" rel="noopener">card</a>主题。具体更换方法可以参考<a href="https://theme-cards.ichr.me/start/" target="_blank" rel="noopener">文档</a></li>
-<li>更换了主题–<a href="https://github.com/liuyib/hexo-theme-stun" target="_blank" rel="noopener">主题链接</a></li>
-</ul>
+<h4 id="更换博客主题"><a href="#更换博客主题" class="headerlink" title="更换博客主题"></a><a id="#changetheme"></a>更换博客主题</h4><p>由于默认主题不够美观，所以更换了<a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank" rel="noopener">card</a>主题。<br>具体更换方法可以参考<a href="https://theme-cards.ichr.me/start/" target="_blank" rel="noopener">文档</a></p>
 <h4 id="为博客添加评论"><a href="#为博客添加评论" class="headerlink" title="为博客添加评论"></a><a id="#addcomment"></a>为博客添加评论</h4><p>根据<a href="https://theme-cards.ichr.me/third-party/#Gitalk" target="_blank" rel="noopener">主题文档</a>，选择Gitalk作为博客评论。<br>首先是申请 <strong>GitHub Application</strong> ，<br>Authorization callback URL这一项填写博客主页地址即可，评论成功会自动返回评论所在页面。<br>然后，复制粘贴 clientID 和 clientSecret 填写主题配置文件，repo 这一项填写存放评论的仓库名称即可。<br>最后，生成静态文件，检查评论即可。<br><strong>参考链接：</strong></p>
 <ul>
 <li><a href="https://auth0.com/docs/connections/social/github" target="_blank" rel="noopener">Register a new OAuth application</a></li>
