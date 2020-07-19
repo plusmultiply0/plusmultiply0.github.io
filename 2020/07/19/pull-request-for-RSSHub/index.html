@@ -20,7 +20,7 @@
 
     <!-- meta -->
     
-    <title>notes and tips about Github | plusmultiply0&#39;s blog</title>
+    <title>pull request for RSSHub | plusmultiply0&#39;s blog</title>
     
         <meta name="keywords" content="blog,notes,life">
     
@@ -30,21 +30,22 @@
 
     <!--Social link-->
      
-        <meta name="description" content="一些关于Github的tips记录关于Github上有趣、有帮助的小tips~~ 索引  在profile显示编码时间统计 加速 git clone 下载  在 profile 显示编码时间统计实例图片如下：  具体的操作步骤可以根据 这个项目 的README操作，在此补充一些细节：  在 wakatime 是设置你想统计（编码）时间的编辑器&#x2F;IDE等，具体可以跟着指示操作。 在设置 schedu">
+        <meta name="description" content="记一次为 RSSHub 提 pr 的经历  内容索引  开始 具体过程 一些感受  开始最近为 RSSHub 提交了一个 pr，是关于学校图书馆新闻动态的 RSS 订阅。 RSSHub 可以为各种各样的网站生成 RSS，再用 RSS 阅读器订阅就可以很方便的浏览网站的更新信息。 简单的浏览了一下文档，issues 和 pull requests 里都没有发现我校的身影，而且文档里有这么一句话  如">
 <meta property="og:type" content="article">
-<meta property="og:title" content="notes and tips about Github">
-<meta property="og:url" content="https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/index.html">
+<meta property="og:title" content="pull request for RSSHub">
+<meta property="og:url" content="https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/index.html">
 <meta property="og:site_name" content="plusmultiply0&#39;s blog">
-<meta property="og:description" content="一些关于Github的tips记录关于Github上有趣、有帮助的小tips~~ 索引  在profile显示编码时间统计 加速 git clone 下载  在 profile 显示编码时间统计实例图片如下：  具体的操作步骤可以根据 这个项目 的README操作，在此补充一些细节：  在 wakatime 是设置你想统计（编码）时间的编辑器&#x2F;IDE等，具体可以跟着指示操作。 在设置 schedu">
+<meta property="og:description" content="记一次为 RSSHub 提 pr 的经历  内容索引  开始 具体过程 一些感受  开始最近为 RSSHub 提交了一个 pr，是关于学校图书馆新闻动态的 RSS 订阅。 RSSHub 可以为各种各样的网站生成 RSS，再用 RSS 阅读器订阅就可以很方便的浏览网站的更新信息。 简单的浏览了一下文档，issues 和 pull requests 里都没有发现我校的身影，而且文档里有这么一句话  如">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/example.png">
-<meta property="article:published_time" content="2020-06-24T15:09:12.000Z">
-<meta property="article:modified_time" content="2020-06-24T15:09:12.000Z">
+<meta property="og:image" content="https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/RSSHub.png">
+<meta property="article:published_time" content="2020-07-19T07:55:41.000Z">
+<meta property="article:modified_time" content="2020-07-19T07:55:41.000Z">
 <meta property="article:author" content="plusmultiply0">
 <meta property="article:tag" content="Github">
-<meta property="article:tag" content="tips">
+<meta property="article:tag" content="RSS">
+<meta property="article:tag" content="attempt">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/example.png">
+<meta name="twitter:image" content="https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/RSSHub.png">
     
 
     <!-- feed -->
@@ -106,12 +107,12 @@
             <main class="main">
     <div class="post-title">
     <h1 class="post-title__text">
-        notes and tips about Github
+        pull request for RSSHub
     </h1>
     <div class="post-title__meta">
         
-            <a href="/archives/2020/06/" class="button" style="color: #808080;">
-    2020-06-24
+            <a href="/archives/2020/07/" class="button" style="color: #808080;">
+    2020-07-19
 </a>
         
         
@@ -141,7 +142,7 @@
     <div class="post__with-side">
         <aside class="post-side">
             <div class="post-side__toc">
-                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#在-profile-显示编码时间统计"><span class="toc-number">1.</span> <span class="toc-text">在 profile 显示编码时间统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加速-git-clone-下载"><span class="toc-number">2.</span> <span class="toc-text">加速 git clone 下载</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#开始"><span class="toc-number">1.</span> <span class="toc-text">开始</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#具体过程"><span class="toc-number">2.</span> <span class="toc-text">具体过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一些感受"><span class="toc-number">3.</span> <span class="toc-text">一些感受</span></a></li></ol>
             </div>
         </aside>
 
@@ -159,7 +160,7 @@
     </div>
     <script>
         (() => {
-            var update = Date.parse("2020-06-24"),
+            var update = Date.parse("2020-07-19"),
                 date = new Date(),
                 now = date.getTime(),
                 expire = now - update,
@@ -175,28 +176,37 @@
     </div>
     <div class="post__content">
         <div class="markdown-body">
-            <h1 id="一些关于Github的tips"><a href="#一些关于Github的tips" class="headerlink" title="一些关于Github的tips"></a>一些关于Github的tips</h1><p>记录关于Github上有趣、有帮助的小tips~~</p>
-<p><strong>索引</strong></p>
+            <h1 id="记一次为-RSSHub-提-pr-的经历"><a href="#记一次为-RSSHub-提-pr-的经历" class="headerlink" title="记一次为 RSSHub 提 pr 的经历"></a>记一次为 RSSHub 提 pr 的经历</h1><img src="/2020/07/19/pull-request-for-RSSHub/RSSHub.png" class="">
+
+<p><strong>内容索引</strong></p>
 <ul>
-<li><a href="#waka">在profile显示编码时间统计</a></li>
-<li><a href="#accelerateGit">加速 git clone 下载</a></li>
+<li><a href="#start">开始</a></li>
+<li><a href="#process">具体过程</a></li>
+<li><a href="#feelings">一些感受</a></li>
 </ul>
-<h3 id="在-profile-显示编码时间统计"><a href="#在-profile-显示编码时间统计" class="headerlink" title="在 profile 显示编码时间统计"></a><a id="waka"></a>在 profile 显示编码时间统计</h3><p>实例图片如下：</p>
-<img src="/2020/06/24/notes-and-tips-about-Github/example.png" class="">
-<p>具体的操作步骤可以根据 <a href="https://github.com/matchai/waka-box" target="_blank" rel="noopener">这个项目</a> 的README操作，<br>在此补充一些细节：</p>
-<ul>
-<li>在 wakatime 是设置你想统计（编码）时间的编辑器/IDE等，具体可以跟着指示操作。</li>
-<li>在设置 schedule.yml 时，除了按照README外，需要设置 <code>uses: 你的Github username/waka-box@master</code></li>
-<li>完成准备工作后，要让统计面板显示在 profile，只需在右上角的 Customize your pin 中选择显示即可。</li>
-</ul>
-<h3 id="加速-git-clone-下载"><a href="#加速-git-clone-下载" class="headerlink" title="加速 git clone 下载"></a><a id="accelerateGit"></a>加速 git clone 下载</h3><p>出于一些原因，git clone 下载 Github 上大型项目的速度十分缓慢，解决方法可以是为 git 添加上全局代理。<br>代码示例如下，分别为 http 和 https 的链接地址加上代理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy socks:&#x2F;&#x2F;127.0.0.1:1080 #代理本地监听协议，地址和端口</span><br><span class="line">git config --global https.proxy socks:&#x2F;&#x2F;127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-<p>取消代理设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset https.proxy #global</span><br><span class="line">git config --unset https.proxy          #once</span><br></pre></td></tr></table></figure>
-<p>参考链接：</p>
-<ul>
-<li><a href="https://www.zhihu.com/question/27159393" target="_blank" rel="noopener">加速 git clone</a></li>
-</ul>
+<h4 id="开始"><a href="#开始" class="headerlink" title="开始"></a><a id="start"></a>开始</h4><p>最近为 <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener">RSSHub</a> 提交了一个 pr，是关于学校图书馆新闻动态的 RSS 订阅。</p>
+<p><a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener">RSSHub</a> 可以为各种各样的网站生成 RSS，再用 RSS 阅读器订阅就可以很方便的浏览网站的更新信息。</p>
+<p>简单的浏览了一下文档，issues 和 pull requests 里都没有发现我校的身影，<br>而且文档里有这么一句话</p>
+<blockquote>
+<p>如果你会写 JavaScript，请按照规则提交 pull request</p>
+</blockquote>
+<p>看上去提 pr 应该不会很难:)</p>
+<p>于是浏览了一下我校的各个网站，决定为我校写一个图书馆新闻动态的 RSS 订阅规则。</p>
+<p>那么，开始动手吧。</p>
+<h4 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a><a id="process"></a>具体过程</h4><p>先在 Github 上 fork 一下项目，然后 <code>git clone</code> 到本地。</p>
+<p>然后，参照文档和别人已经写好的内容添加<a href="https://docs.rsshub.app/joinus/#ti-jiao-xin-de-rsshub-gui-ze-tian-jia-jiao-ben-lu-you" target="_blank" rel="noopener">脚本路由</a>。</p>
+<p>现在，开始来写具体的脚本。</p>
+<p>分析一下大致思路，<br>先使用 <a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 获取源站的网页，然后用 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 提取网页中需要的信息（如：新闻的链接、标题等）。又因为，我们需要用 RSS 获取到新闻内容，所以我们还需要根据新闻的链接再次使用 <a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 请求具体的某个新闻的网页，然后使用 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 按照 <a href="https://docs.rsshub.app/joinus/#ti-jiao-xin-de-rsshub-gui-ze-bian-xie-jiao-ben-sheng-cheng-rss-yuan" target="_blank" rel="noopener">生成 RSS 源的规则</a> 提取需要的信息编码即可。</p>
+<p>貌似有 <a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 和 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 两个陌生面孔，不用慌，先扫一下技术文档并且参照一下别人写好的代码。我们就会发现，<br><a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 基本只用来请求源站的数据，而 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 是从请求来的数据中提取生成 RSS源的信息，使用规则类似于 jQuery，应该不难上手。</p>
+<p>具体代码就不详述了，因为编写的规则不难而且也可以参考先前的代码。</p>
+<p>不过，有一点需要注意的是，在提取详细信息的时候，需要替换一下 description 里的链接地址。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">replace(<span class="regexp">/src="\//g</span>, <span class="string">`src="<span class="subst">$&#123;url.resolve(host, <span class="string">'.'</span>)&#125;</span>`</span>)</span><br><span class="line">replace(<span class="regexp">/href="\//g</span>, <span class="string">`href="<span class="subst">$&#123;url.resolve(host, <span class="string">'.'</span>)&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
+<p>个人觉得链接使用的基本是相对地址，而源站和 RSS阅读器站点显然不同，所以在 RSS 阅读器就看不到链接导向的内容了。<br>替换（添加上源站网址）之后，就可以在 RSS阅读器访问到相应内容啦。</p>
+<p>其他的，考虑一下意外情况（如：获取信息有误），那么可以生成一个简单的提示让读者访问源站。</p>
+<p>编写完成后，本地进行调试无误后，就可以添加上<a href="https://docs.rsshub.app/joinus/#ti-jiao-xin-de-rsshub-gui-ze-tian-jia-jiao-ben-wen-dang" target="_blank" rel="noopener">脚本文档</a></p>
+<p>之后，执行 <code>npm run format</code> 自动标准化代码格式，提交到 fork 的仓库后，然后在这个仓库内进行 pull request 就行了！</p>
+<p>至此，为 RSSHub 的 pr 的经历就告一段落了。<a href="https://github.com/DIYgod" target="_blank" rel="noopener">DIYgod</a> 诚不欺我，确实只需要会一点 Javascript 就可以提一个简单的 pr 了:)</p>
+<h4 id="一些感受"><a href="#一些感受" class="headerlink" title="一些感受"></a><a id="feelings"></a>一些感受</h4><p>除此之外，感觉看了下 <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener">RSSHub</a> 的路由文档，能涨不少见识。<br>能认识到不同领域的不少网站，在需要了解某一领域/某方面知识时，可以做一个简单的参考，比如：设计、科学期刊、出行旅游等路由。可以通过这些分类的网站去了解信息。<br>固然，不能排除有为了水 pr 或者打广告等原因写的路由规则，这个在所难免，还是得靠自己分辨。</p>
 
         </div>
     </div>
@@ -218,7 +228,7 @@
             <strong>
                 本文链接：
             </strong>
-            <a href="https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/">https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/</a>
+            <a href="https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/">https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/</a>
         </p>
     </div>
  
@@ -226,7 +236,7 @@
     
         <div class="post-meta post-footer__meta">
     <p>
-        最后更新于：2020-06-24
+        最后更新于：2020-07-19
     </p>
 </div> 
     
@@ -242,7 +252,9 @@
     
         <a href="/tags/Github/" class="post-tags__link button"># Github</a>
     
-        <a href="/tags/tips/" class="post-tags__link button"># tips</a>
+        <a href="/tags/RSS/" class="post-tags__link button"># RSS</a>
+    
+        <a href="/tags/attempt/" class="post-tags__link button"># attempt</a>
     
 </div> 
      
