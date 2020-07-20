@@ -38,6 +38,8 @@
 <meta property="og:description" content="一些关于Github的tips记录关于Github上有趣、有帮助的小tips~~ 索引  在profile显示编码时间统计 加速 git clone 下载  在 profile 显示编码时间统计实例图片如下：  具体的操作步骤可以根据 这个项目 的README操作，在此补充一些细节：  在 wakatime 是设置你想统计（编码）时间的编辑器&#x2F;IDE等，具体可以跟着指示操作。 在设置 schedu">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/example.png">
+<meta property="og:image" content="https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/before.png">
+<meta property="og:image" content="https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/after.png">
 <meta property="article:published_time" content="2020-06-24T15:09:12.000Z">
 <meta property="article:modified_time" content="2020-06-24T15:09:12.000Z">
 <meta property="article:author" content="plusmultiply0">
@@ -193,6 +195,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy socks:&#x2F;&#x2F;127.0.0.1:1080 #代理本地监听协议，地址和端口</span><br><span class="line">git config --global https.proxy socks:&#x2F;&#x2F;127.0.0.1:1080</span><br></pre></td></tr></table></figure>
 <p>取消代理设置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset https.proxy #global</span><br><span class="line">git config --unset https.proxy          #once</span><br></pre></td></tr></table></figure>
+<p>参考图片，设置代理前</p>
+<img src="/2020/06/24/notes-and-tips-about-Github/before.png" class="">
+<p>设置代理后</p>
+<img src="/2020/06/24/notes-and-tips-about-Github/after.png" class="">
+
 <p>参考链接：</p>
 <ul>
 <li><a href="https://www.zhihu.com/question/27159393" target="_blank" rel="noopener">加速 git clone</a></li>
