@@ -39,5 +39,10 @@ git config --global https.proxy socks://127.0.0.1:1080
 git config --global --unset https.proxy #global
 git config --unset https.proxy          #once
 ```
+参考图片，设置代理前
+{% asset_img before.png %}
+设置代理后
+{% asset_img after.png %}
+
 参考链接：
 - [加速 git clone](https://www.zhihu.com/question/27159393)
