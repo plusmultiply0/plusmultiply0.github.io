@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!--icon-->
+    
+        <link rel="shortcut icon" type='image/x-icon' href="/favicon.ico">
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- meta -->
+    
+    <title>translation:javascript-tips-child-constructors-text-selection-inline-workers-and-more | plusmultiply0&#39;s blog</title>
+    
+        <meta name="keywords" content="blog,notes,life">
+    
+    
+        <meta name="description" content="personal blog">
+    
+
+    <!--Social link-->
+     
+        <meta name="description" content="翻译：JavaScript 技巧 —— 子代构造函数，文本选择，内联 Workers 等等索引：  取消双击后的文本选中 为什么设置原型的构造函数是必要的？ 无需单独的 Javascript 文件即可创建 Web Workers 如何去除字符串内的文件扩展名 为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？ 使用三目运算符时省略第二个表达式 清除 Yar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="translation:javascript-tips-child-constructors-text-selection-inline-workers-and-more">
+<meta property="og:url" content="https://plusmultiply0.github.io/2020/07/24/translation-javascript-tips-child-constructors-text-selection-inline-workers-and-more/index.html">
+<meta property="og:site_name" content="plusmultiply0&#39;s blog">
+<meta property="og:description" content="翻译：JavaScript 技巧 —— 子代构造函数，文本选择，内联 Workers 等等索引：  取消双击后的文本选中 为什么设置原型的构造函数是必要的？ 无需单独的 Javascript 文件即可创建 Web Workers 如何去除字符串内的文件扩展名 为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？ 使用三目运算符时省略第二个表达式 清除 Yar">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-24T04:00:50.000Z">
+<meta property="article:modified_time" content="2020-07-24T04:00:50.000Z">
+<meta property="article:author" content="plusmultiply0">
+<meta property="article:tag" content="tips">
+<meta property="article:tag" content="attempt">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary_large_image">
+    
+
+    <!-- feed -->
+    
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-theme-cards@0.3.0/dist/css/style.min.css">
+ 
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-theme-cards@0.1/dist/css/github.min.css" crossorigin="anonymous" media="none" onload="this.media='all'">
+    
+
+    <!--LaTex-->
+    
+
+     
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+     
+
+    
+        
+             
+        
+             
+        
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+    <body>
+        <div id="app">
+            <header class="header">
+    <div class="header__left">
+        
+            <a href="/" class="button">
+                <span class="logo__text">
+                    ← plusmultiply0's blog | 首页
+                </span>
+            </a>
+        
+    </div>
+    <div class="header__right">
+        
+            <a href="javaScript:void(0);" id="btn-toggle-dark">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </a>
+        
+         
+            <a href="javaScript:void(0);" id="b2t" style="">
+                <svg class="svg-icon" viewBox="0 0 20 20" width='32' height='32' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13.889,11.611c-0.17,0.17-0.443,0.17-0.612,0l-3.189-3.187l-3.363,3.36c-0.171,0.171-0.441,0.171-0.612,0c-0.172-0.169-0.172-0.443,0-0.611l3.667-3.669c0.17-0.17,0.445-0.172,0.614,0l3.496,3.493C14.058,11.167,14.061,11.443,13.889,11.611 M18.25,10c0,4.558-3.693,8.25-8.25,8.25c-4.557,0-8.25-3.692-8.25-8.25c0-4.557,3.693-8.25,8.25-8.25C14.557,1.75,18.25,5.443,18.25,10 M17.383,10c0-4.07-3.312-7.382-7.383-7.382S2.618,5.93,2.618,10S5.93,17.381,10,17.381S17.383,14.07,17.383,10"></path>
+                </svg>
+            </a>
+         
+    </div>
+</header>
+
+
+            <main class="main">
+    <div class="post-title">
+    <h1 class="post-title__text">
+        translation:javascript-tips-child-constructors-text-selection-inline-workers-and-more
+    </h1>
+    <div class="post-title__meta">
+        
+            <a href="/archives/2020/07/" class="button" style="color: #808080;">
+    2020-07-24
+</a>
+        
+        
+            
+    <span class="separate-dot"></span><a href="/categories/skills/" class="button">skills</a>
+
+    <span class="separate-dot"></span><a href="/categories/notes/" class="button">notes</a>
+
+    <span class="separate-dot"></span><a href="/categories/translation/" class="button">translation</a>
+
+ 
+        
+        
+     
+        <span id="busuanzi_container_page_pv" hidden>
+            <span>·</span>
+            <span></span>
+            <span id="busuanzi_value_page_pv"></span>
+            <span>Views</span>
+        </span>
+     
+ 
+
+  
+    </div>
+</div>
+
+
+    <div class="post__with-side">
+        <aside class="post-side">
+            <div class="post-side__toc">
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#取消双击后的文本选中"><span class="toc-number">1.</span> <span class="toc-text">取消双击后的文本选中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么设置原型的构造函数（Prototype-Constructor）是必要的？"><span class="toc-number">2.</span> <span class="toc-text">为什么设置原型的构造函数（Prototype Constructor）是必要的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无需单独的-Javascript-文件即可创建-Web-Workers"><span class="toc-number">3.</span> <span class="toc-text">无需单独的 Javascript 文件即可创建 Web Workers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何去除字符串内的文件扩展名"><span class="toc-number">4.</span> <span class="toc-text">如何去除字符串内的文件扩展名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么在-Array-prototype-map-里使用-parseInt-会返回-NaN？"><span class="toc-number">5.</span> <span class="toc-text">为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用三目运算符时省略第二个表达式"><span class="toc-number">6.</span> <span class="toc-text">使用三目运算符时省略第二个表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除-Yarn-中的缓存"><span class="toc-number">7.</span> <span class="toc-text">清除 Yarn 中的缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#innerText-在-IE-中有效，但在其他浏览器中无效"><span class="toc-number">8.</span> <span class="toc-text">innerText 在 IE 中有效，但在其他浏览器中无效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">9.</span> <span class="toc-text">总结</span></a></li></ol>
+            </div>
+        </aside>
+
+<article class="post content-card">
+    <div class="post__header">
+        
+             
+        
+        
+            
+    <div class="post__expire" id="post-expired-notify">
+        <p>
+            本文最后更新于 <span id="expire-date"></span> 天前，文中部分描述可能已经过时。
+        </p>
+    </div>
+    <script>
+        (() => {
+            var update = Date.parse("2020-07-24"),
+                date = new Date(),
+                now = date.getTime(),
+                expire = now - update,
+                expire_days = Math.floor(expire/(24*3600*1000));
+            if (expire_days >= 120) {
+                document.querySelectorAll('#expire-date')[0].innerHTML = expire_days;
+                document.querySelectorAll('#post-expired-notify')[0].style.display = 'block';
+            }
+        })();
+    </script>
+
+        
+    </div>
+    <div class="post__content">
+        <div class="markdown-body">
+            <h1 id="翻译：JavaScript-技巧-——-子代构造函数，文本选择，内联-Workers-等等"><a href="#翻译：JavaScript-技巧-——-子代构造函数，文本选择，内联-Workers-等等" class="headerlink" title="翻译：JavaScript 技巧 —— 子代构造函数，文本选择，内联 Workers 等等"></a>翻译：JavaScript 技巧 —— 子代构造函数，文本选择，内联 Workers 等等</h1><p><strong>索引</strong>：</p>
+<ul>
+<li><a href="#preventTextSelect">取消双击后的文本选中</a></li>
+<li><a href="#PrototypeConstructor">为什么设置原型的构造函数是必要的？</a></li>
+<li><a href="#WebWorkers">无需单独的 Javascript 文件即可创建 Web Workers</a></li>
+<li><a href="#trimfname">如何去除字符串内的文件扩展名</a></li>
+<li><a href="#mapparse">为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？</a></li>
+<li><a href="#omit">使用三目运算符时省略第二个表达式</a></li>
+<li><a href="#yarn">清除 Yarn 中的缓存</a></li>
+<li><a href="#innerText">innerText 在 IE 中有效，但在其他浏览器中无效</a></li>
+<li><a href="#conclusion">总结</a></li>
+</ul>
+<p><strong>正文：</strong></p>
+<p>如同编写其他类型的应用程序，当我们在编写 JavaScript 应用的时候，有一些困难的问题需要解决。</p>
+<p>本篇文章中，我们将会介绍常见 JavaScript 问题的一些解决方法。</p>
+<h2 id="取消双击后的文本选中"><a href="#取消双击后的文本选中" class="headerlink" title="取消双击后的文本选中"></a><a id="preventTextSelect"></a>取消双击后的文本选中</h2><p>我们可以取消在双击后对文本的选中，通过调用 <code>preventDefault()</code> 来阻止这个默认行为。</p>
+<p>例如，我们可以这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'mousedown'</span>, (event) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (event.detail &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    event.preventDefault();</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="为什么设置原型的构造函数（Prototype-Constructor）是必要的？"><a href="#为什么设置原型的构造函数（Prototype-Constructor）是必要的？" class="headerlink" title="为什么设置原型的构造函数（Prototype Constructor）是必要的？"></a><a id="PrototypeConstructor"></a>为什么设置原型的构造函数（Prototype Constructor）是必要的？</h2><p>我们必须设置原型的构造函数 ，这样，我们就可以用 <code>instanceof</code> 检查原型的构造函数是否为一个给定的构造函数。</p>
+<p>比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>) </span>&#123;  </span><br><span class="line">  Person.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="built_in">Object</span>.create(Person.prototype);</span><br></pre></td></tr></table></figure>
+
+<p>如此，<code>Student</code> 的原型被设置为 <code>Person</code> 。</p>
+<p>但是我们实际上想要将 <code>Student</code> 的原型设置为 <code>Student</code> ，即使 <code>Student</code> 继承自 <code>Person</code> 。</p>
+<p>因此，我们需要这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student.prototype.constructor = Student;</span><br></pre></td></tr></table></figure>
+
+<p>现在我们创建了 <code>Student</code> 的一个实例，用 <code>instanceof</code> 来检查一下实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">student <span class="keyword">instanceof</span> Student</span><br></pre></td></tr></table></figure>
+
+<p>结果会返回 <code>true</code> 。</p>
+<p>如果我们使用 <code>class</code> 语法，我们不必这样做了。</p>
+<p>我们只需要写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">   <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，所有的事情都自动为我们处理好了。</p>
+<h2 id="无需单独的-Javascript-文件即可创建-Web-Workers"><a href="#无需单独的-Javascript-文件即可创建-Web-Workers" class="headerlink" title="无需单独的 Javascript 文件即可创建 Web Workers"></a><a id="WebWorkers"></a>无需单独的 Javascript 文件即可创建 Web Workers</h2><p>使用 <code>javascript/worker</code> 作为 <code>type</code> 属性的值，可以让我们无需单独创建 JavaScript 文件就能创建一个 web worker。</p>
+<p>例如，我们可以这样写：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">id</span>=<span class="string">"worker"</span> <span class="attr">type</span>=<span class="string">"javascript/worker"</span>&gt;</span></span><br><span class="line"><span class="javascript">  self.onmessage = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">    self.postMessage(<span class="string">'msg'</span>);</span></span><br><span class="line">  &#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">const</span> blob = <span class="keyword">new</span> Blob([</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.querySelector(<span class="string">'#worker'</span>).textContent</span></span><br><span class="line">  ];</span><br><span class="line"></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> worker = <span class="keyword">new</span> Worker(<span class="built_in">window</span>.URL.createObjectURL(blob));</span></span><br><span class="line"><span class="javascript">  worker.onmessage = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(e.data);</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="actionscript">  worker.postMessage(<span class="string">"hello"</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>通过获取 script 元素以及使用 <code>textContent</code> 属性，我们得到了作为 Blob 对象的 worker（blob 变量）。</p>
+<p>然后，我们使用 <code>Worker</code> 构造函数和 blob 变量来创建一个 Worker 对象（worker 变量）。</p>
+<p>现在，我们就可以在 worker 线程里以及调用 worker 的 script 元素内写我们通常的 worker 代码了。</p>
+<h2 id="如何去除字符串内的文件扩展名"><a href="#如何去除字符串内的文件扩展名" class="headerlink" title="如何去除字符串内的文件扩展名"></a><a id="trimfname"></a>如何去除字符串内的文件扩展名</h2><p>从字符串去除文件的扩展名，我们可以使用 <code>replace</code> 方法。</p>
+<p>例如，我们可以这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileName.replace(<span class="regexp">/\.[^/.]+$/</span>, <span class="string">""</span>);</span><br></pre></td></tr></table></figure>
+
+<p>使用正则表达式的模式，我们在字符串中在 . 之后的子串。</p>
+<p>然后，我们可以用空字符串替换子串。</p>
+<p>在 Node 应用中，我们可以使用 <code>path</code> 模块。</p>
+<p>为了得到文件名，我们可以这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> filename = <span class="string">'foo.txt'</span>;</span><br><span class="line">path.parse(filename).name;</span><br></pre></td></tr></table></figure>
+
+<p><code>path.parse</code> 获得文件的路径，然后我们访问 <code>name</code> 属性得到文件名。</p>
+<h2 id="为什么在-Array-prototype-map-里使用-parseInt-会返回-NaN？"><a href="#为什么在-Array-prototype-map-里使用-parseInt-会返回-NaN？" class="headerlink" title="为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？"></a><a id="mapparse"></a>为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？</h2><p><code>parseInt</code> 在数组实例的 <code>map</code> 方法中会返回 <code>NaN</code> ，是因为 <code>parseInt</code> 接收的参数与 <code>map</code> 回调接收的 3 个参数不相对应。</p>
+<p><code>parseInt</code> 将（String 类型）数字（本例中）作为第一个参数，并且将 基数（radix）作为第二个参数。</p>
+<p><code>map</code> 回调将数组项作为第一个参数，索引作为第二个参数，数组本身作为第三个参数。</p>
+<p>因此，如果我们直接使用 <code>parseInt</code> 作为回调，那么索引就会被传递作为基数 ，这显然不合理。</p>
+<p>这就是为什么我们会得到 <code>NaN</code> 。</p>
+<p>当使用的基数不合适时，我们就会得到 <code>NaN</code> 。</p>
+<p>因此，不要这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>].map(<span class="built_in">parseInt</span>)</span><br></pre></td></tr></table></figure>
+
+<p>我们可以这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>].map(<span class="built_in">Number</span>)</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>].map(<span class="function"><span class="params">num</span> =&gt;</span> <span class="built_in">parseInt</span>(num, <span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用三目运算符时省略第二个表达式"><a href="#使用三目运算符时省略第二个表达式" class="headerlink" title="使用三目运算符时省略第二个表达式"></a><a id="omit"></a>使用三目运算符时省略第二个表达式</h2><p>如果我们有如下的三目表达式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x === <span class="number">1</span> ? doSomething() : doSomethingElse();</span><br></pre></td></tr></table></figure>
+
+<p>但是，当 <code>x===1</code> 的结果是 <code>false</code> ，我们又不想调用 <code>doSomethingElse</code> 时，我们可以使用 <code>&amp;&amp;</code> 操作符替代。</p>
+<p>举个例子，我们可以写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x === <span class="number">1</span> &amp;&amp; dosomething();</span><br></pre></td></tr></table></figure>
+
+<p>当 <code>x===1</code> 结果为 <code>true</code> 时，<code>dosomething</code> 就会被调用。</p>
+<h2 id="清除-Yarn-中的缓存"><a href="#清除-Yarn-中的缓存" class="headerlink" title="清除 Yarn 中的缓存"></a><a id="yarn"></a>清除 Yarn 中的缓存</h2><p>使用 <code>yarn cache clean</code> ，我们可以清除 yarn 中的缓存。</p>
+<h2 id="innerText-在-IE-中有效，但在其他浏览器中无效"><a href="#innerText-在-IE-中有效，但在其他浏览器中无效" class="headerlink" title="innerText 在 IE 中有效，但在其他浏览器中无效"></a><a id="innerText"></a>innerText 在 IE 中有效，但在其他浏览器中无效</h2><p><code>innerText</code> 是仅用于 IE 的属性，用于填充节点的文本内容。</p>
+<p>为了在其他浏览器中做到同样的事情，我们可以设置 <code>textContent</code> 属性。</p>
+<p>例如，我们这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'foo'</span>);</span><br><span class="line">el.textContent = <span class="string">'foo'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a><a id="conclusion"></a>总结</h2><p>通过调用 <code>preventDefault</code> 来阻止默认操作，以此我们可以取消双击后的文本选中。</p>
+<p>同样，我们不应该将 <code>parseInt</code>  用于 <code>map</code> 的回调。</p>
+<p>如果我们创建一个子构造函数，我们必须将它的构造函数的值设置为当前的对象。</p>
+<p>通过这种方式，我们可以正确的检查实例。</p>
+
+        </div>
+    </div>
+    
+        
+    <div class="post__license">
+        <p>
+            <strong>本文作者：</strong>plusmultiply0
+        </p>
+        
+            <p>
+                <strong>
+                    <p>文章默认使用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 协议进行许可，转载请附上原文链接和作者。</p>
+
+                </strong>
+            </p>
+        
+        <p>
+            <strong>
+                本文链接：
+            </strong>
+            <a href="https://plusmultiply0.github.io/2020/07/24/translation-javascript-tips-child-constructors-text-selection-inline-workers-and-more/">https://plusmultiply0.github.io/2020/07/24/translation-javascript-tips-child-constructors-text-selection-inline-workers-and-more/</a>
+        </p>
+    </div>
+ 
+    
+    
+        <div class="post-meta post-footer__meta">
+    <p>
+        最后更新于：2020-07-24
+    </p>
+</div> 
+    
+    
+        <div class="post-cats post-card__cats">
+    
+        <a href="/categories/skills/" class="post-cats__link button">skills</a>
+    
+        <a href="/categories/notes/" class="post-cats__link button">notes</a>
+    
+        <a href="/categories/translation/" class="post-cats__link button">translation</a>
+    
+</div> 
+        <div class="post-tags post-card__tags">
+    
+        <a href="/tags/tips/" class="post-tags__link button"># tips</a>
+    
+        <a href="/tags/attempt/" class="post-tags__link button"># attempt</a>
+    
+        <a href="/tags/JavaScript/" class="post-tags__link button"># JavaScript</a>
+    
+        <a href="/tags/web/" class="post-tags__link button"># web</a>
+    
+</div> 
+     
+</article>
+<br>
+
+    <div class="post__comment content-card">
+        
+    <h4 style="margin-top: 0;">评论</h4>
+    
+    
+    
+        <div id="gitalk-container"></div>
+    
+    
+    
+    
+    
+
+
+    </div>
+
+
+    </div>
+
+
+
+    <br>
+    <div class="cover">
+        
+            <div class="cover__menus">
+                
+                    <a href="/" class="cover-menu button">
+                        首页
+                    </a>
+                    
+                        <span class="separate-dot"></span>
+                    
+                
+                    <a href="/tags/" class="cover-menu button">
+                        标签
+                    </a>
+                    
+                        <span class="separate-dot"></span>
+                    
+                
+                    <a href="/categories/" class="cover-menu button">
+                        分类
+                    </a>
+                    
+                        <span class="separate-dot"></span>
+                    
+                
+                    <a href="/archives/" class="cover-menu button">
+                        归档
+                    </a>
+                    
+                        <span class="separate-dot"></span>
+                    
+                
+                    <a href="/friends/" class="cover-menu button">
+                        友链
+                    </a>
+                    
+                
+            </div>
+        
+    </div>
+
+</main>
+<footer class="footer">
+     
+
+
+    
+        
+            <!-- Busuanzi UV -->
+            <span id="busuanzi_container_site_uv" hidden>
+                <span></span>
+                <span id="busuanzi_value_site_uv"></span>
+                <span>Viewers</span>
+                
+                    <span>&nbsp;&nbsp;&nbsp;|</span>
+                
+            </span>
+        
+        
+            <!-- Busuanzi PV -->
+            <span id="busuanzi_container_site_pv" hidden>
+                <span></span>
+                <span id="busuanzi_value_site_pv"></span>
+                <span>Views</span>
+                
+            </span>
+        
+     
+  
+    
+        
+            <p>Copyright © 2020 plusmultiply0</p>
+
+        
+    
+    <!-- for comment -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <!-- other -->
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+    <span>本站已运行 <span id="runningtime"></span></span>
+    <script>
+        let birthd = new Date(2020, 4, 28);//这里设置建站时间
+        setInterval(() => {
+            let nowtime = Date.now();
+            let mtimeInterval = nowtime - birthd;
+            let thisyear = Math.floor(mtimeInterval / (365 * 24 * 60 * 60 * 1000));
+            let today = Math.floor(((mtimeInterval / (24 * 60 * 60 * 1000)) - thisyear * 365));
+            let thishour = Math.floor((mtimeInterval / (60 * 60 * 1000)) - today * 24 - thisyear * 365 * 24);
+            let thisminute = Math.floor((mtimeInterval / (60 * 1000)) - thishour * 60 - today * 24 * 60 - thisyear * 365 * 24 * 60);
+            let thissecond = Math.floor((mtimeInterval / (1000)) - thisminute * 60 - thishour * 60 * 60 - today * 24 * 60 * 60 - thisyear * 365 * 24 * 60 * 60);
+            document.getElementById('runningtime').innerHTML = `${thisyear ? thisyear + '年' : ''}${today}天${thishour}小时${thisminute}分钟${thissecond}秒`;
+        }, 1000);
+    </script>
+</footer>
+
+
+        </div>
+        
+
+ 
+    <!-- Google Analytics -->
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-168103847-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+ 
+
+ 
+
+ 
+    <!-- Baidu Analytics -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement('script');
+            hm.src = 'https://hm.baidu.com/hm.js?bf369061bea745e9ee9acc1949cc398d';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+ 
+
+  
+
+
+
+ 
+
+ 
+    <script defer crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/hexo-theme-cards@0.2/dist/js/b2t.min.js"></script>
+ 
+
+
+    <script defer crossorigin="anonymous" src="/js/darkmode.js"></script>
+
+
+
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+        <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+        <script>
+            var gitalk = new Gitalk({
+                clientID: "4f43fbd7a9e1ce552151",
+                clientSecret: "8bb842efdb840ba8b1656f86e2d015f22299d407",
+                repo: "blog-comment",
+                owner: "plusmultiply0",
+                admin: "plusmultiply0",
+                id: window.location.pathname,
+                distractionFreeMode: false
+            });
+            gitalk.render('gitalk-container');
+        </script>
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+    </body>
+</html>
