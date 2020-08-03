@@ -190,9 +190,9 @@
 <li><a href="#conclusion">总结</a></li>
 </ul>
 <p><strong>正文：</strong></p>
-<p>如同编写其他类型的应用程序，当我们在编写 JavaScript 应用的时候，有一些困难的问题需要解决。</p>
+<p>当我们在编写 JavaScript 应用的时候，和编写其他类型的应用程序一样，需要解决一些困难的问题。</p>
 <p>本篇文章中，我们将会介绍常见 JavaScript 问题的一些解决方法。</p>
-<h2 id="取消双击后的文本选中"><a href="#取消双击后的文本选中" class="headerlink" title="取消双击后的文本选中"></a><a id="preventTextSelect"></a>取消双击后的文本选中</h2><p>我们可以取消在双击后对文本的选中，通过调用 <code>preventDefault()</code> 来阻止这个默认行为。</p>
+<h2 id="取消双击后的文本选中"><a href="#取消双击后的文本选中" class="headerlink" title="取消双击后的文本选中"></a><a id="preventTextSelect"></a>取消双击后的文本选中</h2><p>我们可以通过调用 <code>preventDefault()</code> 来阻止在双击后对文本的选中这个默认行为。</p>
 <p>例如，我们可以这样写：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'mousedown'</span>, (event) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (event.detail &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    event.preventDefault();</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 
@@ -200,8 +200,8 @@
 <p>比如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>) </span>&#123;  </span><br><span class="line">  Person.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="built_in">Object</span>.create(Person.prototype);</span><br></pre></td></tr></table></figure>
 
-<p>如此，<code>Student</code> 的原型被设置为 <code>Person</code> 。</p>
-<p>但是我们实际上想要将 <code>Student</code> 的原型设置为 <code>Student</code> ，即使 <code>Student</code> 继承自 <code>Person</code> 。</p>
+<p>如此，<code>Student</code> 的原型会被设置为 <code>Person</code> 。</p>
+<p>虽然 <code>Student</code> 继承自 <code>Person</code>，但我们实际上想要将 <code>Student</code> 的原型设置为 <code>Student</code>。</p>
 <p>因此，我们需要这么写：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student.prototype.constructor = Student;</span><br></pre></td></tr></table></figure>
 
@@ -225,19 +225,19 @@
 <p>例如，我们可以这样写：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileName.replace(<span class="regexp">/\.[^/.]+$/</span>, <span class="string">""</span>);</span><br></pre></td></tr></table></figure>
 
-<p>使用正则表达式的模式，我们在字符串中在 . 之后的子串。</p>
+<p>我们可以使用正则表达式的模式得到字符串中在 <code>.</code> 之后的子串。</p>
 <p>然后，我们可以用空字符串替换子串。</p>
 <p>在 Node 应用中，我们可以使用 <code>path</code> 模块。</p>
 <p>为了得到文件名，我们可以这样写：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> filename = <span class="string">'foo.txt'</span>;</span><br><span class="line">path.parse(filename).name;</span><br></pre></td></tr></table></figure>
 
 <p><code>path.parse</code> 获得文件的路径，然后我们访问 <code>name</code> 属性得到文件名。</p>
-<h2 id="为什么在-Array-prototype-map-里使用-parseInt-会返回-NaN？"><a href="#为什么在-Array-prototype-map-里使用-parseInt-会返回-NaN？" class="headerlink" title="为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？"></a><a id="mapparse"></a>为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？</h2><p><code>parseInt</code> 在数组实例的 <code>map</code> 方法中会返回 <code>NaN</code> ，是因为 <code>parseInt</code> 接收的参数与 <code>map</code> 回调接收的 3 个参数不相对应。</p>
-<p><code>parseInt</code> 将（String 类型）数字（本例中）作为第一个参数，并且将 基数（radix）作为第二个参数。</p>
+<h2 id="为什么在-Array-prototype-map-里使用-parseInt-会返回-NaN？"><a href="#为什么在-Array-prototype-map-里使用-parseInt-会返回-NaN？" class="headerlink" title="为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？"></a><a id="mapparse"></a>为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？</h2><p>之所以 <code>parseInt</code> 在数组实例的 <code>map</code> 方法中会返回 <code>NaN</code> ，是因为 <code>parseInt</code> 接收的参数与 <code>map</code> 回调接收的 3 个参数不相对应。</p>
+<p><code>parseInt</code> 将（字符串类型的）数字（本例中）作为第一个参数，并且将 基数（radix）作为第二个参数。</p>
 <p><code>map</code> 回调将数组项作为第一个参数，索引作为第二个参数，数组本身作为第三个参数。</p>
-<p>因此，如果我们直接使用 <code>parseInt</code> 作为回调，那么索引就会被传递作为基数 ，这显然不合理。</p>
+<p>因此，如果我们直接使用 <code>parseInt</code> 作为回调，那么索引就会被传递作为基数 ，这显然不合适。</p>
 <p>这就是为什么我们会得到 <code>NaN</code> 。</p>
-<p>当使用的基数不合适时，我们就会得到 <code>NaN</code> 。</p>
+<p>当使用的基数不合理时，我们就会得到 <code>NaN</code> 。</p>
 <p>因此，不要这么写：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>].map(<span class="built_in">parseInt</span>)</span><br></pre></td></tr></table></figure>
 
