@@ -9,7 +9,10 @@ category:
   - skills
   - notes
   - translation
+date: 2020-09-07 19:08:02
+update: 2020-09-07 19:08:02
 ---
+
 # 第二次翻译——打包用于分发的 UI 库
 **索引**
 - [翻译正文](#title)
