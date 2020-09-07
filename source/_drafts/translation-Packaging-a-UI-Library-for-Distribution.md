@@ -1,14 +1,35 @@
 ---
 title: 'translation:Packaging a UI Library for Distribution'
 tags:
+  - JavaScript
+  - UI Library
+  - web
+comments: true
+category:
+  - skills
+  - notes
+  - translation
 ---
-> * 原文地址：[Packaging a UI Library for Distribution](https://blog.bitsrc.io/packaging-a-ui-library-for-distribution-d153219def28)
-> * 原文作者：[Tally Barak](https://medium.com/@tally_b)
+# 第二次翻译——打包用于分发的 UI 库
+**索引**
+- [翻译正文](#title)
+    - [问题的由来](#problemfrom)
+    - [如何交付 package？](#deliverypackage)
+        - [ES 语法格式](#esmodule)
+        - [模块格式](#moduleformat)
+        - [文件打包](#filebund)
+        - [Package 分发](#packdisbution)
+    - [工具](#tool)
+        - [转译器](#transpiler)
+        - [打包工具](#bundtool)
+        - [Manifest](#manifest)
+    - [最后](#last)
+- [原文地址：Packaging a UI Library for Distribution](https://blog.bitsrc.io/packaging-a-ui-library-for-distribution-d153219def28)
+- [Feeling and thinking](#feel)
 
+## <a id="title"></a>打包用于分发的 UI 库 —— 当你要发布一个 UI 组件库时，你可能需要遵守的指南
 
-# 打包用于分发的 UI 库 —— 当你要发布一个 UI 组件库时，你可能需要遵守的指南
-
-## 问题的由来
+### <a id="problemfrom"></a>问题的由来
 
 JavaScript 有个特性：对于相同的代码，可以运行在多个运行时（runtime）环境。其中一个环境，是由众多厂商生产提供的不同版本的浏览器。而另一个，则是运行在服务器端的不同版本的 Nodejs。（附注：你可能需要注意一下 Deno，一个有趣的服务器端运行时环境）
 
@@ -18,7 +39,7 @@ JavaScript 有个特性：对于相同的代码，可以运行在多个运行时
 
 任何人在发布一个库的时候都应该考虑库会被如何使用：以浏览器标签引入，在服务器端以 NPM 模块安装或者由 webpack 等打包工具编译后再提供给浏览器。
 
-## 如何交付 package？
+### <a id="deliverypackage"></a>如何交付 package？
 
 以下是我为你想要分发的 package 的格式提供的一些建议。在最后一部分，我们将通过一些工具来实现这些。
 
@@ -33,7 +54,7 @@ JavaScript 有个特性：对于相同的代码，可以运行在多个运行时
 
 你同样会注意到这里的讨论与框架无关。这里讨论的守则都是跨框架的，而且与用 Angular，React，Vue 编写的组件是无关的。
 
-#### ES 语法格式（ES Syntax Format）
+#### <a id="esmodule"></a>ES 语法格式（ES Syntax Format）
 
 大多数的 web 浏览器和 Nodejs 都支持 ES2015 的语法，并且紧跟语言的新特性。其中臭名昭著的例外是 IE 浏览器，幸好它的市场份额正在不断缩减。 除非明确需要支持 IE11，否则的话，将 ES2015 视为 JS 环境的通用标准是可行的。 现代浏览器和 Nodejs 对于较新的语法（如：ES2017）也都是支持的。
 
@@ -41,7 +62,7 @@ JavaScript 有个特性：对于相同的代码，可以运行在多个运行时
 
 > 在老的浏览器上使用 ES5，将 ES2015 或者 ES2017 用于现代浏览器和 NodeJS。
 
-#### 模块格式（Module Format）
+#### <a id="moduleformat"></a>模块格式（Module Format）
 
 直到 2015 年，JavaScript（即众所周知的 ECMAScript ）才有了模块格式的规范 —— ES6 模块格式（也被称为 ESM，ES2015 模块）。 在这个混沌时期，社区创建了多种格式，但没有一个统一的标准可遵循。
 
@@ -64,7 +85,7 @@ JavaScript 有个特性：对于相同的代码，可以运行在多个运行时
 
 > 使用多种模块格式来生成库，如：ESM，CJS，以及 UMD / AMD 。
 
-#### 文件打包（Files Bundling）
+#### <a id="filebund"></a>文件打包（Files Bundling）
 
 用于浏览器或服务器端的应用的 NPM 包在分发时，可以提供一个包含多个文件的目录。服务器可以轻松地一一读取目录中的文件，而在浏览器端需要预先将整个应用打包为一个文件（或者几个 chunk）后才能使用。
 
@@ -74,7 +95,7 @@ JavaScript 有个特性：对于相同的代码，可以运行在多个运行时
 
 > 为浏览器提供使用 UMD 格式的单个文件，ESM / CJS 模块用单独文件夹或单个文件创建。
 
-#### Package 分发（Package distribution）
+#### <a id="packdisbution"></a>Package 分发（Package distribution）
 
 大多数 package 在 NPM 注册表（registry）上都是可用的。这是一种常见的方法来发布 package。将 package 发布到 NPM 同样会使得 package 在 CDN 上可用，因此能直接用于浏览器（通过 script 标签）。
 
@@ -84,7 +105,7 @@ JavaScript 有个特性：对于相同的代码，可以运行在多个运行时
 
 注：新的 CDN 即将支持 ES 模块语法，具体请见[此处](https://www.pika.dev/)
 
-## 工具
+### <a id="tool"></a>工具
 
 创建打包文件的工具有：
 
@@ -92,7 +113,7 @@ JavaScript 有个特性：对于相同的代码，可以运行在多个运行时
 * 打包工具（Bundlers）
 * Manifest（如：package.json）
 
-#### 转译器（Transpilers）
+#### <a id="transpiler"></a>转译器（Transpilers）
 
 对于使用 ES 语法或者 Typescript 编写的代码，你应该使用 Babel 或者 Typescript 转译器。这两个转译器都支持 JS 和 TS 语法，但是有一些[区别](https://blog.logrocket.com/choosing-between-babel-and-typescript-4ed1ad563e41/#:~:text=TypeScript%20by%20default%20compiles%20an,that%20require%20reading%20multiple%20files.&text=A%20const%20enum%20is%20an%20enum%20that%20TypeScript%20compiles%20away%20to%20nothing)[.](https://blog.logrocket.com/choosing-between-babel-and-typescript-4ed1ad563e41/#:~:text=TypeScript%20by%20default%20compiles%20an,that%20require%20reading%20multiple%20files.&text=A%20const%20enum%20is%20an%20enum%20that%20TypeScript%20compiles%20away%20to%20nothing.)
 
@@ -100,7 +121,7 @@ JavaScript 有个特性：对于相同的代码，可以运行在多个运行时
 
 **Typescript** 转译器，通过使用 tsconfig.json 中负责生成相关模块输出的 “module” 属性，也能生成不同模块格式。
 
-#### 打包工具（Bundlers）
+#### <a id="bundtool"></a>打包工具（Bundlers）
 
 Bundlers 通常运行插件来执行转译过程。转译不仅包括语言和模块的转换，还会生成额外的资源文件如：CSS 和图片。
 
@@ -114,7 +135,7 @@ Bundlers 通常运行插件来执行转译过程。转译不仅包括语言和�
 
 [本文](https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c)总结了两个打包工具间的差异。虽然文章写于 2017，但其结论如今仍然有效：将 Webpack 用于应用程序打包，Rollup 用于库的打包。
 
-#### Manifest
+#### <a id="manifest"></a>Manifest
 
 Package.json 用于表示库的内容。除了版本名称外，它还应该指向目录或包（bundles）中的相关文件。
 
@@ -129,8 +150,11 @@ Package.json 用于表示库的内容。除了版本名称外，它还应该指�
 * **unpkg**: 指向通过 CDN 可用的 UMD 单个文件。unpkg 会使用此属性（如果存在），或者回退使用 main 属性的值。
 * **type**: 为模块设置一个 type 域，来让 node 将其视作 ESM 并按此加载。
 
-## 最后
+### <a id="last"></a>最后
 
 希望在不久的未来，我们能看到 Javascript 生态系统对于语法和模块拥有一个统一的标准。
 
 
+## <a id="feel"></a>Feeling and thinking
+翻译的第二篇文章，感觉质量优于第一篇翻译的。
+大致介绍了发布一个 package/库时，需要的流程和一些需要留意的地方。距翻译完成，已经过了一个月，我也不记得当时的感受与思考了。得到一个教训，翻译完成后，就赶紧记录当时的所思所感。
