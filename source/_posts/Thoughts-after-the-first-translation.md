@@ -14,8 +14,6 @@ update: 2020-07-26 22:45:16
 
 # 第一篇译文后的思考与记录
 
-**索引：**
-
 最近参与了 [掘金翻译计划](https://github.com/xitu/gold-miner)，翻译了第一篇 [译文](https://github.com/xitu/gold-miner/blob/master/article/2020/javascript-tips-child-constructors-text-selection-inline-workers-and-more.md) -- [英文原文地址](https://medium.com/front-end-weekly/javascript-tips-child-constructors-text-selection-inline-workers-and-more-606bc050ee24)，主要就是介绍写 Javascript 应用时，可能遇到的“难题”的解决方法。
 
 通篇看下来，并没有看到有什么特别难的问题，感觉更像是日常遇到的小问题的总结记录。比如：
@@ -40,6 +38,9 @@ update: 2020-07-26 22:45:16
 要说收获，也还是有的。
 - 翻译一篇英语文章，也能锻炼一下自己的英语能力，也勉强算是有所产出。如果能从中学习到一些知识，那更是划算。
 - 熟悉一下文档/文章的一些格式规范
+- 了解了双击可以选中单词/短语，算是一个 tip
 
-感觉以后翻译还是自己去选文会比较好，掘金社区的翻译文章最近的大部分貌似都是一个人选出来，质量难免层次不齐。不过，自己从哪些来源挑选高质量的文章也是一个问题。。。
+感觉以后翻译还是自己去选文会比较好，掘金社区的翻译文章最近的大部分貌似都是一个人选出来，质量难免层次不齐。当然，也有推荐好文的机制，文章经过推荐人的筛选后供他人翻译，而且数量也不会很多。
+
+不过，自己从哪些来源挑选高质量的文章也是一个问题。。。
 {% asset_img articles.png %}
