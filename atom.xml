@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>plusmultiply0&#39;s blog</title>
+  <icon>https://plusmultiply0.github.io/icon.png</icon>
+  
+  <link href="https://plusmultiply0.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://plusmultiply0.github.io/"/>
+  <updated>2020-09-07T11:08:02.000Z</updated>
+  <id>https://plusmultiply0.github.io/</id>
+  
+  <author>
+    <name>plusmultiply0</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>translation:Packaging a UI Library for Distribution</title>
+    <link href="https://plusmultiply0.github.io/2020/09/07/translation-Packaging-a-UI-Library-for-Distribution/"/>
+    <id>https://plusmultiply0.github.io/2020/09/07/translation-Packaging-a-UI-Library-for-Distribution/</id>
+    <published>2020-09-07T11:08:02.000Z</published>
+    <updated>2020-09-07T11:08:02.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;第二次翻译——打包用于分发的-UI-库&quot;&gt;&lt;a href=&quot;#第二次翻译——打包用于分发的-UI-库&quot; class=&quot;headerlink&quot; title=&quot;第二次翻译——打包用于分发的 UI 库&quot;&gt;&lt;/a&gt;第二次翻译——打包用于分发的 UI 库&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="skills" scheme="https://plusmultiply0.github.io/categories/skills/"/>
+    
+    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    <category term=" translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
+    
+    <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
+    
+    <category term="UI Library" scheme="https://plusmultiply0.github.io/tags/UI-Library/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Thoughts after the first translation</title>
+    <link href="https://plusmultiply0.github.io/2020/07/26/Thoughts-after-the-first-translation/"/>
+    <id>https://plusmultiply0.github.io/2020/07/26/Thoughts-after-the-first-translation/</id>
+    <published>2020-07-26T14:45:16.000Z</published>
+    <updated>2020-07-26T14:45:16.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;第一篇译文后的思考与记录&quot;&gt;&lt;a href=&quot;#第一篇译文后的思考与记录&quot; class=&quot;headerlink&quot; title=&quot;第一篇译文后的思考与记录&quot;&gt;&lt;/a&gt;第一篇译文后的思考与记录&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
+    
+    <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>translation:javascript-tips-child-constructors-text-selection-inline-workers-and-more</title>
+    <link href="https://plusmultiply0.github.io/2020/07/24/translation-javascript-tips-child-constructors-text-selection-inline-workers-and-more/"/>
+    <id>https://plusmultiply0.github.io/2020/07/24/translation-javascript-tips-child-constructors-text-selection-inline-workers-and-more/</id>
+    <published>2020-07-24T04:00:50.000Z</published>
+    <updated>2020-07-24T04:00:50.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;第一次翻译：JavaScript-技巧-——-子代构造函数，文本选择，内联-Workers-等等&quot;&gt;&lt;a href=&quot;#第一次翻译：JavaScript-技巧-——-子代构造函数，文本选择，内联-Workers-等等&quot; class=&quot;headerlink&quot; title=&quot;第一次翻译：JavaScript 技巧 —— 子代构造函数，文本选择，内联 Workers 等等&quot;&gt;&lt;/a&gt;第一次翻译：JavaScript 技巧 —— 子代构造函数，文本选择，内联 Workers 等等&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="skills" scheme="https://plusmultiply0.github.io/categories/skills/"/>
+    
+    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    <category term=" translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
+    
+    <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pull request for RSSHub</title>
+    <link href="https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/"/>
+    <id>https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/</id>
+    <published>2020-07-19T07:55:41.000Z</published>
+    <updated>2020-07-19T07:55:41.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;记一次为-RSSHub-提-pr-的经历&quot;&gt;&lt;a href=&quot;#记一次为-RSSHub-提-pr-的经历&quot; class=&quot;headerlink&quot; title=&quot;记一次为 RSSHub 提 pr 的经历&quot;&gt;&lt;/a&gt;记一次为 RSSHub 提 pr 的经历&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="skills" scheme="https://plusmultiply0.github.io/categories/skills/"/>
+    
+    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
+    
+    <category term="RSS" scheme="https://plusmultiply0.github.io/tags/RSS/"/>
+    
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>notes and tips about Github</title>
+    <link href="https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/"/>
+    <id>https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/</id>
+    <published>2020-06-24T15:09:12.000Z</published>
+    <updated>2020-06-24T15:09:12.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;一些关于Github的tips&quot;&gt;&lt;a href=&quot;#一些关于Github的tips&quot; class=&quot;headerlink&quot; title=&quot;一些关于Github的tips&quot;&gt;&lt;/a&gt;一些关于Github的tips&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="skills" scheme="https://plusmultiply0.github.io/categories/skills/"/>
+    
+    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo-blog-notes</title>
+    <link href="https://plusmultiply0.github.io/2020/05/28/hexo-blog-notes/"/>
+    <id>https://plusmultiply0.github.io/2020/05/28/hexo-blog-notes/</id>
+    <published>2020-05-28T08:22:38.000Z</published>
+    <updated>2020-05-28T08:22:38.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;博客搭建记录&quot;&gt;&lt;a href=&quot;#博客搭建记录&quot; class=&quot;headerlink&quot; title=&quot;博客搭建记录&quot;&gt;&lt;/a&gt;博客搭建记录&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="skills" scheme="https://plusmultiply0.github.io/categories/skills/"/>
+    
+    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="blog" scheme="https://plusmultiply0.github.io/tags/blog/"/>
+    
+    <category term="hexo" scheme="https://plusmultiply0.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://plusmultiply0.github.io/2020/05/27/hello-world/"/>
+    <id>https://plusmultiply0.github.io/2020/05/27/hello-world/</id>
+    <published>2020-05-27T16:00:01.000Z</published>
+    <updated>2020-05-27T16:00:01.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Here I start my blog</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
