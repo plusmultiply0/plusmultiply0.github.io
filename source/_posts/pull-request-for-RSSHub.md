@@ -6,14 +6,15 @@ tags:
   - attempt
 comments: true
 category:
-  - - skills
-  - - notes
+  - [skills]
+  - [' notes']
 date: 2020-07-19 15:55:41
 update: 2020-07-19 15:55:41
+# toc: true
 ---
 
 # 记一次为 RSSHub 提 pr 的经历
-
+<!--more-->
 {% asset_img RSSHub.png %}
 
 **内容索引**
@@ -58,7 +59,7 @@ update: 2020-07-19 15:55:41
 replace(/src="\//g, `src="${url.resolve(host, '.')}`)
 replace(/href="\//g, `href="${url.resolve(host, '.')}`)
 ```
-个人觉得链接使用的基本是相对地址，而源站和 RSS阅读器站点显然不同，所以在 RSS 阅读器就看不到链接导向的内容了。
+链接使用的是相对地址，而源站和 RSS阅读器站点显然不同，所以在 RSS 阅读器就看不到链接导向的内容了。
 替换（添加上源站网址）之后，就可以在 RSS阅读器访问到相应内容啦。
 
 其他的，考虑一下意外情况（如：获取信息有误），那么可以生成一个简单的提示让读者访问源站。

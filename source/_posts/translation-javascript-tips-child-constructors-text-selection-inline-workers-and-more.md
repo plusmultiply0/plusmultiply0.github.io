@@ -8,15 +8,16 @@ tags:
   - web
 comments: true
 category:
-  - - skills
-  - - notes
-  - - translation
+  - [skills]
+  - [' notes']
+  - [' translation']
 date: 2020-07-24 12:00:50
 update: 2020-07-24 12:00:50
+# toc: true
 ---
 
-# 翻译：JavaScript 技巧 —— 子代构造函数，文本选择，内联 Workers 等等
-
+# 第一次翻译：JavaScript 技巧 —— 子代构造函数，文本选择，内联 Workers 等等
+<!--more-->
 **索引**：
 - [取消双击后的文本选中](#preventTextSelect)
 - [为什么设置原型的构造函数是必要的？](#PrototypeConstructor)

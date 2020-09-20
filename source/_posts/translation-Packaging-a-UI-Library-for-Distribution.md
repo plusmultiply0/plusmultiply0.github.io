@@ -6,14 +6,16 @@ tags:
   - web
 comments: true
 category:
-  - skills
-  - notes
-  - translation
+  - [skills]
+  - [' notes']
+  - [' translation']
 date: 2020-09-07 19:08:02
 update: 2020-09-07 19:08:02
+# toc: true
 ---
 
 # 第二次翻译——打包用于分发的 UI 库
+<!--more-->
 **索引**
 - [翻译正文](#title)
     - [问题的由来](#problemfrom)

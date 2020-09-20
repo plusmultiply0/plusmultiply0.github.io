@@ -6,9 +6,13 @@ tags:
     - hexo
 category:
     - [skills]
-    - [notes]
+    - [' notes']
+comments: true
+toc: true
+# layout: timeline
 ---
-## 博客搭建记录
+# 博客搭建记录
+<!--more-->
 对自己搭建博客功能的记录，仅供参考:
 
 - [博客部署小记](#blogstart)
@@ -18,7 +22,7 @@ category:
 - [更换博客主题](#changetheme)
 - [为博客添加评论](#addcomment)
 
-#### <a id="blogstart"></a>博客部署小记
+## <a id="blogstart"></a>博客部署小记
 **情景**：hexo博客+Github pages
 搭建博客不难--可参考[官方文档](https://hexo.io/zh-cn/docs/),以下命令仅供参考。
 ```bash
@@ -65,7 +69,7 @@ deploy:
 - [Why call git branch --unset-upstream to fixup?](https://stackoverflow.com/questions/21609781/why-call-git-branch-unset-upstream-to-fixup)
 
 
-#### <a id="avoidpwd"></a>规避部署重复输入账号密码
+## <a id="avoidpwd"></a>规避部署重复输入账号密码
 **情景**：每次部署重复输入账号密码
 **方法**：博客目录命令行内 输入如下命令，
 ```git
@@ -76,7 +80,7 @@ git config --global credential.helper wincred
 **参考链接：**
  - [git config --global credential.helper wincred](https://stackoverflow.com/questions/38333752/trying-to-understand-wincred-with-git-for-windows-confused)
 
-#### <a id="runtime"></a>统计博客运行时间
+## <a id="runtime"></a>统计博客运行时间
 找到 /themes/xxx/layout/_partial/ 目录下的footer命名的文件，打开后加入如下统计代码
 ```html
 <span>本站已运行 <span id="runningtime"></span></span>
@@ -103,7 +107,7 @@ setInterval(()=>{
 **参考链接：**
 - [统计博客运行时间](https://www.bingyublog.com/2019/02/20/hexo%E5%A2%9E%E5%8A%A0%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E7%BB%9F%E8%AE%A1/)
 
-#### <a id="ga"></a>添加Google Analytics
+## <a id="ga"></a>添加Google Analytics
 首先注册Google Analytics,然后在全局_config.yml文件内，添加：
 ```yml
 google_analytics: UA-[TrackingID]-1
@@ -111,11 +115,24 @@ google_analytics: UA-[TrackingID]-1
 **参考链接:**
 - [配置Google Analytics](http://wanderyt.github.io/2015/07/13/Apply-theme-and-other-features-in-Hexo/)
 
-#### <a id="#changetheme"></a>更换博客主题
-由于默认主题不够美观，所以更换了[card](https://github.com/ChrAlpha/hexo-theme-cards)主题。
-具体更换方法可以参考[文档](https://theme-cards.ichr.me/start/)
+## <a id="#changetheme"></a>更换博客主题
+由于默认主题不够美观，所以更换了 [card](https://github.com/ChrAlpha/hexo-theme-cards) 主题。
+具体更换方法可以参考[文档](https://theme-cards.ichr.me/start/)。
 
-#### <a id="#addcomment"></a>为博客添加评论
+更换了 [maupassant](https://github.com/tufu9441/maupassant-hexo) 主题，感觉十分简约和美观。
+简述一下更换步骤：
+- 下载主题文件的 zip 压缩包，并解压至 hexo 博客的 themes 目录下（修改文件名为 maupassant）
+- 在 hexo 的配置文件里，修改 theme 为 maupassant
+- 后续，可参考 maupassant 主题文档进行设置
+
+PS：给文章添加多个分类时，默认是没有间隔的。可以将分类名用引号引起来并添上分隔符即可分隔显示。（这样会造成分类名有重复的，所以要修改相关所有分类名，就能保持一致了）
+```
+category:
+    - [skills]
+    - [' notes']
+```
+
+## <a id="#addcomment"></a>为博客添加评论
 根据[主题文档](https://theme-cards.ichr.me/third-party/#Gitalk)，选择Gitalk作为博客评论。
 首先是申请 **GitHub Application** ，
 Authorization callback URL这一项填写博客主页地址即可，评论成功会自动返回评论所在页面。
