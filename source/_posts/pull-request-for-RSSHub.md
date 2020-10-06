@@ -6,8 +6,8 @@ tags:
   - attempt
 comments: true
 category:
-  - [skills]
-  - [' notes']
+  - ['skills ']
+  - ['notes ']
 date: 2020-07-19 15:55:41
 update: 2020-07-19 15:55:41
 # toc: true

@@ -5,8 +5,8 @@ tags:
     - blog
     - hexo
 category:
-    - [skills]
-    - [' notes']
+    - ['skills ']
+    - ['notes ']
 comments: true
 toc: true
 # layout: timeline

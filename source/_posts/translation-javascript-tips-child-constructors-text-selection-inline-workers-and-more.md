@@ -8,9 +8,9 @@ tags:
   - web
 comments: true
 category:
-  - [skills]
-  - [' notes']
-  - [' translation']
+  - ['skills ']
+  - ['notes ']
+  - ['translation ']
 date: 2020-07-24 12:00:50
 update: 2020-07-24 12:00:50
 # toc: true

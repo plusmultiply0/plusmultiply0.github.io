@@ -7,7 +7,8 @@ tags:
   - attempt
 comments: true
 category:
-  - notes
+  - ['notes ']
+  - ['translation ']
 toc: true
 date: 2020-10-06 19:31:07
 update: 2020-10-06 19:31:07
