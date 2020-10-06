@@ -6,7 +6,7 @@
   <link href="https://plusmultiply0.github.io/atom.xml" rel="self"/>
   
   <link href="https://plusmultiply0.github.io/"/>
-  <updated>2020-09-07T11:08:02.000Z</updated>
+  <updated>2020-10-06T11:31:07.000Z</updated>
   <id>https://plusmultiply0.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>my thoughts about translaion</title>
+    <link href="https://plusmultiply0.github.io/2020/10/06/my-thoughts-about-translaion/"/>
+    <id>https://plusmultiply0.github.io/2020/10/06/my-thoughts-about-translaion/</id>
+    <published>2020-10-06T11:31:07.000Z</published>
+    <updated>2020-10-06T11:31:07.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;参与掘金翻译的总结与思考&quot;&gt;&lt;a href=&quot;#参与掘金翻译的总结与思考&quot; class=&quot;headerlink&quot; title=&quot;参与掘金翻译的总结与思考&quot;&gt;&lt;/a&gt;参与掘金翻译的总结与思考&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
+    
+  </entry>
   
   <entry>
     <title>translation:Packaging a UI Library for Distribution</title>
@@ -114,11 +139,11 @@
     <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
     
     
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
+    
     <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
     
     <category term="RSS" scheme="https://plusmultiply0.github.io/tags/RSS/"/>
-    
-    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
     
   </entry>
   
