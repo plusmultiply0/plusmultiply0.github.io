@@ -28,7 +28,9 @@
     
     
     
-    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    <category term="notes " scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    <category term="translation " scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
     
     <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
@@ -53,11 +55,11 @@
     
     
     
-    <category term="skills" scheme="https://plusmultiply0.github.io/categories/skills/"/>
+    <category term="notes " scheme="https://plusmultiply0.github.io/categories/notes/"/>
     
-    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    <category term="skills " scheme="https://plusmultiply0.github.io/categories/skills/"/>
     
-    <category term=" translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    <category term="translation " scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
     
     <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
@@ -80,7 +82,9 @@
     
     
     
-    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    <category term="notes " scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    <category term="translation " scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
     
     <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
@@ -105,11 +109,11 @@
     
     
     
-    <category term="skills" scheme="https://plusmultiply0.github.io/categories/skills/"/>
+    <category term="notes " scheme="https://plusmultiply0.github.io/categories/notes/"/>
     
-    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    <category term="skills " scheme="https://plusmultiply0.github.io/categories/skills/"/>
     
-    <category term=" translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    <category term="translation " scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
     
     <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
@@ -134,9 +138,9 @@
     
     
     
-    <category term="skills" scheme="https://plusmultiply0.github.io/categories/skills/"/>
+    <category term="notes " scheme="https://plusmultiply0.github.io/categories/notes/"/>
     
-    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    <category term="skills " scheme="https://plusmultiply0.github.io/categories/skills/"/>
     
     
     <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
@@ -159,9 +163,9 @@
     
     
     
-    <category term="skills" scheme="https://plusmultiply0.github.io/categories/skills/"/>
+    <category term="notes " scheme="https://plusmultiply0.github.io/categories/notes/"/>
     
-    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    <category term="skills " scheme="https://plusmultiply0.github.io/categories/skills/"/>
     
     
     <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
@@ -182,9 +186,9 @@
     
     
     
-    <category term="skills" scheme="https://plusmultiply0.github.io/categories/skills/"/>
+    <category term="notes " scheme="https://plusmultiply0.github.io/categories/notes/"/>
     
-    <category term=" notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    <category term="skills " scheme="https://plusmultiply0.github.io/categories/skills/"/>
     
     
     <category term="blog" scheme="https://plusmultiply0.github.io/tags/blog/"/>
@@ -211,6 +215,10 @@
     
     
     
+    <category term="notes " scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="blog" scheme="https://plusmultiply0.github.io/tags/blog/"/>
     
   </entry>
   
