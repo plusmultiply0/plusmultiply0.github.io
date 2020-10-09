@@ -49,6 +49,11 @@ update: 2020-10-06 19:31:07
 **参考前人**
 另外，如果参与者对相关的操作流程不熟悉的话，且文档里没有写明的话，其实可以参考之前的 [pull request](https://github.com/xitu/gold-miner/pulls) 和 [issue](https://github.com/xitu/gold-miner/issues) 里面的做法，多尝试几次就熟悉了。
 
+**小技巧**
+在 review 的时候，有时会看到如下所示：
+{% asset_img reviewTips.png %}
+使用这种方式 review 可以让译者更方便的接收来自校对的修改，无须手动编辑文件。同时，校对会和译者共同成为 commit 的提交者（如果你的修改被采用的话）。
+怎么做：在 review 时点击 具有+-符号的图标，添加上你的修改和意见就可以了。详细可参考这篇[文章](https://haacked.com/archive/2019/06/03/suggested-changes/)。
 ***
 
 ## 参与的好处
@@ -100,3 +105,4 @@ update: 2020-10-06 19:31:07
 ***
 
 ## 最后
+博客只是记录一下本人的所知所感，文章内容后续会不定时更新。
