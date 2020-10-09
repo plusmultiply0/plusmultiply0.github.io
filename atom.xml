@@ -6,7 +6,7 @@
   <link href="https://plusmultiply0.github.io/atom.xml" rel="self"/>
   
   <link href="https://plusmultiply0.github.io/"/>
-  <updated>2020-10-06T11:31:07.000Z</updated>
+  <updated>2020-10-09T13:52:35.000Z</updated>
   <id>https://plusmultiply0.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>transaltion:Using Service Worker with React</title>
+    <link href="https://plusmultiply0.github.io/2020/10/09/transaltion-Using-Service-Worker-with-React/"/>
+    <id>https://plusmultiply0.github.io/2020/10/09/transaltion-Using-Service-Worker-with-React/</id>
+    <published>2020-10-09T13:52:35.000Z</published>
+    <updated>2020-10-09T13:52:35.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;在-React-中使用-Service-Worker&quot;&gt;&lt;a href=&quot;#在-React-中使用-Service-Worker&quot; class=&quot;headerlink&quot; title=&quot;在 React 中使用 Service Worker&quot;&gt;&lt;/a&gt;在 React 中使用 Service Worker&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="translation " scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+    <category term="react" scheme="https://plusmultiply0.github.io/tags/react/"/>
+    
+    <category term="serviceWorker" scheme="https://plusmultiply0.github.io/tags/serviceWorker/"/>
+    
+  </entry>
   
   <entry>
     <title>my thoughts about translaion</title>
