@@ -24,7 +24,7 @@
     <updated>2020-10-25T14:19:33.000Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;Blitz-js简介：一个新兴的-React-全栈框架&quot;&gt;&lt;a href=&quot;#Blitz-js简介：一个新兴的-React-全栈框架&quot; class=&quot;headerlink&quot; title=&quot;Blitz.js简介：一个新兴的 React 全栈框架&quot;&gt;&lt;/a&gt;Blitz.js简介：一个新兴的 React 全栈框架&lt;/h1&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;译-Blitz-js简介：一个新兴的-React-全栈框架&quot;&gt;&lt;a href=&quot;#译-Blitz-js简介：一个新兴的-React-全栈框架&quot; class=&quot;headerlink&quot; title=&quot;[译] Blitz.js简介：一个新兴的 React 全栈框架&quot;&gt;&lt;/a&gt;[译] Blitz.js简介：一个新兴的 React 全栈框架&lt;/h1&gt;</summary>
     
     
     
@@ -49,7 +49,7 @@
     <updated>2020-10-09T13:52:35.000Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;在-React-中使用-Service-Worker&quot;&gt;&lt;a href=&quot;#在-React-中使用-Service-Worker&quot; class=&quot;headerlink&quot; title=&quot;在 React 中使用 Service Worker&quot;&gt;&lt;/a&gt;在 React 中使用 Service Worker&lt;/h1&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;译-在-React-中使用-Service-Worker&quot;&gt;&lt;a href=&quot;#译-在-React-中使用-Service-Worker&quot; class=&quot;headerlink&quot; title=&quot;[译] 在 React 中使用 Service Worker&quot;&gt;&lt;/a&gt;[译] 在 React 中使用 Service Worker&lt;/h1&gt;</summary>
     
     
     
@@ -99,13 +99,9 @@
     <updated>2020-09-07T11:08:02.000Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;第二次翻译——打包用于分发的-UI-库&quot;&gt;&lt;a href=&quot;#第二次翻译——打包用于分发的-UI-库&quot; class=&quot;headerlink&quot; title=&quot;第二次翻译——打包用于分发的 UI 库&quot;&gt;&lt;/a&gt;第二次翻译——打包用于分发的 UI 库&lt;/h1&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;译-打包用于分发的-UI-库&quot;&gt;&lt;a href=&quot;#译-打包用于分发的-UI-库&quot; class=&quot;headerlink&quot; title=&quot;[译] 打包用于分发的 UI 库&quot;&gt;&lt;/a&gt;[译] 打包用于分发的 UI 库&lt;/h1&gt;</summary>
     
     
-    
-    <category term="notes " scheme="https://plusmultiply0.github.io/categories/notes/"/>
-    
-    <category term="skills " scheme="https://plusmultiply0.github.io/categories/skills/"/>
     
     <category term="translation " scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
@@ -146,20 +142,16 @@
   </entry>
   
   <entry>
-    <title>translation:javascript-tips-child-constructors-text-selection-inline-workers-and-more</title>
-    <link href="https://plusmultiply0.github.io/2020/07/24/translation-javascript-tips-child-constructors-text-selection-inline-workers-and-more/"/>
-    <id>https://plusmultiply0.github.io/2020/07/24/translation-javascript-tips-child-constructors-text-selection-inline-workers-and-more/</id>
+    <title>translation:javascript-eight-tips</title>
+    <link href="https://plusmultiply0.github.io/2020/07/24/translation-javascript-eight-tips/"/>
+    <id>https://plusmultiply0.github.io/2020/07/24/translation-javascript-eight-tips/</id>
     <published>2020-07-24T04:00:50.000Z</published>
     <updated>2020-07-24T04:00:50.000Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;第一次翻译：JavaScript-技巧-——-子代构造函数，文本选择，内联-Workers-等等&quot;&gt;&lt;a href=&quot;#第一次翻译：JavaScript-技巧-——-子代构造函数，文本选择，内联-Workers-等等&quot; class=&quot;headerlink&quot; title=&quot;第一次翻译：JavaScript 技巧 —— 子代构造函数，文本选择，内联 Workers 等等&quot;&gt;&lt;/a&gt;第一次翻译：JavaScript 技巧 —— 子代构造函数，文本选择，内联 Workers 等等&lt;/h1&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;译-有关-JavaScript-的八个小技巧&quot;&gt;&lt;a href=&quot;#译-有关-JavaScript-的八个小技巧&quot; class=&quot;headerlink&quot; title=&quot;[译] 有关 JavaScript 的八个小技巧&quot;&gt;&lt;/a&gt;[译] 有关 JavaScript 的八个小技巧&lt;/h1&gt;</summary>
     
     
-    
-    <category term="notes " scheme="https://plusmultiply0.github.io/categories/notes/"/>
-    
-    <category term="skills " scheme="https://plusmultiply0.github.io/categories/skills/"/>
     
     <category term="translation " scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
