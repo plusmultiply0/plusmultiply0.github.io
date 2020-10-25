@@ -171,3 +171,4 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest || [])
 > * 原文地址：[Using Service Workers with React](https://blog.bitsrc.io/using-service-workers-with-react-27a4c5e2d1a9)
 > * 原文作者：[Shaumik Daityari](https://medium.com/@ds_mik)
 ## 一些想法
+等待被添加 orz
