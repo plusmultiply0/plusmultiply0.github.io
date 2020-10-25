@@ -12,7 +12,7 @@ category:
   - ['translation ']
 toc: true
 ---
-# Blitz.js简介：一个新兴的 React 全栈框架
+# [译] Blitz.js简介：一个新兴的 React 全栈框架
 <!--more-->
 JavaScript 社区一直在稳步发展，并且已经推出了数百个框架，这无疑超出了我们的理解和掌握范围，但这并不是新鲜事。
 

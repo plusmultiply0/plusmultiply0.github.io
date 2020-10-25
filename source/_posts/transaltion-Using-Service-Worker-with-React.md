@@ -11,7 +11,7 @@ category:
   - ['translation ']
 toc: true
 ---
-# 在 React 中使用 Service Worker
+# [译] 在 React 中使用 Service Worker
 <!--more-->
 如果你在前端开发中使用 React，那么你有可能听说过 Service Worker。如果你不确定它是做什么的，或者不知道如何适当的配置它，这份在 React 中使用 Service Worker 的初学者指南，将会让你在 React 中实现功能丰富的离线体验，有一个良好的开端。
 
