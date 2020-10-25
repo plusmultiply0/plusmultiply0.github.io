@@ -6,7 +6,7 @@
   <link href="https://plusmultiply0.github.io/atom.xml" rel="self"/>
   
   <link href="https://plusmultiply0.github.io/"/>
-  <updated>2020-10-09T13:52:35.000Z</updated>
+  <updated>2020-10-25T14:19:33.000Z</updated>
   <id>https://plusmultiply0.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>transaltion:Introduction to Blitz.js</title>
+    <link href="https://plusmultiply0.github.io/2020/10/25/transaltion-Introduction-to-Blitz-js/"/>
+    <id>https://plusmultiply0.github.io/2020/10/25/transaltion-Introduction-to-Blitz-js/</id>
+    <published>2020-10-25T14:19:33.000Z</published>
+    <updated>2020-10-25T14:19:33.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Blitz-js简介：一个新兴的-React-全栈框架&quot;&gt;&lt;a href=&quot;#Blitz-js简介：一个新兴的-React-全栈框架&quot; class=&quot;headerlink&quot; title=&quot;Blitz.js简介：一个新兴的 React 全栈框架&quot;&gt;&lt;/a&gt;Blitz.js简介：一个新兴的 React 全栈框架&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="translation " scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
+    
+  </entry>
   
   <entry>
     <title>transaltion:Using Service Worker with React</title>
