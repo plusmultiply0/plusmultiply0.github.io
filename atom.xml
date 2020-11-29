@@ -6,7 +6,7 @@
   <link href="https://plusmultiply0.github.io/atom.xml" rel="self"/>
   
   <link href="https://plusmultiply0.github.io/"/>
-  <updated>2020-10-25T14:19:33.000Z</updated>
+  <updated>2020-11-29T11:06:15.000Z</updated>
   <id>https://plusmultiply0.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>translation:use cookies in Nextjs</title>
+    <link href="https://plusmultiply0.github.io/2020/11/29/translation-use-cookies-in-Nextjs/"/>
+    <id>https://plusmultiply0.github.io/2020/11/29/translation-use-cookies-in-Nextjs/</id>
+    <published>2020-11-29T11:06:15.000Z</published>
+    <updated>2020-11-29T11:06:15.000Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;译-如何在-Nextjs-中使用-cookies-来持久化保存用户信息&quot;&gt;&lt;a href=&quot;#译-如何在-Nextjs-中使用-cookies-来持久化保存用户信息&quot; class=&quot;headerlink&quot; title=&quot;[译]如何在 Nextjs 中使用 cookies 来持久化保存用户信息&quot;&gt;&lt;/a&gt;[译]如何在 Nextjs 中使用 cookies 来持久化保存用户信息&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="translation " scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+  </entry>
   
   <entry>
     <title>transaltion:Introduction to Blitz.js</title>
