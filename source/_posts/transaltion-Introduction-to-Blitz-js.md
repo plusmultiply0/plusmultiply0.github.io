@@ -1,19 +1,16 @@
 ---
-title: 'transaltion:Introduction to Blitz.js'
+title: '[译]Blitz.js简介：一个新兴的 React 全栈框架'
 comments: true
 date: 2020-10-25 22:19:33
-update: 2020-10-25 22:19:33
 tags:
   - translation
   - thoughts
   - tips
   - attempt
 category:
-  - ['translation ']
-toc: true
+  - translation
+# toc: true
 ---
-# [译] Blitz.js简介：一个新兴的 React 全栈框架
-<!--more-->
 JavaScript 社区一直在稳步发展，并且已经推出了数百个框架，这无疑超出了我们的理解和掌握范围，但这并不是新鲜事。
 
 现在，大多数稳定的框架都有基于其进一步构建的框架，同时具有更好的性能以及变得更加复杂。

@@ -1,18 +1,18 @@
 ---
-title: 'translation:use cookies in Nextjs'
+title: '[译]如何在 Nextjs 中使用 cookies 来持久化保存用户信息'
 comments: true
 date: 2020-11-29 19:06:15
-update: 2020-11-29 19:06:15
 tags:
   - translation
   - thoughts
   - tips
+  - NextJs
+  - React
+  - cookie
 category:
-  - ['translation ']
-toc: true
+  - translation
+# toc: true
 ---
-# [译]如何在 Nextjs 中使用 cookies 来持久化保存用户信息
-<!--more-->
 ## 使用 LocalStorage
 
 在 React 或单页应用中有许多方式来持久化保存用户信息。大多数时候，开发者通常使用 localStorage 来保存以及按需加载用户数据。虽然这个方法可行，但不太好，因为它会让用户易于遭到攻击。使用 cookies 会是相对安全的选择。就个人而言，我倾向于混合使用 cookies 和 JWT 的 [JSON Web tokens](https://jwt.io/) 来持久化用户会话以及，当会话过期时，强制用户重新登录。如何使用 JWT 的 [JSON Web tokens](https://jwt.io/) 不在本文的介绍范围内。

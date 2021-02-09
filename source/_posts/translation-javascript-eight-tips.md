@@ -1,6 +1,5 @@
 ---
-title: >-
-  translation:javascript-eight-tips
+title: '[译]有关 JavaScript 的八个小技巧'
 tags:
   - JavaScript
   - tips
@@ -8,15 +7,11 @@ tags:
   - web
 comments: true
 category:
-  - ['translation ']
+  - translation
 date: 2020-07-24 12:00:50
-update: 2020-07-24 12:00:50
 # toc: true
 ---
-
-# [译] 有关 JavaScript 的八个小技巧
-<!--more-->
-**索引**：
+<!-- **索引**：
 - [取消双击后的文本选中](#preventTextSelect)
 - [为什么设置原型的构造函数是必要的？](#PrototypeConstructor)
 - [无需单独的 Javascript 文件即可创建 Web Workers](#WebWorkers)
@@ -25,15 +20,15 @@ update: 2020-07-24 12:00:50
 - [使用三目运算符时省略第二个表达式](#omit)
 - [清除 Yarn 中的缓存](#yarn)
 - [innerText 在 IE 中有效，但在其他浏览器中无效](#innerText)
-- [总结](#conclusion)
+- [总结](#conclusion) -->
 
-**正文：**
+## **正文：**
 
 当我们在编写 JavaScript 应用的时候，和编写其他类型的应用程序一样，需要解决一些困难的问题。
 
 本篇文章中，我们将会介绍常见 JavaScript 问题的一些解决方法。
 
-## <a id="preventTextSelect"></a>取消双击后的文本选中
+### <a id="preventTextSelect"></a>取消双击后的文本选中
 
 我们可以通过调用 <code>preventDefault()</code> 来阻止在双击后对文本的选中这个默认行为。
 
@@ -48,7 +43,7 @@ document.addEventListener('mousedown', (event) => {
 }, false);
 ```
 
-## <a id="PrototypeConstructor"></a>为什么设置原型的构造函数（Prototype Constructor）是必要的？
+### <a id="PrototypeConstructor"></a>为什么设置原型的构造函数（Prototype Constructor）是必要的？
 
 我们必须设置原型的构造函数 ，这样，我们就可以用 `instanceof` 检查原型的构造函数是否为一个给定的构造函数。
 
@@ -97,7 +92,7 @@ class Student extends Person {
 
 这样，所有的事情都自动为我们处理好了。
 
-## <a id="WebWorkers"></a>无需单独的 Javascript 文件即可创建 Web Workers
+### <a id="WebWorkers"></a>无需单独的 Javascript 文件即可创建 Web Workers
 
 使用 `javascript/worker` 作为 `type` 属性的值，可以让我们无需单独创建 JavaScript 文件就能创建一个 web worker。
 
@@ -128,7 +123,7 @@ class Student extends Person {
 
 现在，我们就可以在 worker 线程里以及调用 worker 的 script 元素内写我们通常的 worker 代码了。
 
-## <a id="trimfname"></a>如何去除字符串内的文件扩展名
+### <a id="trimfname"></a>如何去除字符串内的文件扩展名
 
 从字符串去除文件的扩展名，我们可以使用 `replace` 方法。
 
@@ -154,7 +149,7 @@ path.parse(filename).name;
 
 `path.parse` 获得文件的路径，然后我们访问 `name` 属性得到文件名。
 
-## <a id="mapparse"></a>为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？
+### <a id="mapparse"></a>为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？
 
 之所以 `parseInt` 在数组实例的 `map` 方法中会返回 `NaN` ，是因为 `parseInt` 接收的参数与 `map` 回调接收的 3 个参数不相对应。
 
@@ -186,7 +181,7 @@ path.parse(filename).name;
 ['1','2','3'].map(num => parseInt(num, 10))
 ```
 
-## <a id="omit"></a>使用三目运算符时省略第二个表达式
+### <a id="omit"></a>使用三目运算符时省略第二个表达式
 
 如果我们有如下的三目表达式：
 
@@ -204,11 +199,11 @@ x === 1 && dosomething();
 
 当 `x===1` 结果为 `true` 时，`dosomething` 就会被调用。
 
-## <a id="yarn"></a>清除 Yarn 中的缓存
+### <a id="yarn"></a>清除 Yarn 中的缓存
 
 使用 `yarn cache clean` ，我们可以清除 yarn 中的缓存。
 
-## <a id="innerText"></a>innerText 在 IE 中有效，但在其他浏览器中无效
+### <a id="innerText"></a>innerText 在 IE 中有效，但在其他浏览器中无效
 
 `innerText` 是仅用于 IE 的属性，用于填充节点的文本内容。
 

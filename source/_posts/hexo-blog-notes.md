@@ -1,19 +1,16 @@
 ---
-title: hexo-blog-notes
+title: hexo 博客搭建&升级记录
 date: 2020-05-28 16:22:38
 tags:
     - blog
     - hexo
 category:
-    - ['skills ']
-    - ['notes ']
+    - notes
 comments: true
 toc: true
 # layout: timeline
 ---
-# 博客搭建记录
-<!--more-->
-对自己搭建博客功能的记录，仅供参考:
+> 对自己搭建博客以及后续升级/添加功能的记录，仅供参考:
 
 - [博客部署小记](#blogstart)
 - [规避部署重复输入账号密码](#avoidpwd)

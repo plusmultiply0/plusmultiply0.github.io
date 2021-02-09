@@ -3,7 +3,7 @@ navname: Plusmultiply0's Blog
 
 # navigatior items
 nav:
-  Posts: /archives
+  Archives: /archives
   Categories: /category
   Tags: /tag
   About: /about
@@ -26,7 +26,7 @@ links:
   Blog: /archives
   # Category:
   # Tags: 
-  # Link:
+  Link: https://juejin.cn/user/43636196915773/posts
   # Resume:
   # Publish:
   # Trophy:
@@ -50,6 +50,7 @@ links:
   # Weibo:
   # WeChat:
   Github: https://github.com/plusmultiply0
+  # juejin: 
 
 # how links show: you have 2 choice--text or icon.
 links_text_enable: false

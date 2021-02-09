@@ -1,20 +1,15 @@
 ---
-title: notes and tips about Github
+title: 有关 Git&Github 的tips总结
 tags:
   - Github
   - tips
 comments: true
 category:
-  - ['skills ']
-  - ['notes ']
+  - notes
 date: 2020-06-24 23:09:12
-update: 2020-06-24 23:09:12
 toc: true
 ---
-
-# 一些关于Github的tips
-<!--more-->
-记录关于Github上有趣、有帮助的小tips~~
+> 记录关于Github/Git上有趣、有帮助的小tips~~
 
 ## <a id="waka"></a>在 profile 显示编码时间统计
 实例图片如下：

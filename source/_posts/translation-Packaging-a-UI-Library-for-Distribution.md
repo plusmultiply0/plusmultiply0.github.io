@@ -1,20 +1,16 @@
 ---
-title: 'translation:Packaging a UI Library for Distribution'
+title: '[译]打包用于分发的 UI 库'
 tags:
   - JavaScript
   - UI Library
   - web
 comments: true
 category:
-  - ['translation ']
+  - translation
 date: 2020-09-07 19:08:02
-update: 2020-09-07 19:08:02
 # toc: true
 ---
-
-# [译] 打包用于分发的 UI 库
-<!--more-->
-**索引**
+<!-- **索引**
 - [翻译正文](#title)
     - [问题的由来](#problemfrom)
     - [如何交付 package？](#deliverypackage)
@@ -27,8 +23,7 @@ update: 2020-09-07 19:08:02
         - [打包工具](#bundtool)
         - [Manifest](#manifest)
     - [最后](#last)
-- [原文地址：Packaging a UI Library for Distribution](https://blog.bitsrc.io/packaging-a-ui-library-for-distribution-d153219def28)
-- [Feeling and thinking](#feel)
+- [Feeling and thinking](#feel) -->
 
 ## <a id="title"></a>打包用于分发的 UI 库 —— 当你要发布一个 UI 组件库时，你可能需要遵守的指南
 
@@ -157,6 +152,7 @@ Package.json 用于表示库的内容。除了版本名称外，它还应该指�
 
 希望在不久的未来，我们能看到 Javascript 生态系统对于语法和模块拥有一个统一的标准。
 
+> [原文地址：Packaging a UI Library for Distribution](https://blog.bitsrc.io/packaging-a-ui-library-for-distribution-d153219def28)
 
 ## <a id="feel"></a>Feeling and thinking
 翻译的第二篇文章，感觉质量优于第一篇翻译的。

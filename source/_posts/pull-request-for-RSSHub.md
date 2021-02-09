@@ -1,20 +1,20 @@
 ---
-title: pull request for RSSHub
+title: 为 RSSHub 贡献 pr
 tags:
   - Github
   - RSS
   - attempt
+  - NodeJs
+  - JavaScript
 comments: true
 category:
-  - ['skills ']
-  - ['notes ']
+  - notes
 date: 2020-07-19 15:55:41
-update: 2020-07-19 15:55:41
 # toc: true
 ---
 
-# 记一次为 RSSHub 提 pr 的经历
-<!--more-->
+> 记一次为 RSSHub 提 pr 的经历
+
 {% asset_img RSSHub.png %}
 
 **内容索引**
@@ -23,7 +23,7 @@ update: 2020-07-19 15:55:41
 - [一些感受](#feelings)
 
 
-#### <a id="start"></a>开始
+## <a id="start"></a>开始
 最近为 [RSSHub](https://github.com/DIYgod/RSSHub) 提交了一个 pr，是关于学校图书馆新闻动态的 RSS 订阅。
 
 [RSSHub](https://github.com/DIYgod/RSSHub) 可以为各种各样的网站生成 RSS，再用 RSS 阅读器订阅就可以很方便的浏览网站的更新信息。
@@ -38,7 +38,7 @@ update: 2020-07-19 15:55:41
 
 那么，开始动手吧。
 
-#### <a id="process"></a>具体过程
+## <a id="process"></a>具体过程
 
 先在 Github 上 fork 一下项目，然后 <code>git clone</code> 到本地。
 
@@ -70,12 +70,12 @@ replace(/href="\//g, `href="${url.resolve(host, '.')}`)
 
 至此，为 RSSHub 的 pr 的经历就告一段落了。[DIYgod](https://github.com/DIYgod) 诚不欺我，确实只需要会一点 Javascript 就可以提一个简单的 pr 了:)
 
-#### <a id="feelings"></a>一些感受
+## <a id="feelings"></a>一些感受
 
 除此之外，感觉看了下 [RSSHub](https://github.com/DIYgod/RSSHub) 的路由文档，能涨不少见识。
 能认识到不同领域的不少网站，在需要了解某一领域/某方面知识时，可以做一个简单的参考，比如：设计、科学期刊、出行旅游等路由。可以通过这些分类的网站去了解信息。
 固然，不能排除有为了水 pr 或者打广告等原因写的路由规则，这个在所难免，还是得靠自己分辨。
 
-#### 后记
+## 后记
 pr 被合并啦 :)
 {% asset_img merged.png %}

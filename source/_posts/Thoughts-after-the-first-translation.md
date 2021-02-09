@@ -1,5 +1,5 @@
 ---
-title: Thoughts after the first translation
+title: 第一次翻译后的思考与记录
 tags:
   - thoughts
   - web
@@ -7,15 +7,11 @@ tags:
   - translation
 comments: true
 category:
-  - ['notes ']
-  - ['translation ']
+  - translation
 date: 2020-07-26 22:45:16
-update: 2020-07-26 22:45:16
 toc: true
 ---
-
-# 第一篇译文后的思考与记录
-<!--more-->
+## 正文
 最近参与了 [掘金翻译计划](https://github.com/xitu/gold-miner)，翻译了第一篇 [译文](https://github.com/xitu/gold-miner/blob/master/article/2020/javascript-tips-child-constructors-text-selection-inline-workers-and-more.md) -- [英文原文地址](https://medium.com/front-end-weekly/javascript-tips-child-constructors-text-selection-inline-workers-and-more-606bc050ee24)，主要就是介绍写 Javascript 应用时，可能遇到的“难题”的解决方法。
 
 通篇看下来，并没有看到有什么特别难的问题，感觉更像是日常遇到的小问题的总结记录。比如：

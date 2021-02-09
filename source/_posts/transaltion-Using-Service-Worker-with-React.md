@@ -1,18 +1,16 @@
 ---
-title: 'transaltion:Using Service Worker with React'
+title: '[译]在 React 中使用 Service Worker'
 comments: true
 date: 2020-10-09 21:52:35
 update: 2020-10-09 21:52:35
 tags:
   - translation
-  - react
+  - React
   - serviceWorker
 category:
-  - ['translation ']
-toc: true
+  - translation
+# toc: true
 ---
-# [译] 在 React 中使用 Service Worker
-<!--more-->
 如果你在前端开发中使用 React，那么你有可能听说过 Service Worker。如果你不确定它是做什么的，或者不知道如何适当的配置它，这份在 React 中使用 Service Worker 的初学者指南，将会让你在 React 中实现功能丰富的离线体验，有一个良好的开端。
 
 Service Worker 是由客户端浏览器运行的脚本。它们和 DOM 没有直接关系并且提供了许多与网络相关且开箱即用的功能。Service Worker 是构建离线应用的基础。它也具有推送通知和后台同步等功能。

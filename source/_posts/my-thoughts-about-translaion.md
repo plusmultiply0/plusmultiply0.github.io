@@ -1,5 +1,5 @@
 ---
-title: my thoughts about translaion
+title: 参与掘金翻译的一些总结与思考
 tags:
   - translation
   - thoughts
@@ -7,15 +7,10 @@ tags:
   - attempt
 comments: true
 category:
-  - ['notes ']
-  - ['translation ']
+  - translation
 toc: true
 date: 2020-10-06 19:31:07
-update: 2020-10-06 19:31:07
 ---
-
-# 参与掘金翻译的总结与思考
-<!--more-->
 截止此文发布，我已经翻译了 3-4 篇文章以及参与了 5-6 次校对了。现在写下此文来总结和分享下我参与翻译和校对的一些总结和思考。
 
 翻译的平台是——[掘金](https://github.com/xitu/gold-miner)，下面是官方简介。
