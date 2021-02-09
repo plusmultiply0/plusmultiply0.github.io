@@ -26,9 +26,9 @@ links:
   Blog: /archives
   # Category:
   # Tags: 
-  Link: https://juejin.cn/user/43636196915773/posts
+  Link: https://doc-site.works/
   # Resume:
-  # Publish:
+  Publish: https://juejin.cn/user/43636196915773/posts
   # Trophy:
   # Gallery:
   # RSS:
@@ -50,7 +50,7 @@ links:
   # Weibo:
   # WeChat:
   Github: https://github.com/plusmultiply0
-  # juejin: 
+  # juejin需自建: 
 
 # how links show: you have 2 choice--text or icon.
 links_text_enable: false
