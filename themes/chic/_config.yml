@@ -15,7 +15,7 @@ favicon: /favicon.ico
 nickname: plusmultiply0
 
 ### this variable is MarkDown form.
-description: 'I am exploring something now<br><br>'
+description: '<i>I am exploring something now</i><br><br>'
 avatar: /image/avatar.jpg
 
 # main menu navigation

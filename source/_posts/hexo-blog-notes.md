@@ -157,3 +157,17 @@ git pushoh
 **参考链接：**
 - [Git Basics - Git Aliases](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases)
 - [how-do-i-alias-commands-in-git](https://stackoverflow.com/questions/2553786/how-do-i-alias-commands-in-git)
+
+## 小修博客样式
+有时博客样式不是太完美，自己想调整一下，怎么把？
+我的做法是，浏览器打开F12，定位到指定元素的类名/属性名，打开vscode进行搜索
+然后，修改成自己想要的样式就行了
+比如：
+- **博客（白色背景）右上角的togglebutton有点不完美**
+右键检查，复制类名，在vscode中搜索
+其实，这样搜不到...注意到，注释掉box-shadow并微调height后，会比较美观。
+于是改为搜索box-shadow/height，然后找到了，进行了修改！
+- **修改字体**
+基本同上，vscode全局搜索font-family属性，找到后将想要的字体设置为第一个即可
+我使用的字体是[Lato](https://fonts.google.com/specimen/Lato?preview.text_type=custom&sidebar.open=true&selection.family=Lato:ital,wght@1,300;1,400;1,700#standard-styles)，最初是在 https://shuxiao.wang/ 上看到的。
+个人倾心于英文normal斜体，感觉特别美丽和优雅~~
