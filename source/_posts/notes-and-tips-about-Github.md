@@ -16,10 +16,6 @@ toc: true
 <!--more-->
 记录关于Github上有趣、有帮助的小tips~~
 
-**索引**
-- [在profile显示编码时间统计](#waka)
-- [加速 git clone 下载](#accelerateGit)
-
 ## <a id="waka"></a>在 profile 显示编码时间统计
 实例图片如下：
 {% asset_img example.png %}
