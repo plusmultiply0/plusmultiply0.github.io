@@ -36,9 +36,9 @@ input[type="radio"]:not(:checked) + label:after {
      border-radius:7px;
      cursor: pointer;
      display: inline-block;
-     height: 14px;
+     height: 13px;
      position: relative;
-     box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180);
+     /* box-shadow: 0.2px 0.2px 1px 0.5px rgb(180,180,180); */
      width: 30px;
  }
 .switch_default + label:after{
