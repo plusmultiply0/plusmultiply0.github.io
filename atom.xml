@@ -356,9 +356,10 @@
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;对自己搭建博客以及后续升级/添加功能的记录，仅供参考:&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#blogstart&quot;&gt;博客部署小记&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a</summary>
+&lt;!-- 
+- [博客部署小记](#blogstart)
+- [规避部署重复输入账号密码](#avoidpwd)
+-</summary>
         
       
     
