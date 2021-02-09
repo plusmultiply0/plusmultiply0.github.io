@@ -16,7 +16,7 @@
     <meta name="keywords" content="blog,notes,life">
 
 
-<title>translation:javascript-eight-tips | plusmultiply0&#39;s blog</title>
+<title>[译]有关 JavaScript 的八个小技巧 | plusmultiply0&#39;s blog</title>
 
 
 
@@ -57,7 +57,7 @@
             <div class="navbar-header header-logo"><a href="/">Plusmultiply0&#39;s Blog</a></div>
             <div class="menu navbar-right">
                 
-                    <a class="menu-item" href="/archives">Posts</a>
+                    <a class="menu-item" href="/archives">Archives</a>
                 
                     <a class="menu-item" href="/category">Categories</a>
                 
@@ -82,7 +82,7 @@
             </div>
             <div class="menu" id="mobile-menu">
                 
-                    <a class="menu-item" href="/archives">Posts</a>
+                    <a class="menu-item" href="/archives">Archives</a>
                 
                     <a class="menu-item" href="/category">Categories</a>
                 
@@ -178,7 +178,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">translation:javascript-eight-tips</h1>
+            <h1 class="post-title">[译]有关 JavaScript 的八个小技巧</h1>
             
                 <div class="post-meta">
                     
@@ -194,7 +194,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/translation/">translation </a>
+                                <a href="/categories/translation/">translation</a>
                             
                         </span>
                     
@@ -203,27 +203,24 @@
         </header>
 
         <div class="post-content">
-            <h1 id="译-有关-JavaScript-的八个小技巧"><a href="#译-有关-JavaScript-的八个小技巧" class="headerlink" title="[译] 有关 JavaScript 的八个小技巧"></a>[译] 有关 JavaScript 的八个小技巧</h1><a id="more"></a>
-<p><strong>索引</strong>：</p>
-<ul>
-<li><a href="#preventTextSelect">取消双击后的文本选中</a></li>
-<li><a href="#PrototypeConstructor">为什么设置原型的构造函数是必要的？</a></li>
-<li><a href="#WebWorkers">无需单独的 Javascript 文件即可创建 Web Workers</a></li>
-<li><a href="#trimfname">如何去除字符串内的文件扩展名</a></li>
-<li><a href="#mapparse">为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？</a></li>
-<li><a href="#omit">使用三目运算符时省略第二个表达式</a></li>
-<li><a href="#yarn">清除 Yarn 中的缓存</a></li>
-<li><a href="#innerText">innerText 在 IE 中有效，但在其他浏览器中无效</a></li>
-<li><a href="#conclusion">总结</a></li>
-</ul>
-<p><strong>正文：</strong></p>
-<p>当我们在编写 JavaScript 应用的时候，和编写其他类型的应用程序一样，需要解决一些困难的问题。</p>
+            <!-- **索引**：
+- [取消双击后的文本选中](#preventTextSelect)
+- [为什么设置原型的构造函数是必要的？](#PrototypeConstructor)
+- [无需单独的 Javascript 文件即可创建 Web Workers](#WebWorkers)
+- [如何去除字符串内的文件扩展名](#trimfname)
+- [为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？](#mapparse)
+- [使用三目运算符时省略第二个表达式](#omit)
+- [清除 Yarn 中的缓存](#yarn)
+- [innerText 在 IE 中有效，但在其他浏览器中无效](#innerText)
+- [总结](#conclusion) -->
+
+<h2 id="正文："><a href="#正文：" class="headerlink" title="正文："></a><strong>正文：</strong></h2><p>当我们在编写 JavaScript 应用的时候，和编写其他类型的应用程序一样，需要解决一些困难的问题。</p>
 <p>本篇文章中，我们将会介绍常见 JavaScript 问题的一些解决方法。</p>
-<h2 id="取消双击后的文本选中"><a href="#取消双击后的文本选中" class="headerlink" title="取消双击后的文本选中"></a><a id="preventTextSelect"></a>取消双击后的文本选中</h2><p>我们可以通过调用 <code>preventDefault()</code> 来阻止在双击后对文本的选中这个默认行为。</p>
+<h3 id="取消双击后的文本选中"><a href="#取消双击后的文本选中" class="headerlink" title="取消双击后的文本选中"></a><a id="preventTextSelect"></a>取消双击后的文本选中</h3><p>我们可以通过调用 <code>preventDefault()</code> 来阻止在双击后对文本的选中这个默认行为。</p>
 <p>例如，我们可以这样写：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'mousedown'</span>, (event) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (event.detail &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    event.preventDefault();</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 
-<h2 id="为什么设置原型的构造函数（Prototype-Constructor）是必要的？"><a href="#为什么设置原型的构造函数（Prototype-Constructor）是必要的？" class="headerlink" title="为什么设置原型的构造函数（Prototype Constructor）是必要的？"></a><a id="PrototypeConstructor"></a>为什么设置原型的构造函数（Prototype Constructor）是必要的？</h2><p>我们必须设置原型的构造函数 ，这样，我们就可以用 <code>instanceof</code> 检查原型的构造函数是否为一个给定的构造函数。</p>
+<h3 id="为什么设置原型的构造函数（Prototype-Constructor）是必要的？"><a href="#为什么设置原型的构造函数（Prototype-Constructor）是必要的？" class="headerlink" title="为什么设置原型的构造函数（Prototype Constructor）是必要的？"></a><a id="PrototypeConstructor"></a>为什么设置原型的构造函数（Prototype Constructor）是必要的？</h3><p>我们必须设置原型的构造函数 ，这样，我们就可以用 <code>instanceof</code> 检查原型的构造函数是否为一个给定的构造函数。</p>
 <p>比如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name</span>) </span>&#123;  </span><br><span class="line">  Person.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Student.prototype = <span class="built_in">Object</span>.create(Person.prototype);</span><br></pre></td></tr></table></figure>
 
@@ -241,14 +238,14 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">   <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这样，所有的事情都自动为我们处理好了。</p>
-<h2 id="无需单独的-Javascript-文件即可创建-Web-Workers"><a href="#无需单独的-Javascript-文件即可创建-Web-Workers" class="headerlink" title="无需单独的 Javascript 文件即可创建 Web Workers"></a><a id="WebWorkers"></a>无需单独的 Javascript 文件即可创建 Web Workers</h2><p>使用 <code>javascript/worker</code> 作为 <code>type</code> 属性的值，可以让我们无需单独创建 JavaScript 文件就能创建一个 web worker。</p>
+<h3 id="无需单独的-Javascript-文件即可创建-Web-Workers"><a href="#无需单独的-Javascript-文件即可创建-Web-Workers" class="headerlink" title="无需单独的 Javascript 文件即可创建 Web Workers"></a><a id="WebWorkers"></a>无需单独的 Javascript 文件即可创建 Web Workers</h3><p>使用 <code>javascript/worker</code> 作为 <code>type</code> 属性的值，可以让我们无需单独创建 JavaScript 文件就能创建一个 web worker。</p>
 <p>例如，我们可以这样写：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">id</span>=<span class="string">"worker"</span> <span class="attr">type</span>=<span class="string">"javascript/worker"</span>&gt;</span></span><br><span class="line"><span class="javascript">  self.onmessage = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="actionscript">    self.postMessage(<span class="string">'msg'</span>);</span></span><br><span class="line">  &#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">const</span> blob = <span class="keyword">new</span> Blob([</span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.querySelector(<span class="string">'#worker'</span>).textContent</span></span><br><span class="line">  ];</span><br><span class="line"></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> worker = <span class="keyword">new</span> Worker(<span class="built_in">window</span>.URL.createObjectURL(blob));</span></span><br><span class="line"><span class="javascript">  worker.onmessage = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(e.data);</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="actionscript">  worker.postMessage(<span class="string">"hello"</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>通过获取 script 元素以及使用 <code>textContent</code> 属性，我们得到了作为 Blob 对象的 worker（blob 变量）。</p>
 <p>然后，我们使用 <code>Worker</code> 构造函数和 blob 变量来创建一个 Worker 对象（worker 变量）。</p>
 <p>现在，我们就可以在 worker 线程里以及调用 worker 的 script 元素内写我们通常的 worker 代码了。</p>
-<h2 id="如何去除字符串内的文件扩展名"><a href="#如何去除字符串内的文件扩展名" class="headerlink" title="如何去除字符串内的文件扩展名"></a><a id="trimfname"></a>如何去除字符串内的文件扩展名</h2><p>从字符串去除文件的扩展名，我们可以使用 <code>replace</code> 方法。</p>
+<h3 id="如何去除字符串内的文件扩展名"><a href="#如何去除字符串内的文件扩展名" class="headerlink" title="如何去除字符串内的文件扩展名"></a><a id="trimfname"></a>如何去除字符串内的文件扩展名</h3><p>从字符串去除文件的扩展名，我们可以使用 <code>replace</code> 方法。</p>
 <p>例如，我们可以这样写：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fileName.replace(<span class="regexp">/\.[^/.]+$/</span>, <span class="string">""</span>);</span><br></pre></td></tr></table></figure>
 
@@ -259,7 +256,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> filename = <span class="string">'foo.txt'</span>;</span><br><span class="line">path.parse(filename).name;</span><br></pre></td></tr></table></figure>
 
 <p><code>path.parse</code> 获得文件的路径，然后我们访问 <code>name</code> 属性得到文件名。</p>
-<h2 id="为什么在-Array-prototype-map-里使用-parseInt-会返回-NaN？"><a href="#为什么在-Array-prototype-map-里使用-parseInt-会返回-NaN？" class="headerlink" title="为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？"></a><a id="mapparse"></a>为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？</h2><p>之所以 <code>parseInt</code> 在数组实例的 <code>map</code> 方法中会返回 <code>NaN</code> ，是因为 <code>parseInt</code> 接收的参数与 <code>map</code> 回调接收的 3 个参数不相对应。</p>
+<h3 id="为什么在-Array-prototype-map-里使用-parseInt-会返回-NaN？"><a href="#为什么在-Array-prototype-map-里使用-parseInt-会返回-NaN？" class="headerlink" title="为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？"></a><a id="mapparse"></a>为什么在 Array.prototype.map 里使用 parseInt 会返回 NaN？</h3><p>之所以 <code>parseInt</code> 在数组实例的 <code>map</code> 方法中会返回 <code>NaN</code> ，是因为 <code>parseInt</code> 接收的参数与 <code>map</code> 回调接收的 3 个参数不相对应。</p>
 <p><code>parseInt</code> 将（字符串类型的）数字（本例中）作为第一个参数，并且将 基数（radix）作为第二个参数。</p>
 <p><code>map</code> 回调将数组项作为第一个参数，索引作为第二个参数，数组本身作为第三个参数。</p>
 <p>因此，如果我们直接使用 <code>parseInt</code> 作为回调，那么索引就会被传递作为基数 ，这显然不合适。</p>
@@ -274,7 +271,7 @@
 <p>或者</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>].map(<span class="function"><span class="params">num</span> =&gt;</span> <span class="built_in">parseInt</span>(num, <span class="number">10</span>))</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用三目运算符时省略第二个表达式"><a href="#使用三目运算符时省略第二个表达式" class="headerlink" title="使用三目运算符时省略第二个表达式"></a><a id="omit"></a>使用三目运算符时省略第二个表达式</h2><p>如果我们有如下的三目表达式：</p>
+<h3 id="使用三目运算符时省略第二个表达式"><a href="#使用三目运算符时省略第二个表达式" class="headerlink" title="使用三目运算符时省略第二个表达式"></a><a id="omit"></a>使用三目运算符时省略第二个表达式</h3><p>如果我们有如下的三目表达式：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x === <span class="number">1</span> ? doSomething() : doSomethingElse();</span><br></pre></td></tr></table></figure>
 
 <p>但是，当 <code>x===1</code> 的结果是 <code>false</code> ，我们又不想调用 <code>doSomethingElse</code> 时，我们可以使用 <code>&amp;&amp;</code> 操作符替代。</p>
@@ -282,8 +279,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x === <span class="number">1</span> &amp;&amp; dosomething();</span><br></pre></td></tr></table></figure>
 
 <p>当 <code>x===1</code> 结果为 <code>true</code> 时，<code>dosomething</code> 就会被调用。</p>
-<h2 id="清除-Yarn-中的缓存"><a href="#清除-Yarn-中的缓存" class="headerlink" title="清除 Yarn 中的缓存"></a><a id="yarn"></a>清除 Yarn 中的缓存</h2><p>使用 <code>yarn cache clean</code> ，我们可以清除 yarn 中的缓存。</p>
-<h2 id="innerText-在-IE-中有效，但在其他浏览器中无效"><a href="#innerText-在-IE-中有效，但在其他浏览器中无效" class="headerlink" title="innerText 在 IE 中有效，但在其他浏览器中无效"></a><a id="innerText"></a>innerText 在 IE 中有效，但在其他浏览器中无效</h2><p><code>innerText</code> 是仅用于 IE 的属性，用于填充节点的文本内容。</p>
+<h3 id="清除-Yarn-中的缓存"><a href="#清除-Yarn-中的缓存" class="headerlink" title="清除 Yarn 中的缓存"></a><a id="yarn"></a>清除 Yarn 中的缓存</h3><p>使用 <code>yarn cache clean</code> ，我们可以清除 yarn 中的缓存。</p>
+<h3 id="innerText-在-IE-中有效，但在其他浏览器中无效"><a href="#innerText-在-IE-中有效，但在其他浏览器中无效" class="headerlink" title="innerText 在 IE 中有效，但在其他浏览器中无效"></a><a id="innerText"></a>innerText 在 IE 中有效，但在其他浏览器中无效</h3><p><code>innerText</code> 是仅用于 IE 的属性，用于填充节点的文本内容。</p>
 <p>为了在其他浏览器中做到同样的事情，我们可以设置 <code>textContent</code> 属性。</p>
 <p>例如，我们这么写：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'foo'</span>);</span><br><span class="line">el.textContent = <span class="string">'foo'</span>;</span><br></pre></td></tr></table></figure>
@@ -349,10 +346,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/07/26/Thoughts-after-the-first-translation/">Thoughts after the first translation</a>
+                <a class="prev" rel="prev" href="/2020/07/26/Thoughts-after-the-first-translation/">第一次翻译后的思考与记录</a>
             
             
-            <a class="next" rel="next" href="/2020/07/19/pull-request-for-RSSHub/">pull request for RSSHub</a>
+            <a class="next" rel="next" href="/2020/07/19/pull-request-for-RSSHub/">为 RSSHub 贡献 pr</a>
             
         </section>
 
