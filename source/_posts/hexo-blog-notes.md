@@ -11,13 +11,13 @@ toc: true
 # layout: timeline
 ---
 > 对自己搭建博客以及后续升级/添加功能的记录，仅供参考:
-
+<!-- 
 - [博客部署小记](#blogstart)
 - [规避部署重复输入账号密码](#avoidpwd)
 - [统计博客运行时间](#runtime)
 - [添加Google Analytics](#ga)
 - [更换博客主题](#changetheme)
-- [为博客添加评论](#addcomment)
+- [为博客添加评论](#addcomment) -->
 
 ## <a id="blogstart"></a>博客部署小记
 **情景**：hexo博客+Github pages
@@ -138,3 +138,22 @@ Authorization callback URL这一项填写博客主页地址即可，评论成功
 **参考链接：**
 - [Register a new OAuth application](https://auth0.com/docs/connections/social/github)
 - [Error: Not Found](https://github.com/gitalk/gitalk/issues/98)
+
+## 简化--推送博客内容至远程
+由于博客内容放在hexo分支，每次推送到远程都需要输如下命令：
+```
+git push origin HEAD:hexo
+```
+有时会忘记，直接输入<code>git push</code>，CLI 会提示输入上面的命令，于是复制粘贴实现推送到远程。
+为了避免这些麻烦，使用 alias，用简写来代替长的命令
+比如：
+```
+git config --global alias.pushoh "push origin HEAD:hexo"
+```
+这样就可以用如下简写替代每次要输的命令了
+```
+git pushoh
+```
+**参考链接：**
+- [Git Basics - Git Aliases](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases)
+- [how-do-i-alias-commands-in-git](https://stackoverflow.com/questions/2553786/how-do-i-alias-commands-in-git)

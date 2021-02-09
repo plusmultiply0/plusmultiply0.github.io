@@ -72,3 +72,18 @@ git config --global --unset https.proxy
 再次 <code>git push</code> 远程分支，成功无报错。
 
 **思考**：问题虽然暂时解决了，但是还是避免不了使用代理。有可能是clash客户端配置的问题或者其他原因（2FA），仍待进一步解决。
+
+> 后续：为了加速下载，又重新设置了代理，但是没有出现之前的情况。
+
+## 临时修复 Error: Permission denied (publickey)
+
+最近，将博客内容推送到远程时，出现了点问题，如下：
+> git@github.com: Permission denied (publickey).
+> fatal: Could not read from remote repository.
+
+具体是参照[Github官网文档](https://docs.github.com/en/github/authenticating-to-github/error-permission-denied-publickey#make-sure-you-have-a-key-that-is-being-used)，
+- 本地重新生成一个新的SSH key，然后添加到ssh 代理——[官网文档](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- 将生成的SSH key添加到Github账号——[文档](https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
+根据上述操作后，基本可以解决问题，
+但是为要求为生成的ssh key每次输入passphase，这个暂时没有好的解决办法。
