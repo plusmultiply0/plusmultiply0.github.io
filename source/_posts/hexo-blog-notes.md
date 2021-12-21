@@ -168,6 +168,6 @@ git pushoh
 其实，这样搜不到...注意到，注释掉box-shadow并微调height后，会比较美观。
 于是改为搜索box-shadow/height，然后找到了，进行了修改！
 - **修改字体**
-基本同上，vscode全局搜索font-family属性，找到后将想要的字体设置为第一个即可
+基本同上，vscode全局搜索font-family属性，找到font.styl文件后将想要的字体设置为第一个即可
 我使用的字体是[Lato](https://fonts.google.com/specimen/Lato?preview.text_type=custom&sidebar.open=true&selection.family=Lato:ital,wght@1,300;1,400;1,700#standard-styles)，最初是在 https://shuxiao.wang/ 上看到的。
 个人倾心于英文normal斜体，感觉特别美丽和优雅~~
