@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="plusmultiply0">
+
+
+
+    <meta name="description" content="personal blog">
+
+
+    <meta name="keywords" content="blog,notes,life">
+
+
+<title>[译]在 React 中使用 Service Worker | plusmultiply0&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="plusmultiply0's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Plusmultiply0&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Plusmultiply0&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[译]在 React 中使用 Service Worker</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">plusmultiply0</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十月 9, 2020&nbsp;&nbsp;21:52:35</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/translation/">translation</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>如果你在前端开发中使用 React，那么你有可能听说过 Service Worker。如果你不确定它是做什么的，或者不知道如何适当的配置它，这份在 React 中使用 Service Worker 的初学者指南，将会让你在 React 中实现功能丰富的离线体验，有一个良好的开端。</p>
+<p>Service Worker 是由客户端浏览器运行的脚本。它们和 DOM 没有直接关系并且提供了许多与网络相关且开箱即用的功能。Service Worker 是构建离线应用的基础。它也具有推送通知和后台同步等功能。</p>
+<p>如果你能在 React 中启用并正确配置 Service Worker，你就可以通过拦截和管理网络请求以探索无尽的可能性。当你用 <code>create-react-app</code> 命令创建 React 应用时，Service Worker 会通过内置的 <code>SWPrecacheWebpackPlugin</code> 插件自动被添加进应用。Service Worker 确保了网络不再是响应请求的瓶颈。</p>
+<h2 id="Service-Worker：使用案例"><a href="#Service-Worker：使用案例" class="headerlink" title="Service Worker：使用案例"></a>Service Worker：使用案例</h2><p>网络连接的丢失是开发者在确保稳定连接时面临的常见问题。因此，近些年来，通过离线应用以确保良好的用户体验的概念逐渐流行起来。Service Worker 为 web 开发者提供了诸多好处：</p>
+<ul>
+<li>提升网站性能，仅缓存让网站加载得更快的关键部分</li>
+<li>通过离线优先来增强用户体验，即使用户失去了网络连接，也能正常使用应用</li>
+<li>具有通知和推送功能的 API，这是传统 web 技术所没有的</li>
+<li>具有后台同步功能，你可以推迟某些操作直到网络连接恢复以确保持续的用户体验</li>
+</ul>
+<h2 id="Service-Worker：生命周期"><a href="#Service-Worker：生命周期" class="headerlink" title="Service Worker：生命周期"></a>Service Worker：生命周期</h2><p>Service Worker 的生命周期与 web 应用的生命周期无关。你可以通过使用 JavaScript 来注册 Service Worker 以安装它。这会指示浏览器开始在后台安装 Service Worker，同时也在缓存必需的资产文件。当安装的步骤成功后，激活的过程就开始了。一旦被激活后，它将与作用域内的所有页面产生关联。除非被获取和消息（Fetch/Messahe）事件所调用，否则它将会终止以节省内存。</p>
+<p>Service Worker 的生命周期显然需要开发人员编码来完成。在 React 中的 Service Worker 的生命周期是由 React 自身来处理，这让开发者启用 Service Worker 的过程变得更加简单了。</p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*HUnu3nbBSq2lDoOSllBkiA.png" alt="Service Worker Lifecycle ([Source](https://developers.google.com/web/fundamentals/primers/service-workers))"></p>
+<h2 id="React-Service-Workers：关键因素"><a href="#React-Service-Workers：关键因素" class="headerlink" title="React Service Workers：关键因素"></a>React Service Workers：关键因素</h2><p>在进行 React Service Worker 的配置和激活前，让我们来看一下使用 Service Worker 的规则和注意事项。</p>
+<ul>
+<li>Service Worker 被浏览器在其自己的全局脚本上下文环境中执行。这意味着你不能直接访问页面中的 DOM 元素。因此，需要一个间接的方式来让 Service Worker 与它控制的页面进行通信。这个可以通过使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Client/postMessage" target="_blank" rel="noopener">postMessage</a> 接口来实现。</li>
+<li>除了在 localhost 下运行时，Service Worker 只能运行在 <code>HTTPS</code> 协议下。</li>
+<li>Service Worker 不限于特定的页面，因此可以被重复使用。</li>
+<li>Service Worker 是事件驱动的。这意味着一旦它们运行结束就不能保留任何信息。为了访问先前状态的信息，你需要使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" target="_blank" rel="noopener">IndexedDB API</a>。</li>
+</ul>
+<h2 id="启用-React-Service-Worker"><a href="#启用-React-Service-Worker" class="headerlink" title="启用 React Service Worker"></a>启用 React Service Worker</h2><p>当你通过 <code>create-react-app</code> 命令创建 React 应用时，项目的结构应该如下面所示：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">├── <span class="selector-tag">README</span><span class="selector-class">.md</span></span><br><span class="line">├── <span class="selector-tag">node_modules</span></span><br><span class="line">├── <span class="selector-tag">package</span><span class="selector-class">.json</span></span><br><span class="line">├── <span class="selector-class">.gitignore</span></span><br><span class="line">├── <span class="selector-tag">build</span></span><br><span class="line">├── <span class="selector-tag">public</span></span><br><span class="line">│   ├── <span class="selector-tag">favicon</span><span class="selector-class">.ico</span></span><br><span class="line">│   ├── <span class="selector-tag">index</span><span class="selector-class">.html</span></span><br><span class="line">│   └── <span class="selector-tag">manifest</span><span class="selector-class">.json</span></span><br><span class="line">└── <span class="selector-tag">src</span></span><br><span class="line">    ├── <span class="selector-tag">App</span><span class="selector-class">.css</span></span><br><span class="line">    ├── <span class="selector-tag">App</span><span class="selector-class">.js</span></span><br><span class="line">    ├── <span class="selector-tag">App</span><span class="selector-class">.test</span><span class="selector-class">.js</span></span><br><span class="line">    ├── <span class="selector-tag">index</span><span class="selector-class">.css</span></span><br><span class="line">    ├── <span class="selector-tag">index</span><span class="selector-class">.js</span></span><br><span class="line">    ├── <span class="selector-tag">logo</span><span class="selector-class">.svg</span></span><br><span class="line">    └── <span class="selector-tag">serviceWorker</span><span class="selector-class">.js</span></span><br></pre></td></tr></table></figure>
+
+<p>注意位于 <code>src</code> 目录下的 <code>serviceWorker.js</code> 文件。默认情况下，这个文件会随你创建 React 应用时一同被创建。</p>
+<p>现在，Service Worker 还没有注册。所以，你应该先注册它,然后再将它用于你的应用。</p>
+<p>为了注册 Service Worker，打开 <code>src/index.js</code> 文件，然后找到下面这一行代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">serviceWorker.unregister();</span><br></pre></td></tr></table></figure>
+
+<p>将代码改成下面这样。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">serviceWorker.register();</span><br></pre></td></tr></table></figure>
+
+<p>现在，这行代码就能让你在 React 应用中使用 Service Worker。</p>
+<p>在一般的 web 应用中，你需要自己编写 Service Worker 的整个生命周期的代码。然而，React 默认提供了 Service Worker 并且能让开发者直接使用它。打开 <code>src/serviceWorker.js</code> 文件，你会注意到 Service Worker 的底层方法都是现成的。</p>
+<h2 id="在开发环境中使用-React-Service-Worker"><a href="#在开发环境中使用-React-Service-Worker" class="headerlink" title="在开发环境中使用 React Service Worker"></a>在开发环境中使用 React Service Worker</h2><p>当你在 <code>serviceWorker.js</code> 文件中查看 <code>register()</code> 函数时，你会注意到，默认情况下，它只在生产环境中有用（<code>process.env.NODE_ENV === &#39;production&#39;</code> 是被设置的条件之一）。如下有两个变通的方法：</p>
+<ul>
+<li>你可以在 <code>register()</code> 函数中去掉判断条件以在开发模式下启用它。但是，这可能会导致某些缓存问题。</li>
+<li>一个更简单的方法是，创建生产版本的 React 应用并运行在本地服务器上。你可以通过运行以下的命令来实现：</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ yarn <span class="meta">global</span> <span class="keyword">add </span>serve</span><br><span class="line">$ yarn <span class="keyword">build</span></span><br><span class="line"><span class="keyword">$ </span>serve -s <span class="keyword">build</span></span><br></pre></td></tr></table></figure>
+
+<p>在浏览器中打开 <code>localhost:5000</code> 来看看具体效果。</p>
+<h2 id="在-CRA-中配置自定义-Service-Worker"><a href="#在-CRA-中配置自定义-Service-Worker" class="headerlink" title="在 CRA 中配置自定义 Service Worker"></a>在 CRA 中配置自定义 Service Worker</h2><p>CRA 的默认 <code>service-worker.js</code> 文件缓存所有的静态资产文件（aeests）。为了给 Service Worker 添加新的功能，你需要创建一个 <code>custom-service-worker.js</code> 文件，然后修改 <code>register()</code> 函数来加载你的自定义文件。</p>
+<p>看到 <code>serviceWorker.js</code> 文件的第 34 行，找到 <code>load()</code> 事件监听器然后在里面添加你的自定义文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, () =&gt; &#123;</span><br><span class="line">     <span class="keyword">const</span> swUrl = <span class="string">`<span class="subst">$&#123;process.env.PUBLIC_URL&#125;</span>/custom-service-worker.js`</span>;</span><br><span class="line">     ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着，像下面这样更新 <code>package.json</code> 文件。</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">   <span class="string">"start"</span>: <span class="string">"react-app-rewired start"</span>,</span><br><span class="line">   <span class="string">"build"</span>: <span class="string">"react-app-rewired build"</span>,</span><br><span class="line">   <span class="string">"test"</span>: <span class="string">"react-app-rewired test"</span>,</span><br><span class="line">   <span class="string">"eject"</span>: <span class="string">"react-app-rewired eject"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>安装 <a href="https://developers.google.com/web/tools/workbox/guides/codelabs/webpack" target="_blank" rel="noopener">Google’s Workbox plugin</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev workbox-build</span><br></pre></td></tr></table></figure>
+
+<p>然后，你需要创建一个配置文件以指示 CRA 来插入你的自定义 Service Worker。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> WorkboxWebpackPlugin = <span class="built_in">require</span>(<span class="string">"workbox-webpack-plugin"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">override</span>(<span class="params">config, env</span>) </span>&#123;</span><br><span class="line">  config.plugins = config.plugins.map(<span class="function">(<span class="params">plugin</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (plugin.constructor.name === <span class="string">"GenerateSW"</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> WorkboxWebpackPlugin.InjectManifest(&#123;</span><br><span class="line">       swSrc: <span class="string">"./src/custom-service-worker.js"</span>,</span><br><span class="line">       swDest: <span class="string">"service-worker.js"</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> plugin;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>如下所示，你可以创建一个自定义 Service Worker 来缓存特定的目录。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">workbox.routing.registerRoute(</span><br><span class="line">  <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"/path/to/cache/directory/"</span>),</span><br><span class="line">  workbox.strategies.NetworkFirst()</span><br><span class="line">);</span><br><span class="line">workbox.precaching.precacheAndRoute(self.__precacheManifest || [])</span><br></pre></td></tr></table></figure>
+
+<p>确保重新构建你的应用以让上述更改生效。</p>
+<h2 id="总结回顾"><a href="#总结回顾" class="headerlink" title="总结回顾"></a>总结回顾</h2><p>在本文中，我们介绍了 Service Worker 是什么，使用它的原因以及在 React 应用中使用和配置 Service Worker 的过程。Service Worker 是现代 web 开发的关键部分，在现有的 React 应用中加上 Service Worker 是一个非常棒的主意。</p>
+<blockquote>
+<ul>
+<li>原文地址：<a href="https://blog.bitsrc.io/using-service-workers-with-react-27a4c5e2d1a9" target="_blank" rel="noopener">Using Service Workers with React</a></li>
+<li>原文作者：<a href="https://medium.com/@ds_mik" target="_blank" rel="noopener">Shaumik Daityari</a></li>
+</ul>
+</blockquote>
+<h2 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h2><p>等待被添加 orz</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>plusmultiply0</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://plusmultiply0.github.io/2020/10/09/transaltion-Using-Service-Worker-with-React/">https://plusmultiply0.github.io/2020/10/09/transaltion-Using-Service-Worker-with-React/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2021 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/translation/"># translation</a>
+                    
+                        <a href="/tags/serviceWorker/"># serviceWorker</a>
+                    
+                        <a href="/tags/React/"># React</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/10/25/transaltion-Introduction-to-Blitz-js/">[译]Blitz.js简介：一个新兴的 React 全栈框架</a>
+            
+            
+            <a class="next" rel="next" href="/2020/10/06/my-thoughts-about-translaion/">参与掘金翻译的一些总结与思考</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© plusmultiply0 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

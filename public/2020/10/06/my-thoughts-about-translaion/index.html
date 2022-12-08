@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="plusmultiply0">
+
+
+
+    <meta name="description" content="personal blog">
+
+
+    <meta name="keywords" content="blog,notes,life">
+
+
+<title>参与掘金翻译的一些总结与思考 | plusmultiply0&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="plusmultiply0's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Plusmultiply0&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Plusmultiply0&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">参与掘金翻译的一些总结与思考</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">plusmultiply0</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十月 6, 2020&nbsp;&nbsp;19:31:07</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/translation/">translation</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>截止此文发布，我已经翻译了 3-4 篇文章以及参与了 5-6 次校对了。现在写下此文来总结和分享下我参与翻译和校对的一些总结和思考。</p>
+<p>翻译的平台是——<a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金</a>，下面是官方简介。</p>
+<img src="/2020/10/06/my-thoughts-about-translaion/goldminer.png" class="">
+
+<p>想要参与翻译和校对，可以加入<a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">掘金社区</a>成为一名译者。你只需要参照 README 中的<a href="https://github.com/xitu/gold-miner/wiki/%E5%A6%82%E4%BD%95%E5%8F%82%E4%B8%8E%E7%BF%BB%E8%AF%91" target="_blank" rel="noopener">指南</a>在 <a href="https://github.com/xitu/gold-miner/issues" target="_blank" rel="noopener">issue</a> 区提 issue 并通过管理员审核即可。整个流程十分友善，并不会为难人。</p>
+<p>官方的 <a href="https://github.com/xitu/gold-miner" target="_blank" rel="noopener">repo</a> 里提供了很多指南，感兴趣的话可以自行查阅。</p>
+<hr>
+<p>下面分享一下我是如何校对和翻译的。</p>
+<h2 id="翻译-校对的经验"><a href="#翻译-校对的经验" class="headerlink" title="翻译/校对的经验"></a>翻译/校对的经验</h2><p>但是，要参与校对和翻译，显然是有一定的门槛的：你需要会一门特定的技术以及具有一定的英语能力。</p>
+<p>技术暂且不论，选择一个或多个你比较熟悉的领域就可以。（管理员貌似不会特地审查技术水平）</p>
+<p><strong>工具</strong><br>英语能力的话，其实可能也不太重要，利用 在线翻译 等工具可以很好的帮助我们翻译。推荐一下我常常使用的工具：<a href="https://translate.google.cn/" target="_blank" rel="noopener">谷歌翻译</a>、<a href="https://www.deepl.com/translator" target="_blank" rel="noopener">deepL 翻译</a> 以及 <a href="https://cn.bing.com/dict/" target="_blank" rel="noopener">bing search</a>。</p>
+<p>前两者，单词、短语和段落都能翻译，<a href="https://cn.bing.com/dict/" target="_blank" rel="noopener">bing search</a> 主要是翻译单词和短语，而且提供 web 中词义。<br>另外，如果你翻译前端方面的文章话，<a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">MDN</a> 也可以用来检索相关词义。</p>
+<p>不过，这些都只是工具而已，而且都有不准确的情况。<br>个人以为，要翻译出比较好的效果，最好是自己翻译再结合工具的翻译结果。想要锻炼自己的话，还是得自己先翻译一遍，再来参考工具的翻译。</p>
+<p>虽然都是在说翻译，但是，校对和翻译差不多，不可避免的要通读全文，掌握上下文意思后，审视翻译者的翻译是否通顺合理。当翻译的不够准确时，校对者所做的实际上就是翻译了。</p>
+<p><strong>参考前人</strong><br>另外，如果参与者对相关的操作流程不熟悉的话，且文档里没有写明的话，其实可以参考之前的 <a href="https://github.com/xitu/gold-miner/pulls" target="_blank" rel="noopener">pull request</a> 和 <a href="https://github.com/xitu/gold-miner/issues" target="_blank" rel="noopener">issue</a> 里面的做法，多尝试几次就熟悉了。</p>
+<p><strong>小技巧</strong><br>在 review 的时候，有时会看到如下所示：</p>
+<img src="/2020/10/06/my-thoughts-about-translaion/reviewTips.png" class="">
+<p>使用这种方式 review 可以让译者更方便的接收来自校对的修改，无须手动编辑文件。同时，校对会和译者共同成为 commit 的提交者（如果你的修改被采用的话）。<br>怎么做：在 review 时点击 具有+-符号的图标，添加上你的修改和意见就可以了。详细可参考这篇<a href="https://haacked.com/archive/2019/06/03/suggested-changes/" target="_blank" rel="noopener">文章</a>。</p>
+<hr>
+<h2 id="参与的好处"><a href="#参与的好处" class="headerlink" title="参与的好处"></a>参与的好处</h2><p>参与社区的活动，你也可以收获很多。</p>
+<p>参与校对和翻译比较好的一点是，你可以熟悉 Github 上常见的一些操作，比如：<br>在校对中，可以熟悉 review 的流程；<br>在翻译中，可以学习同步 fork 的项目、发起 pull request、根据 review 意见修改 pull request 等流程。</p>
+<p>参与校对和翻译也是可以学到许多知识的，<br>除却上文提及的，你很显然需要阅读你要校对/翻译的文章。从文章当中，一方面我们可以学习作者讲述的技术技巧，另一方面，我们也锻炼了阅读英语文章的能力。</p>
+<p>此外，参与翻译和校对，你也获得一些实际上的好处。<br>每次参与校对和翻译后，你都会获得一定的积分，然后可以积分换取由掘金官方提供的奖品。</p>
+<p>最后，参与翻译后，你还需要将译文发布到掘金上，<br>这可以用来传播个人名声。译文不错的话，可能会得到掘金官方的宣传。每次与他人协作的过程，也能宣传自己。</p>
+<p>简单总结一下，参与掘金翻译/校对，个人的一些收获：</p>
+<ul>
+<li>从译文/校对的文章中学习技术、知识以及锻炼英语能力</li>
+<li>参与翻译/校对的同时，熟悉技术文章的写作规范</li>
+<li>熟悉 review，pull request 的流程以及 git 基本操作</li>
+<li>传播个人名声，发布译文/参与校对都可以提升自己的影响力</li>
+<li>赚取积分，换得实际的纪念品/物品</li>
+</ul>
+<hr>
+<h2 id="看到的一些现象"><a href="#看到的一些现象" class="headerlink" title="看到的一些现象"></a>看到的一些现象</h2><ol>
+<li>译文的质量基本由译者的个人素质所决定</li>
+</ol>
+<p>根据翻译和校对的规则可以知道，译者翻译后，需要两位校对者校对后才能发布。</p>
+<p>但是，这之后，往往就没有再审核的步骤了。</p>
+<p>如果，译者和校对者都不负责任的话，最后的译文质量往往不堪入目。不过，三个人都是这样的情况比较罕见。但是，若译者不负责的话，校对需要指出修改的地方就会特别多，而校对者指出一部分错误其实就尽到自己的责任了，再多的错误也是有译者所带来的，与自己无关。那么，最后译文的质量就往往不尽人意了。</p>
+<p>有时候，译文过长时间没有校对，往往一位校对审核后，译文就会被发布了。</p>
+<p>这一方面是由文章质量决定的，好的文章自然会吸引好的译者和校对者；另一方面，可能需要加强管理和审核。提高成为译者的门槛，无疑会影响想加入者的热情同时也会加大管理者的负担。在每个文章发布前再复核一遍，也是同理。</p>
+<ol start="2">
+<li>其次，掘金的文章来源基本源于个人推荐和社区管理者寻找</li>
+</ol>
+<p>说实话，质量参差不齐，且来源比较单一（大多数源自 medium）。像“xx 个 好用的 xx 扩展”或者“xx 个 xx 技巧”之类的文章，也很容易看到，而且基本属于拼凑式的水文。但是不可否认，也是可以学到一些东西。</p>
+<p>不过，好的文章也需要作者写出来，按照二八原理，好文章往往也是少数的，所以，不可避免的会遇到不太好的文章。一般般的文章也是可以学到一些东西的，不愿意看的话，避开就是了。</p>
+<hr>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>博客只是记录一下本人的所知所感，文章内容后续会不定时更新。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>plusmultiply0</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://plusmultiply0.github.io/2020/10/06/my-thoughts-about-translaion/">https://plusmultiply0.github.io/2020/10/06/my-thoughts-about-translaion/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2021 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/tips/"># tips</a>
+                    
+                        <a href="/tags/attempt/"># attempt</a>
+                    
+                        <a href="/tags/thoughts/"># thoughts</a>
+                    
+                        <a href="/tags/translation/"># translation</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/10/09/transaltion-Using-Service-Worker-with-React/">[译]在 React 中使用 Service Worker</a>
+            
+            
+            <a class="next" rel="next" href="/2020/09/07/translation-Packaging-a-UI-Library-for-Distribution/">[译]打包用于分发的 UI 库</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© plusmultiply0 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

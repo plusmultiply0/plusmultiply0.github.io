@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="plusmultiply0">
+
+
+
+    <meta name="description" content="personal blog">
+
+
+    <meta name="keywords" content="blog,notes,life">
+
+
+<title>[译]打包用于分发的 UI 库 | plusmultiply0&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="plusmultiply0's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Plusmultiply0&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Plusmultiply0&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[译]打包用于分发的 UI 库</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">plusmultiply0</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 7, 2020&nbsp;&nbsp;19:08:02</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/translation/">translation</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <!-- **索引**
+- [翻译正文](#title)
+    - [问题的由来](#problemfrom)
+    - [如何交付 package？](#deliverypackage)
+        - [ES 语法格式](#esmodule)
+        - [模块格式](#moduleformat)
+        - [文件打包](#filebund)
+        - [Package 分发](#packdisbution)
+    - [工具](#tool)
+        - [转译器](#transpiler)
+        - [打包工具](#bundtool)
+        - [Manifest](#manifest)
+    - [最后](#last)
+- [Feeling and thinking](#feel) -->
+
+<h2 id="打包用于分发的-UI-库-——-当你要发布一个-UI-组件库时，你可能需要遵守的指南"><a href="#打包用于分发的-UI-库-——-当你要发布一个-UI-组件库时，你可能需要遵守的指南" class="headerlink" title="打包用于分发的 UI 库 —— 当你要发布一个 UI 组件库时，你可能需要遵守的指南"></a><a id="title"></a>打包用于分发的 UI 库 —— 当你要发布一个 UI 组件库时，你可能需要遵守的指南</h2><h3 id="问题的由来"><a href="#问题的由来" class="headerlink" title="问题的由来"></a><a id="problemfrom"></a>问题的由来</h3><p>JavaScript 有个特性：对于相同的代码，可以运行在多个运行时（runtime）环境。其中一个环境，是由众多厂商生产提供的不同版本的浏览器。而另一个，则是运行在服务器端的不同版本的 Nodejs。（附注：你可能需要注意一下 Deno，一个有趣的服务器端运行时环境）</p>
+<p>经历了将近 20 年的蛰伏后，JavaScript 获得了巨大的发展势头，每天都有新的功能被添加到语言中。（好吧，应该是每年不是每天，但是这样修饰更恰当） 与此同时，新的 JS 风格，比如：TypeScript 和 Flow 的出现，为语言增加了额外的语法。</p>
+<p>我们最终都要面对夹杂着其它语言特性的 JavaScript，多种执行环境以及不断发展的标准。所有这些导致以 Javascript 构建 UI 组件包然后与世界共享，并非易事。</p>
+<p>任何人在发布一个库的时候都应该考虑库会被如何使用：以浏览器标签引入，在服务器端以 NPM 模块安装或者由 webpack 等打包工具编译后再提供给浏览器。</p>
+<h3 id="如何交付-package？"><a href="#如何交付-package？" class="headerlink" title="如何交付 package？"></a><a id="deliverypackage"></a>如何交付 package？</h3><p>以下是我为你想要分发的 package 的格式提供的一些建议。在最后一部分，我们将通过一些工具来实现这些。</p>
+<p><img src="https://cdn-images-1.medium.com/max/2560/1*xPmTGN5rwQH_IQ94TRIhmw.png" alt="mage by [Annalise Batista](https://pixabay.com/users/AnnaliseArt-7089643/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5293336) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5293336) (modified)"></p>
+<p>我将在以下四个方面讨论 package 的交付。但值得注意的是，它们是互相关联的。</p>
+<ul>
+<li>ES 语法格式（ES Syntax Format）</li>
+<li>模块格式（Module Format）</li>
+<li>文件打包（Files Bundling）</li>
+<li>Package 分发（Package distribution）</li>
+</ul>
+<p>你同样会注意到这里的讨论与框架无关。这里讨论的守则都是跨框架的，而且与用 Angular，React，Vue 编写的组件是无关的。</p>
+<h4 id="ES-语法格式（ES-Syntax-Format）"><a href="#ES-语法格式（ES-Syntax-Format）" class="headerlink" title="ES 语法格式（ES Syntax Format）"></a><a id="esmodule"></a>ES 语法格式（ES Syntax Format）</h4><p>大多数的 web 浏览器和 Nodejs 都支持 ES2015 的语法，并且紧跟语言的新特性。其中臭名昭著的例外是 IE 浏览器，幸好它的市场份额正在不断缩减。 除非明确需要支持 IE11，否则的话，将 ES2015 视为 JS 环境的通用标准是可行的。 现代浏览器和 Nodejs 对于较新的语法（如：ES2017）也都是支持的。</p>
+<p>建议：</p>
+<blockquote>
+<p>在老的浏览器上使用 ES5，将 ES2015 或者 ES2017 用于现代浏览器和 NodeJS。</p>
+</blockquote>
+<h4 id="模块格式（Module-Format）"><a href="#模块格式（Module-Format）" class="headerlink" title="模块格式（Module Format）"></a><a id="moduleformat"></a>模块格式（Module Format）</h4><p>直到 2015 年，JavaScript（即众所周知的 ECMAScript ）才有了模块格式的规范 —— ES6 模块格式（也被称为 ESM，ES2015 模块）。 在这个混沌时期，社区创建了多种格式，但没有一个统一的标准可遵循。</p>
+<p>用于支持浏览器和 NodeJS 的模块格式：</p>
+<ul>
+<li>AMD (Asynchronous Module Definition) —— Requirejs 中描述了在 2011 年开发它的原因，见<a href="https://requirejs.org/docs/whyamd.html" target="_blank" rel="noopener">此处</a>。</li>
+<li>CommonJS / CJS —— 开发用于服务器端的模块格式。</li>
+<li>UMD (Universal Module Definition) 结合 AMD 和 CJS 并支持浏览器和服务器端的模式。</li>
+<li>ESM / ES Modules / ES6 Modules / ES2015 modules —— 在 ES6 中引入的标准语法格式。在 NodeJS 14 中还是试验性质的支持，使用时需要带有标志（如：–experimental-modules）。</li>
+</ul>
+<p>如下表格总结了各种模块格式间的一些差异：</p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*ohOcheaTdGZpG4nnK97swg.png" alt=""></p>
+<p>为了进一步感受模块格式之间的差异，我们来看一下将 Typescript 代码编译为不同的模块格式的结果。</p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*X9Mvq1jM5-uw__W6WABTTQ.png" alt=""></p>
+<p>建议：</p>
+<blockquote>
+<p>使用多种模块格式来生成库，如：ESM，CJS，以及 UMD / AMD 。</p>
+</blockquote>
+<h4 id="文件打包（Files-Bundling）"><a href="#文件打包（Files-Bundling）" class="headerlink" title="文件打包（Files Bundling）"></a><a id="filebund"></a>文件打包（Files Bundling）</h4><p>用于浏览器或服务器端的应用的 NPM 包在分发时，可以提供一个包含多个文件的目录。服务器可以轻松地一一读取目录中的文件，而在浏览器端需要预先将整个应用打包为一个文件（或者几个 chunk）后才能使用。</p>
+<p>为了能将代码通过 script 标签引入，你需要生成一个包含了所有库的代码的文件。使用单个文件可以提升打包工具的性能，因为这可以减少处理过程中磁盘访问的次数。</p>
+<p>建议：</p>
+<blockquote>
+<p>为浏览器提供使用 UMD 格式的单个文件，ESM / CJS 模块用单独文件夹或单个文件创建。</p>
+</blockquote>
+<h4 id="Package-分发（Package-distribution）"><a href="#Package-分发（Package-distribution）" class="headerlink" title="Package 分发（Package distribution）"></a><a id="packdisbution"></a>Package 分发（Package distribution）</h4><p>大多数 package 在 NPM 注册表（registry）上都是可用的。这是一种常见的方法来发布 package。将 package 发布到 NPM 同样会使得 package 在 CDN 上可用，因此能直接用于浏览器（通过 script 标签）。</p>
+<p>建议：</p>
+<blockquote>
+<p>确保你的 package 提供了 UMD 格式，并且通过 unpkg 也是可用的。</p>
+</blockquote>
+<p>注：新的 CDN 即将支持 ES 模块语法，具体请见<a href="https://www.pika.dev/" target="_blank" rel="noopener">此处</a></p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a><a id="tool"></a>工具</h3><p>创建打包文件的工具有：</p>
+<ul>
+<li>转译器（Transpilers）</li>
+<li>打包工具（Bundlers）</li>
+<li>Manifest（如：package.json）</li>
+</ul>
+<h4 id="转译器（Transpilers）"><a href="#转译器（Transpilers）" class="headerlink" title="转译器（Transpilers）"></a><a id="transpiler"></a>转译器（Transpilers）</h4><p>对于使用 ES 语法或者 Typescript 编写的代码，你应该使用 Babel 或者 Typescript 转译器。这两个转译器都支持 JS 和 TS 语法，但是有一些<a href="https://blog.logrocket.com/choosing-between-babel-and-typescript-4ed1ad563e41/#:~:text=TypeScript%20by%20default%20compiles%20an,that%20require%20reading%20multiple%20files.&text=A%20const%20enum%20is%20an%20enum%20that%20TypeScript%20compiles%20away%20to%20nothing" target="_blank" rel="noopener">区别</a><a href="https://blog.logrocket.com/choosing-between-babel-and-typescript-4ed1ad563e41/#:~:text=TypeScript%20by%20default%20compiles%20an,that%20require%20reading%20multiple%20files.&text=A%20const%20enum%20is%20an%20enum%20that%20TypeScript%20compiles%20away%20to%20nothing." target="_blank" rel="noopener">.</a></p>
+<p><strong>Babel</strong> 包含有转换代码的转换插件，比如 <a href="https://babeljs.io/docs/en/babel-plugin-transform-modules-commonjs" target="_blank" rel="noopener">transform-modules-commonjs</a> 和 <a href="https://babeljs.io/docs/en/babel-plugin-transform-modules-umd" target="_blank" rel="noopener">transform-modules-umd</a>。他们会生成相关的模块格式。</p>
+<p><strong>Typescript</strong> 转译器，通过使用 tsconfig.json 中负责生成相关模块输出的 “module” 属性，也能生成不同模块格式。</p>
+<h4 id="打包工具（Bundlers）"><a href="#打包工具（Bundlers）" class="headerlink" title="打包工具（Bundlers）"></a><a id="bundtool"></a>打包工具（Bundlers）</h4><p>Bundlers 通常运行插件来执行转译过程。转译不仅包括语言和模块的转换，还会生成额外的资源文件如：CSS 和图片。</p>
+<p>在 ES 模块语法下，使用 bundlers 的效果很好，因为这为 tree shaking 未使用的代码提供了极好的支持。</p>
+<p>常见的打包工具有：</p>
+<p><strong>Webpack</strong>，直到第 4 版，才刚刚能生成 UMD 和 CommonJS 的包。webpack 还包含了一些精细的定义（如：CommonJS2）。<a href="https://webpack.js.org/configuration/output/#outputlibrarytarget" target="_blank" rel="noopener">此处</a>了解详细信息。</p>
+<p><strong>Rollup</strong> 是另一个打包工具。Rollup 可以将 ES 模块作为<a href="https://rollupjs.org/guide/en/#outputformat" target="_blank" rel="noopener">输出格式</a>导出。</p>
+<p><a href="https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c" target="_blank" rel="noopener">本文</a>总结了两个打包工具间的差异。虽然文章写于 2017，但其结论如今仍然有效：将 Webpack 用于应用程序打包，Rollup 用于库的打包。</p>
+<h4 id="Manifest"><a href="#Manifest" class="headerlink" title="Manifest"></a><a id="manifest"></a>Manifest</h4><p>Package.json 用于表示库的内容。除了版本名称外，它还应该指向目录或包（bundles）中的相关文件。</p>
+<p>遗憾的是，由于没有正式的标准，一些工具会将约定的属性用于其他的用途。</p>
+<p>一些需要注意的属性：</p>
+<ul>
+<li><strong>main</strong>: 应该指向主文件（默认值是根目录的 index.js 文件）。对于被转译的多个文件，它应该指向 dist 文件夹，比如，dist/index.js。通常应该指向一个 CJS 包，因为这是最常用的格式。</li>
+<li><strong>module</strong>: 这个应该指向一个 ES 入口项或入口文件。打包工具中的 Webpack 在打包时，可以根据入口项来进行搜索。使用 ES6 进行打包可以提升 tree shaking 的效果。</li>
+<li><strong>browser</strong>: 应该指向一个 AMD/UMD 入口项。通常是一个单独的文件。</li>
+<li><strong>typings</strong>: 指向 Typescript 编译器使用的类型定义。比如：一个 d.ts 文件，可以这样写：dist/index.d.ts</li>
+<li><strong>unpkg</strong>: 指向通过 CDN 可用的 UMD 单个文件。unpkg 会使用此属性（如果存在），或者回退使用 main 属性的值。</li>
+<li><strong>type</strong>: 为模块设置一个 type 域，来让 node 将其视作 ESM 并按此加载。</li>
+</ul>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a><a id="last"></a>最后</h3><p>希望在不久的未来，我们能看到 Javascript 生态系统对于语法和模块拥有一个统一的标准。</p>
+<blockquote>
+<p><a href="https://blog.bitsrc.io/packaging-a-ui-library-for-distribution-d153219def28" target="_blank" rel="noopener">原文地址：Packaging a UI Library for Distribution</a></p>
+</blockquote>
+<h2 id="Feeling-and-thinking"><a href="#Feeling-and-thinking" class="headerlink" title="Feeling and thinking"></a><a id="feel"></a>Feeling and thinking</h2><p>翻译的第二篇文章，感觉质量优于第一篇翻译的。<br>大致介绍了发布一个 package/库时，需要的流程和一些需要留意的地方。距翻译完成，已经过了一个月，我也不记得当时的感受与思考了。得到一个教训，翻译完成后，就赶紧记录当时的所思所感。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>plusmultiply0</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://plusmultiply0.github.io/2020/09/07/translation-Packaging-a-UI-Library-for-Distribution/">https://plusmultiply0.github.io/2020/09/07/translation-Packaging-a-UI-Library-for-Distribution/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2021 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/JavaScript/"># JavaScript</a>
+                    
+                        <a href="/tags/web/"># web</a>
+                    
+                        <a href="/tags/UI-Library/"># UI Library</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/10/06/my-thoughts-about-translaion/">参与掘金翻译的一些总结与思考</a>
+            
+            
+            <a class="next" rel="next" href="/2020/07/26/Thoughts-after-the-first-translation/">第一次翻译后的思考与记录</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© plusmultiply0 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

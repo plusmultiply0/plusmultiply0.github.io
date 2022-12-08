@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>plusmultiply0&#39;s blog</title>
+  <icon>https://plusmultiply0.github.io/icon.png</icon>
+  
+  <link href="https://plusmultiply0.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://plusmultiply0.github.io/"/>
+  <updated>2021-12-21T10:48:50.000Z</updated>
+  <id>https://plusmultiply0.github.io/</id>
+  
+  <author>
+    <name>plusmultiply0</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021年终总结</title>
+    <link href="https://plusmultiply0.github.io/2021/12/21/Summary-of-2021/"/>
+    <id>https://plusmultiply0.github.io/2021/12/21/Summary-of-2021/</id>
+    <published>2021-12-21T10:48:50.000Z</published>
+    <updated>2021-12-21T10:48:50.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;2021发生了太多事，是改变我命运的一年。&lt;/p&gt;
+&lt;p&gt;今年的3月30日，我意外从阳台跌落，受了重伤，4-12月基本都在医院度过。&lt;/p&gt;
+&lt;h2 id=&quot;回顾今年&quot;&gt;&lt;a href=&quot;#回顾今年&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="summary" scheme="https://plusmultiply0.github.io/tags/summary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[译]为什么你应该使用 Picture 标签而不是 Img 标签</title>
+    <link href="https://plusmultiply0.github.io/2021/02/09/translation-Why-You-Should-Use-Picture-Tag-Instead-of-Img-Tag/"/>
+    <id>https://plusmultiply0.github.io/2021/02/09/translation-Why-You-Should-Use-Picture-Tag-Instead-of-Img-Tag/</id>
+    <published>2021-02-09T13:42:13.000Z</published>
+    <updated>2021-02-09T13:42:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;现代 web</summary>
+        
+      
+    
+    
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+    <category term="performance" scheme="https://plusmultiply0.github.io/tags/performance/"/>
+    
+    <category term="picture&amp;img" scheme="https://plusmultiply0.github.io/tags/picture-img/"/>
+    
+    <category term="frontend" scheme="https://plusmultiply0.github.io/tags/frontend/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[译]如何在 Nextjs 中使用 cookies 来持久化保存用户信息</title>
+    <link href="https://plusmultiply0.github.io/2020/11/29/translation-use-cookies-in-Nextjs/"/>
+    <id>https://plusmultiply0.github.io/2020/11/29/translation-use-cookies-in-Nextjs/</id>
+    <published>2020-11-29T11:06:15.000Z</published>
+    <updated>2020-11-29T11:06:15.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;使用-LocalStorage&quot;&gt;&lt;a href=&quot;#使用-LocalStorage&quot; class=&quot;headerlink&quot; title=&quot;使用 LocalStorage&quot;&gt;&lt;/a&gt;使用 LocalStorage&lt;/h2&gt;&lt;p&gt;在 React</summary>
+        
+      
+    
+    
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+    <category term="React" scheme="https://plusmultiply0.github.io/tags/React/"/>
+    
+    <category term="NextJs" scheme="https://plusmultiply0.github.io/tags/NextJs/"/>
+    
+    <category term="cookie" scheme="https://plusmultiply0.github.io/tags/cookie/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[译]Blitz.js简介：一个新兴的 React 全栈框架</title>
+    <link href="https://plusmultiply0.github.io/2020/10/25/transaltion-Introduction-to-Blitz-js/"/>
+    <id>https://plusmultiply0.github.io/2020/10/25/transaltion-Introduction-to-Blitz-js/</id>
+    <published>2020-10-25T14:19:33.000Z</published>
+    <updated>2020-10-25T14:19:33.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;JavaScript 社区一直在稳步发展，并且已经推出了数百个框架，这无疑超出了我们的理解和掌握范围，但这并不是新鲜事。&lt;/p&gt;
+&lt;p&gt;现在，大多数稳定的框架都有基于其进一步构建的框架，同时具有更好的性能以及变得更加复杂。&lt;/p&gt;
+&lt;p&gt;在本文中，我们将会简单介绍</summary>
+        
+      
+    
+    
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
+    
+    <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[译]在 React 中使用 Service Worker</title>
+    <link href="https://plusmultiply0.github.io/2020/10/09/transaltion-Using-Service-Worker-with-React/"/>
+    <id>https://plusmultiply0.github.io/2020/10/09/transaltion-Using-Service-Worker-with-React/</id>
+    <published>2020-10-09T13:52:35.000Z</published>
+    <updated>2020-10-09T13:52:35.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;如果你在前端开发中使用 React，那么你有可能听说过 Service Worker。如果你不确定它是做什么的，或者不知道如何适当的配置它，这份在 React 中使用 Service Worker 的初学者指南，将会让你在 React</summary>
+        
+      
+    
+    
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+    <category term="serviceWorker" scheme="https://plusmultiply0.github.io/tags/serviceWorker/"/>
+    
+    <category term="React" scheme="https://plusmultiply0.github.io/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>参与掘金翻译的一些总结与思考</title>
+    <link href="https://plusmultiply0.github.io/2020/10/06/my-thoughts-about-translaion/"/>
+    <id>https://plusmultiply0.github.io/2020/10/06/my-thoughts-about-translaion/</id>
+    <published>2020-10-06T11:31:07.000Z</published>
+    <updated>2020-10-06T11:31:07.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;截止此文发布，我已经翻译了 3-4 篇文章以及参与了 5-6 次校对了。现在写下此文来总结和分享下我参与翻译和校对的一些总结和思考。&lt;/p&gt;
+&lt;p&gt;翻译的平台是——&lt;a href=&quot;https://github.com/xitu/gold-miner&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
+    
+    <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[译]打包用于分发的 UI 库</title>
+    <link href="https://plusmultiply0.github.io/2020/09/07/translation-Packaging-a-UI-Library-for-Distribution/"/>
+    <id>https://plusmultiply0.github.io/2020/09/07/translation-Packaging-a-UI-Library-for-Distribution/</id>
+    <published>2020-09-07T11:08:02.000Z</published>
+    <updated>2020-09-07T11:08:02.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!-- **索引**
+- [翻译正文](#title)
+    - [问题的由来](#problemfrom)
+    - [如何交付 package？](#deliverypackage)
+        - [ES 语法格式](#esmodule)
+        -</summary>
+        
+      
+    
+    
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
+    
+    <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
+    
+    <category term="UI Library" scheme="https://plusmultiply0.github.io/tags/UI-Library/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一次翻译后的思考与记录</title>
+    <link href="https://plusmultiply0.github.io/2020/07/26/Thoughts-after-the-first-translation/"/>
+    <id>https://plusmultiply0.github.io/2020/07/26/Thoughts-after-the-first-translation/</id>
+    <published>2020-07-26T14:45:16.000Z</published>
+    <updated>2020-07-26T14:45:16.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;最近参与了 &lt;a href=&quot;https://github.com/xitu/gold-miner&quot; target=&quot;_blank&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
+    
+    <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[译]有关 JavaScript 的八个小技巧</title>
+    <link href="https://plusmultiply0.github.io/2020/07/24/translation-javascript-eight-tips/"/>
+    <id>https://plusmultiply0.github.io/2020/07/24/translation-javascript-eight-tips/</id>
+    <published>2020-07-24T04:00:50.000Z</published>
+    <updated>2020-07-24T04:00:50.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;!-- **索引**：
+- [取消双击后的文本选中](#preventTextSelect)
+- [为什么设置原型的构造函数是必要的？](#PrototypeConstructor)
+- [无需单独的 Javascript 文件即可创建 Web</summary>
+        
+      
+    
+    
+    
+    <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
+    
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
+    
+    <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
+    
+    <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为 RSSHub 贡献 pr</title>
+    <link href="https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/"/>
+    <id>https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/</id>
+    <published>2020-07-19T07:55:41.000Z</published>
+    <updated>2020-07-19T07:55:41.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;记一次为 RSSHub 提 pr 的经历&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&quot;/2020/07/19/pull-request-for-RSSHub/RSSHub.png&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
+    
+    <category term="RSS" scheme="https://plusmultiply0.github.io/tags/RSS/"/>
+    
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
+    
+    <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
+    
+    <category term="NodeJs" scheme="https://plusmultiply0.github.io/tags/NodeJs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>有关 Git&amp;Github 的tips总结</title>
+    <link href="https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/"/>
+    <id>https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/</id>
+    <published>2020-06-24T15:09:12.000Z</published>
+    <updated>2020-06-24T15:09:12.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;记录关于Github/Git上有趣、有帮助的小tips~~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;在-profile-显示编码时间统计&quot;&gt;&lt;a href=&quot;#在-profile-显示编码时间统计&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo 博客搭建&amp;升级记录</title>
+    <link href="https://plusmultiply0.github.io/2020/05/28/hexo-blog-notes/"/>
+    <id>https://plusmultiply0.github.io/2020/05/28/hexo-blog-notes/</id>
+    <published>2020-05-28T08:22:38.000Z</published>
+    <updated>2020-05-28T08:22:38.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;对自己搭建博客以及后续升级/添加功能的记录，仅供参考:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;!-- 
+- [博客部署小记](#blogstart)
+- [规避部署重复输入账号密码](#avoidpwd)
+-</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="blog" scheme="https://plusmultiply0.github.io/tags/blog/"/>
+    
+    <category term="hexo" scheme="https://plusmultiply0.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://plusmultiply0.github.io/2020/05/28/hello-world/"/>
+    <id>https://plusmultiply0.github.io/2020/05/28/hello-world/</id>
+    <published>2020-05-27T16:00:01.000Z</published>
+    <updated>2020-05-27T16:00:01.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Here I start my blog</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="blog" scheme="https://plusmultiply0.github.io/tags/blog/"/>
+    
+  </entry>
+  
+</feed>

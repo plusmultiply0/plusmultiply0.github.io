@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="plusmultiply0">
+
+
+
+    <meta name="description" content="personal blog">
+
+
+    <meta name="keywords" content="blog,notes,life">
+
+
+<title>有关 Git&amp;Github 的tips总结 | plusmultiply0&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="plusmultiply0's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Plusmultiply0&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Plusmultiply0&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">有关 Git&amp;Github 的tips总结</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">plusmultiply0</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">六月 24, 2020&nbsp;&nbsp;23:09:12</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/notes/">notes</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
+<p>记录关于Github/Git上有趣、有帮助的小tips~~</p>
+</blockquote>
+<h2 id="在-profile-显示编码时间统计"><a href="#在-profile-显示编码时间统计" class="headerlink" title="在 profile 显示编码时间统计"></a><a id="waka"></a>在 profile 显示编码时间统计</h2><p>实例图片如下：</p>
+<img src="/2020/06/24/notes-and-tips-about-Github/example.png" class="">
+<p>具体的操作步骤可以根据 <a href="https://github.com/matchai/waka-box" target="_blank" rel="noopener">这个项目</a> 的README操作，<br>在此补充一些细节：</p>
+<ol>
+<li><p>在 wakatime 是设置你想统计（编码）时间的编辑器/IDE等，具体可以跟着指示操作。</p>
+</li>
+<li><p>在设置 schedule.yml 时，除了按照README外，需要设置 uses: 你的Github username/waka-box@master</p>
+</li>
+<li><p>完成准备工作后，要让统计面板显示在 profile，只需在右上角的 Customize your pin 中选择显示即可。</p>
+</li>
+</ol>
+<h2 id="加速-git-clone-下载"><a href="#加速-git-clone-下载" class="headerlink" title="加速 git clone 下载"></a><a id="accelerateGit"></a>加速 git clone 下载</h2><p>出于一些原因，git clone 下载 Github 上大型项目的速度十分缓慢，解决方法可以是为 git 添加上全局代理。<br>代码示例如下，分别为 http 和 https 的链接地址加上代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy socks:&#x2F;&#x2F;127.0.0.1:1080 #代理本地监听协议，地址和端口</span><br><span class="line">git config --global https.proxy socks:&#x2F;&#x2F;127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<p>取消代理设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset https.proxy #global</span><br><span class="line">git config --unset https.proxy          #once</span><br></pre></td></tr></table></figure>
+<p>参考图片，设置代理前</p>
+<img src="/2020/06/24/notes-and-tips-about-Github/before.png" class="">
+<p>设置代理后</p>
+<img src="/2020/06/24/notes-and-tips-about-Github/after.png" class="">
+
+<p>参考链接：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/27159393" target="_blank" rel="noopener">加速 git clone</a></li>
+</ul>
+<h2 id="修复一个-git-代理的问题（疑似）"><a href="#修复一个-git-代理的问题（疑似）" class="headerlink" title="修复一个 git 代理的问题（疑似）"></a>修复一个 git 代理的问题（疑似）</h2><p>最近在将本地新建的仓库推送到远程时，遇到如下的问题，输入了正确的用户名和密码却认证失败：</p>
+<blockquote>
+<p>Fatal: AggregateException encountered.<br>remote: Invalid username or password.<br>fatal: Authentication failed for ‘xxx’</p>
+</blockquote>
+<p>经过一番<a href="https://github.com/Microsoft/Git-Credential-Manager-for-Windows/issues/57" target="_blank" rel="noopener">搜索</a>，使用如下命令，可以在<code>.git\credential.log</code>中查看日志寻求原因</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>credential.writelog <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>查看日志后发现，可能是如下问题</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---&gt; (内部异常 #<span class="number">0</span>) System<span class="selector-class">.Net</span><span class="selector-class">.Http</span><span class="selector-class">.HttpRequestException</span>: 发送请求时出错。 ---&gt; System<span class="selector-class">.Net</span><span class="selector-class">.WebException</span>: 请求被中止: 未能创建 SSL/TLS 安全通道。</span><br></pre></td></tr></table></figure>
+<p>问题类似<a href="https://github.com/microsoft/Git-Credential-Manager-for-Windows/issues/613#issuecomment-383428591" target="_blank" rel="noopener">这里</a>，可能是 TLS 1.2 的问题，有可能是<a href="https://github.com/microsoft/Git-Credential-Manager-for-Windows/issues/613#issuecomment-383433233" target="_blank" rel="noopener">GCM的版本过老</a>所致（不过，19年才装的，感觉不像是）或者是 <a href="https://github.com/microsoft/Git-Credential-Manager-for-Windows/issues/613#issuecomment-411549266" target="_blank" rel="noopener">proxy 不支持TLS 1.2</a>（有一定可能）</p>
+<p>后面重装了Git，重新<code>git push</code>出现了如下的问题</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">remote:</span> Invalid username or password.</span><br><span class="line"><span class="string">fatal:</span> Authentication failed <span class="keyword">for</span> <span class="string">'xxx'</span></span><br></pre></td></tr></table></figure>
+<p>看来问题是没有解决。<br>思考最近做过的事情，设置了2FA；切换了代理客户端 V2rayN 至 clash，重设了git 的 http/https 代理。遂尝试取消代理（结合上文）。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global --unset http.proxy</span><br><span class="line">git<span class="built_in"> config </span>--global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<p>再次 <code>git push</code> 远程分支，成功无报错。</p>
+<p><strong>思考</strong>：问题虽然暂时解决了，但是还是避免不了使用代理。有可能是clash客户端配置的问题或者其他原因（2FA），仍待进一步解决。</p>
+<blockquote>
+<p>后续：为了加速下载，又重新设置了代理，但是没有出现之前的情况。</p>
+</blockquote>
+<h2 id="临时修复-Error-Permission-denied-publickey"><a href="#临时修复-Error-Permission-denied-publickey" class="headerlink" title="临时修复 Error: Permission denied (publickey)"></a>临时修复 Error: Permission denied (publickey)</h2><p>最近，将博客内容推送到远程时，出现了点问题，如下：</p>
+<blockquote>
+<p><a href="mailto:git@github.com">git@github.com</a>: Permission denied (publickey).<br>fatal: Could not read from remote repository.</p>
+</blockquote>
+<p>具体是参照<a href="https://docs.github.com/en/github/authenticating-to-github/error-permission-denied-publickey#make-sure-you-have-a-key-that-is-being-used" target="_blank" rel="noopener">Github官网文档</a>，</p>
+<ul>
+<li>本地重新生成一个新的SSH key，然后添加到ssh 代理——<a href="https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">官网文档</a></li>
+<li>将生成的SSH key添加到Github账号——<a href="https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="noopener">文档</a></li>
+</ul>
+<p>根据上述操作后，基本可以解决问题，<br>但是为要求为生成的ssh key每次输入passphase，这个暂时没有好的解决办法。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>plusmultiply0</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/">https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2021 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/Github/"># Github</a>
+                    
+                        <a href="/tags/tips/"># tips</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/07/19/pull-request-for-RSSHub/">为 RSSHub 贡献 pr</a>
+            
+            
+            <a class="next" rel="next" href="/2020/05/28/hexo-blog-notes/">hexo 博客搭建&升级记录</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© plusmultiply0 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
