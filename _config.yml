@@ -93,8 +93,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-themes: chic
-# remote_theme: chic
+# theme: chic
+remote_theme: chic
 
 
 # Deployment
