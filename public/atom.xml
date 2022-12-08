@@ -95,9 +95,9 @@
     <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
     
-    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
-    
     <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
+    
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
     
     <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
     
@@ -132,13 +132,13 @@
     <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
     
-    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
-    
-    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
-    
     <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
     
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
     <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
     
   </entry>
   
@@ -165,9 +165,9 @@
     
     <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
     
-    <category term="serviceWorker" scheme="https://plusmultiply0.github.io/tags/serviceWorker/"/>
-    
     <category term="React" scheme="https://plusmultiply0.github.io/tags/React/"/>
+    
+    <category term="serviceWorker" scheme="https://plusmultiply0.github.io/tags/serviceWorker/"/>
     
   </entry>
   
@@ -193,13 +193,13 @@
     <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
     
-    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
-    
-    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
-    
     <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
     
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
     <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
+    
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
     
   </entry>
   
@@ -229,9 +229,9 @@
     <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
     
-    <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
-    
     <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
+    
+    <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
     
     <category term="UI Library" scheme="https://plusmultiply0.github.io/tags/UI-Library/"/>
     
@@ -258,11 +258,11 @@
     <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
     
-    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
     
     <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
     
-    <category term="thoughts" scheme="https://plusmultiply0.github.io/tags/thoughts/"/>
+    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
     
     <category term="translation" scheme="https://plusmultiply0.github.io/tags/translation/"/>
     
@@ -292,13 +292,13 @@
     <category term="translation" scheme="https://plusmultiply0.github.io/categories/translation/"/>
     
     
+    <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
+    
     <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
     
     <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
     
     <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
-    
-    <category term="web" scheme="https://plusmultiply0.github.io/tags/web/"/>
     
   </entry>
   
@@ -332,9 +332,9 @@
     
     <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
     
-    <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
-    
     <category term="NodeJs" scheme="https://plusmultiply0.github.io/tags/NodeJs/"/>
+    
+    <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -362,9 +362,9 @@
     <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
     
     
-    <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
-    
     <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
+    
+    <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
     
   </entry>
   
