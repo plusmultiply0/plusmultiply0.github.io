@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="plusmultiply0">
+
+
+
+    <meta name="description" content="personal blog">
+
+
+    <meta name="keywords" content="blog,notes,life">
+
+
+<title>[译]Blitz.js简介：一个新兴的 React 全栈框架 | plusmultiply0&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="plusmultiply0's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Plusmultiply0&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Plusmultiply0&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[译]Blitz.js简介：一个新兴的 React 全栈框架</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">plusmultiply0</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十月 25, 2020&nbsp;&nbsp;22:19:33</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/translation/">translation</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>JavaScript 社区一直在稳步发展，并且已经推出了数百个框架，这无疑超出了我们的理解和掌握范围，但这并不是新鲜事。</p>
+<p>现在，大多数稳定的框架都有基于其进一步构建的框架，同时具有更好的性能以及变得更加复杂。</p>
+<p>在本文中，我们将会简单介绍 Blitz.js 框架。</p>
+<h2 id="为什么我们需要-Blitz-js-框架？"><a href="#为什么我们需要-Blitz-js-框架？" class="headerlink" title="为什么我们需要 Blitz.js 框架？"></a>为什么我们需要 Blitz.js 框架？</h2><p>React 增强了我们现在构建应用的方式。<a href="https://bit.dev" target="_blank" rel="noopener">组件驱动设计</a>使得我们更加容易从独立的单元向上构建应用。</p>
+<p>但是，构建应用并不仅是在 React 中堆叠组件。我们还必须思考，如何设置配置、遵循最佳设计模式、设置文件夹结构、组织应用的结构、规划应用的路由/页面以及使用什么数据库，服务器和数据库模式模型。</p>
+<p>在编写代码前就要决定好上述的所有事情，实在是令人头疼。</p>
+<p>Blitz.js 为我们解决了以上的所有问题，它提供了一个完整的全栈服务器端渲染（基于 Next.js）React 应用程序脚手架，并内置了相应的配置和后端。就像 Rails 框架在 Ruby 上所做的那样。</p>
+<p>Blitz.js 带来的种种好处，所提高的生产力将远远超出我们的想象。</p>
+<p>现在，我们已经知道为什么需要 Blitz.js 了。让我们来看看它的详细功能。</p>
+<h2 id="Blitz-js"><a href="#Blitz-js" class="headerlink" title="Blitz.js"></a>Blitz.js</h2><p>Blitz.js 是受 Ruby on Rails 启发，基于 Next.js 构建的零-API（Zero-API）数据层全栈 React 框架。</p>
+<p>让我们根据框架作者的话来看看 Blitz.js 的主要功能和优点：</p>
+<ol>
+<li>“Zero-API” 数据层让你无需手动添加 API 端点（API endpoints）或进行客户端访问和缓存就能直接将服务器代码导入到 React 组件中。</li>
+<li>包含了产品级应用所需的一切事物。从数据库到前端的一切的端对端事物。</li>
+<li>带来 Ruby on Rails 框架的简洁和约定的同时，保留了我们对 React 中所热爱的一切事物。</li>
+</ol>
+<h4 id="安装-amp-基础用法"><a href="#安装-amp-基础用法" class="headerlink" title="安装 &amp; 基础用法"></a>安装 &amp; 基础用法</h4><p>在开始使用 Blitz.js 之前，我们需要安装命令行工具。</p>
+<p>Blitz.js 需运行在 Nodejs v12+ 的环境下。</p>
+<p>我们在计算机上全局安装 Blitz.js 的命令行工具。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g blitz</span><br></pre></td></tr></table></figure>
+
+<p>安装以后，我们就可以在任意目录中使用 <code>blitz</code> 命令了。</p>
+<p>为了创建一个新的 Blitzjs 应用，在 blitz 命令中加上 new 参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blitz new blitz-app</span><br></pre></td></tr></table></figure>
+
+<p><code>new</code> 次级命令（sub-command）会创建一个以 <code>blitz-app</code> 为名的 Blitz 新项目。</p>
+<p>来看看 <code>blitz-app</code> 目录结构:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">blitz-app</span></span><br><span class="line">│</span><br><span class="line">├── <span class="selector-tag">app</span></span><br><span class="line">│ ├── <span class="selector-tag">components</span></span><br><span class="line">│ │ └── <span class="selector-tag">ErrorBoundary</span><span class="selector-class">.tsx</span></span><br><span class="line">│ ├── <span class="selector-tag">layouts</span></span><br><span class="line">│ └── <span class="selector-tag">pages</span></span><br><span class="line">│   ├── _<span class="selector-tag">app</span><span class="selector-class">.tsx</span></span><br><span class="line">│   ├── _<span class="selector-tag">document</span><span class="selector-class">.tsx</span></span><br><span class="line">│   └── <span class="selector-tag">index</span><span class="selector-class">.tsx</span></span><br><span class="line">├── <span class="selector-tag">db</span></span><br><span class="line">│ ├── <span class="selector-tag">migrations</span></span><br><span class="line">│ ├── <span class="selector-tag">index</span><span class="selector-class">.ts</span></span><br><span class="line">│ └── <span class="selector-tag">schema</span><span class="selector-class">.prisma</span></span><br><span class="line">├── <span class="selector-tag">integrations</span></span><br><span class="line">├── <span class="selector-tag">node_modules</span></span><br><span class="line">├── <span class="selector-tag">public</span></span><br><span class="line">│ ├── <span class="selector-tag">favicon</span><span class="selector-class">.ico</span></span><br><span class="line">│ └── <span class="selector-tag">logo</span><span class="selector-class">.png</span></span><br><span class="line">├── <span class="selector-tag">utils</span></span><br><span class="line">├── <span class="selector-class">.babelrc</span><span class="selector-class">.js</span></span><br><span class="line">├── <span class="selector-class">.env</span></span><br><span class="line">├── <span class="selector-class">.eslintrc</span><span class="selector-class">.js</span></span><br><span class="line">├── <span class="selector-class">.gitignore</span></span><br><span class="line">├── <span class="selector-class">.npmrc</span></span><br><span class="line">├── <span class="selector-class">.prettierignore</span></span><br><span class="line">├── <span class="selector-tag">README</span><span class="selector-class">.md</span></span><br><span class="line">├── <span class="selector-tag">blitz</span><span class="selector-class">.config</span><span class="selector-class">.js</span></span><br><span class="line">├── <span class="selector-tag">package</span><span class="selector-class">.json</span></span><br><span class="line">├── <span class="selector-tag">tsconfig</span><span class="selector-class">.json</span></span><br><span class="line">└── <span class="selector-tag">yarn</span><span class="selector-class">.lock</span></span><br></pre></td></tr></table></figure>
+
+<p><code>app/</code> 目录是项目文件的主要容器，是放置应用组件，页面和路由的地方。如同你的应用中 <code>src</code> 目录。</p>
+<p><code>app/components</code> 目录用来存放展示组件（presentational components）。展示组件是独立的视图单元，它们唯一的用处就是显示容器组件（container components）传递给它们的数据。</p>
+<p><code>app/pages</code> 目录用来存放页面路由。每个页面都是基于文件名和路由产生关联。在 Blitz 中，页面就源于从 pages 目录中 <code>.js</code>、<code>.jsx</code>、<code>.ts</code> 或 <code>.tsx</code> 文件导出的 React 组件。</p>
+<p>举个例子，如果在我们的应用中有如下的路由：</p>
+<ul>
+<li>/post</li>
+<li>/profile</li>
+<li>/about</li>
+</ul>
+<p>那么，在 Blitzjs 的 pages 目录中应有如下的文件夹和文件。</p>
+<p>当导航到 “/post” 路由时，<code>pages/post/index.js</code> 导出的组件会被渲染。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/post/index.js</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Post</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Post<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Post</span><br></pre></td></tr></table></figure>
+
+<p><code>pages/profile/index.js</code> 映射到 <code>/profile</code> 路由。<code>pages/profile/index.js</code> 导出的组件会在路由被导航到时渲染。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/profile/index.js</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Profile</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Profile<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Profile</span><br></pre></td></tr></table></figure>
+
+<p><code>pages/about/index.js</code> 映射到 <code>/about</code> 路由。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/about/index.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">About</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>About<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> About</span><br></pre></td></tr></table></figure>
+
+<p><code>db/</code> 目录用于存放应用的数据库配置。默认情况下，Blitz 使用 Prisma 2（一个强类型数据库客户端）。你可以使用你想用的任何数据库，比如：Mongo，TypeORM 等等。默认情况下，Blitz 使用 SQLite 作为它的数据库。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">datasource db &#123;</span><br><span class="line">    provider = <span class="string">"sqlite"</span></span><br><span class="line">    url = env(<span class="string">"DATABASE_URL"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>provider</code> 告诉 Prisma，应用使用 SQLite 数据库。如果我们想使用其他的数据库，以 Postgres 为例，我们可以将 <code>provider</code> 的值从 <code>sqlite</code> 改成 <code>postgres</code>。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">datasource db &#123;</span><br><span class="line">    provider = <span class="string">"postgres"</span></span><br><span class="line">    url = env(<span class="string">"DATABASE_URL"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 schema.prisma 文件中，我们可以定义我们的数据库模型：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">datasource db &#123;</span><br><span class="line">    provider = <span class="string">"postgres"</span></span><br><span class="line">    url = env(<span class="string">"DATABASE_URL"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">model BlogPost &#123;</span><br><span class="line">    id Int <span class="meta">@default</span>(autoincrement()) <span class="meta">@id</span></span><br><span class="line">    title <span class="built_in">String</span></span><br><span class="line">    description <span class="built_in">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>模型（models）映射到位于数据库中的表（tables）。</p>
+<p><code>node_modules/</code> 目录存放了你的项目中安装的所有依赖。它的文件体积非常大。</p>
+<p><code>public/</code> 目录用于存放静态资源文件，主要是一些图片、音乐、视频、图标等的媒体文件。</p>
+<p><code>utils/</code> 目录存放了可以在整个应用中共享或使用的通用文件。</p>
+<p><code>blitz.config.js</code> 是 Blitzjs 的配置文件。所有用于 Blitz 应用的自定义配置都可以在这里设置。此文件继承了 <code>next.config.js</code> 文件。</p>
+<h2 id="服务器（Server）"><a href="#服务器（Server）" class="headerlink" title="服务器（Server）"></a>服务器（Server）</h2><p>我们可以通过以下的命令开启 Blitz 服务器来运行我们的项目： </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blitz start</span><br></pre></td></tr></table></figure>
+
+<p>注意：你必须位于 <code>blitz-app</code> 目录中，才能让命令能加载和运行我们的应用。</p>
+<p>现在，我们将会看到以下的输出：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">✔ Prepped <span class="keyword">for</span> launch</span><br><span class="line">[<span class="meta"> wait </span>] starting the development server ...</span><br><span class="line">[<span class="meta"> info </span>] waiting <span class="keyword">on</span> http:<span class="comment">//localhost:3000 ...</span></span><br><span class="line">[<span class="meta"> info </span>] bundled successfully, waiting <span class="keyword">for</span> typecheck results</span><br><span class="line">[<span class="meta"> wait </span>] compiling ...</span><br><span class="line">[<span class="meta"> info </span>] bundled successfully, waiting <span class="keyword">for</span> typecheck results</span><br><span class="line">[<span class="meta"> ready </span>] compiled successfully - ready <span class="keyword">on</span> http:<span class="comment">//localhost:3000</span></span><br></pre></td></tr></table></figure>
+
+<p>我们看到Blitz编译成功并开启了一个服务器在localhost:3000运行我们的应用程序。现在浏览 <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a> 来看看 Blitz 渲染的结果。</p>
+<h2 id="Blitz-生成（generate）"><a href="#Blitz-生成（generate）" class="headerlink" title="Blitz 生成（generate）"></a>Blitz 生成（generate）</h2><p>Blitz 的命令行工具具有高度的自动化。通过使用命令行工具，我们可以用 <code>generate</code> 次级命令以在我们的 Blitz 应用中为所有的代码提供脚手架。</p>
+<p>命令的格式如下：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blitz <span class="keyword">generate</span> &lt;<span class="keyword">type</span>&gt; &lt;model_name&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>generate</code> 命令可以生成 Prisma 的 models，mutations，queries 以及 pages 文件。</p>
+<p><code>\&lt;type&gt;</code> 参数指定要生成的文件的类型。</p>
+<p><code>\&lt;type&gt;</code> 可以有如下的取值：</p>
+<p><code>all</code>：用于生成 models，mutations，queries 以及 pages 文件。</p>
+<p>举例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blitz generate all blogPost</span><br></pre></td></tr></table></figure>
+
+<p>我们使用了 <code>all</code> 次级命令。这个命令会生成如下的文件：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span>[blogPostId]/edit.tsx</span><br><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span>[blogPostId].tsx</span><br><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span>index.tsx</span><br><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span><span class="keyword">new</span>.tsx</span><br><span class="line">app<span class="regexp">/blogPosts/</span>components/BlogPostForm.tsx</span><br><span class="line">app<span class="regexp">/blogPosts/</span>queries/getBlogPost.ts</span><br><span class="line">app<span class="regexp">/blogPosts/</span>queries/getBlogPosts.ts</span><br><span class="line">app<span class="regexp">/blogPosts/</span>mutations/createBlogPost.ts</span><br><span class="line">app<span class="regexp">/blogPosts/</span>mutations/deleteBlogPost.ts</span><br><span class="line">app<span class="regexp">/blogPosts/</span>mutations/updateBlogPost.ts</span><br></pre></td></tr></table></figure>
+
+<p><code>all</code> 次级命令为 blogPost 生成 pages：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span>[blogPostId]/edit.tsx</span><br><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span>[blogPostId].tsx</span><br><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span>index.tsx</span><br><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span><span class="keyword">new</span>.tsx</span><br></pre></td></tr></table></figure>
+
+<p>当路由匹配浏览到的页面时，这些文件导出的对应组件就会被渲染。</p>
+<p><code>app/blogPosts/pages/blogPosts/index.tsx</code> 会被加载，当在浏览器中导航至 <code>/blogPosts</code> 路由时。它会渲染数据库中所有的博客文章。</p>
+<p><code>app/blogPosts/pages/blogPosts/new.tsx</code>会在导航至 <code>/blogPosts/new</code> 路由时被加载，此页面用来创建一个新的博客文章。</p>
+<p><code>app/blogPosts/pages/blogPosts/[blogPostId]/edit.tsx</code>会在导航至 <code>/blogPosts/[blogPostId]/edit</code> 路由时被加载，用于编辑 id 为 <code>[blogPostId]</code> 的博客文章。</p>
+<p><code>app/blogPosts/pages/blogPosts/[blogPostId].tsx</code> 在导航至 <code>/blogPosts/[blogPostId]</code> 路由时加载，相应的页面会渲染 id 为 <code>[blogPostId]</code> 的博客文章。</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app/blogPosts<span class="meta-keyword">/queries/</span>getBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/queries/</span>getBlogPosts.ts</span><br></pre></td></tr></table></figure>
+
+<p><code>queries</code> 目录存放用于检索博客文章的文件。<code>app/blogPosts/queries/getBlogPost.ts</code> 基于博客文章的 id 返回一篇博客。<code>app/blogPosts/queries/getBlogPosts.ts</code> 用于获取数据库中所有的博客文章。</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>createBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>deleteBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>updateBlogPost.ts</span><br></pre></td></tr></table></figure>
+
+<p><code>mutations</code>做着CRUD中CUD的事情，可以用于创建，更新或删除一篇博客文章。<code>app/blogPosts/mutations/createBlogPost.ts</code>文件用于创建博客文章。<code>app/blogPosts/mutations/deleteBlogPost.ts</code>基于给定的id删除博客文章。<code>app/blogPosts/mutations/updateBlogPost.ts</code> 用于编辑指定的博客文章。</p>
+<p><code>resource</code>：这个次级命令用于创建 models，mutations 以及 queries 文件。</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blitz generate resource blogPost</span><br></pre></td></tr></table></figure>
+
+<p>命令创建的文件如下：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app/blogPosts<span class="meta-keyword">/queries/</span>getBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/queries/</span>getBlogPosts.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>createBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>deleteBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>updateBlogPost.ts</span><br></pre></td></tr></table></figure>
+
+<p><code>crud</code>：用于创建 mutations 和 queries。不同于 <code>resource</code> ，它不会生成 Prisma 的 model 文件。</p>
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blitz generate crud blogPost</span><br></pre></td></tr></table></figure>
+
+<p>命令生成的文件如下：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app/blogPosts<span class="meta-keyword">/queries/</span>getBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/queries/</span>getBlogPosts.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>createBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>deleteBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>updateBlogPost.ts</span><br></pre></td></tr></table></figure>
+
+<p><code>queries</code> 和 <code>query</code>：这个次级命令只会生成 queries 文件：</p>
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blitz generate queries blogPost</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会生成如下的文件：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app/blogPosts<span class="meta-keyword">/queries/</span>getBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/queries/</span>getBlogPosts.ts</span><br></pre></td></tr></table></figure>
+
+<p><code>mutations</code>：这个次级命令只会生成 mutations 文件。没有 queries，pages 或 models 文件。</p>
+<p>举例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blitz generate mutations blogPost</span><br></pre></td></tr></table></figure>
+
+<p>命令生成的文件如下：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>createBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>deleteBlogPost.ts</span><br><span class="line">app/blogPosts<span class="meta-keyword">/mutations/</span>updateBlogPost.ts</span><br></pre></td></tr></table></figure>
+
+<p><code>pages</code>：这个次级命令只会生成 pages 文件。</p>
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blitz generate pages blogPost</span><br></pre></td></tr></table></figure>
+
+<p>这个命令只会生成下面的文件：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span>[blogPostId]/edit.tsx</span><br><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span>[blogPostId].tsx</span><br><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span>index.tsx</span><br><span class="line">app<span class="regexp">/blogPosts/</span>pages<span class="regexp">/blogPosts/</span><span class="keyword">new</span>.tsx</span><br></pre></td></tr></table></figure>
+
+<p><code>\&lt;model_name&gt;</code> 参数是待生成的文件的 model 名。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>让我们来总结一下，Blitz.js 为我们提供了：</p>
+<ul>
+<li>易用的页面路由</li>
+<li>数据库的设置与集成</li>
+<li>支持服务器端渲染（SSR）</li>
+<li>内置用户权限认证</li>
+</ul>
+<p>Blitzjs 是一个非常好的框架。它让一切事情都变得简单起来了，这真的是令人惊叹。只需用相应的脚手架就可以开发你的项目了！！</p>
+<p>感谢您的阅读！！！</p>
+<h2 id="Blitz-的相关资源"><a href="#Blitz-的相关资源" class="headerlink" title="Blitz 的相关资源"></a>Blitz 的相关资源</h2><p><a href="https://blitzjs.com" target="_blank" rel="noopener">Blitz.js — The Fullstack React Framework</a></p>
+<p><a href="https://blitzjs.com/docs/getting-started" target="_blank" rel="noopener">Getting Started with Blitz</a></p>
+<blockquote>
+<ul>
+<li>原文地址：<a href="https://blog.bitsrc.io/introduction-to-blitz-js-ff1e48ea5714" target="_blank" rel="noopener">Introduction to Blitz.js</a></li>
+<li>原文作者：<a href="https://medium.com/@kurtwanger40" target="_blank" rel="noopener">Chidume Nnamdi 🔥💻🎵🎮</a></li>
+</ul>
+</blockquote>
+<h2 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h2><p>等待被添加 orz</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>plusmultiply0</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://plusmultiply0.github.io/2020/10/25/transaltion-Introduction-to-Blitz-js/">https://plusmultiply0.github.io/2020/10/25/transaltion-Introduction-to-Blitz-js/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2021 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/thoughts/"># thoughts</a>
+                    
+                        <a href="/tags/tips/"># tips</a>
+                    
+                        <a href="/tags/translation/"># translation</a>
+                    
+                        <a href="/tags/attempt/"># attempt</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/11/29/translation-use-cookies-in-Nextjs/">[译]如何在 Nextjs 中使用 cookies 来持久化保存用户信息</a>
+            
+            
+            <a class="next" rel="next" href="/2020/10/09/transaltion-Using-Service-Worker-with-React/">[译]在 React 中使用 Service Worker</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© plusmultiply0 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

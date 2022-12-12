@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="plusmultiply0">
+
+
+
+    <meta name="description" content="personal blog">
+
+
+    <meta name="keywords" content="blog,notes,life">
+
+
+<title>为 RSSHub 贡献 pr | plusmultiply0&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="plusmultiply0's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Plusmultiply0&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Plusmultiply0&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">为 RSSHub 贡献 pr</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">plusmultiply0</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">七月 19, 2020&nbsp;&nbsp;15:55:41</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/notes/">notes</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote>
+<p>记一次为 RSSHub 提 pr 的经历</p>
+</blockquote>
+<img src="/2020/07/19/pull-request-for-RSSHub/RSSHub.png" class="">
+
+<p><strong>内容索引</strong></p>
+<ul>
+<li><a href="#start">开始</a></li>
+<li><a href="#process">具体过程</a></li>
+<li><a href="#feelings">一些感受</a></li>
+</ul>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a><a id="start"></a>开始</h2><p>最近为 <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener">RSSHub</a> 提交了一个 pr，是关于学校图书馆新闻动态的 RSS 订阅。</p>
+<p><a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener">RSSHub</a> 可以为各种各样的网站生成 RSS，再用 RSS 阅读器订阅就可以很方便的浏览网站的更新信息。</p>
+<p>简单的浏览了一下文档，issues 和 pull requests 里都没有发现我校的身影，<br>而且文档里有这么一句话</p>
+<blockquote>
+<p>如果你会写 JavaScript，请按照规则提交 pull request</p>
+</blockquote>
+<p>看上去提 pr 应该不会很难:)</p>
+<p>于是浏览了一下我校的各个网站，决定为我校写一个图书馆新闻动态的 RSS 订阅规则。</p>
+<p>那么，开始动手吧。</p>
+<h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a><a id="process"></a>具体过程</h2><p>先在 Github 上 fork 一下项目，然后 <code>git clone</code> 到本地。</p>
+<p>然后，参照文档和别人已经写好的内容添加<a href="https://docs.rsshub.app/joinus/#ti-jiao-xin-de-rsshub-gui-ze-tian-jia-jiao-ben-lu-you" target="_blank" rel="noopener">脚本路由</a>。</p>
+<p>现在，开始来写具体的脚本。</p>
+<p>分析一下大致思路，<br>先使用 <a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 获取源站的网页，然后用 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 提取网页中需要的信息（如：新闻的链接、标题等）。又因为，我们需要用 RSS 获取到新闻内容，所以我们还需要根据新闻的链接再次使用 <a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 请求具体的某个新闻的网页，然后使用 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 按照 <a href="https://docs.rsshub.app/joinus/#ti-jiao-xin-de-rsshub-gui-ze-bian-xie-jiao-ben-sheng-cheng-rss-yuan" target="_blank" rel="noopener">生成 RSS 源的规则</a> 提取需要的信息编码即可。</p>
+<p>貌似有 <a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 和 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 两个陌生面孔，不用慌，先扫一下技术文档并且参照一下别人写好的代码。我们就会发现，<br><a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 基本只用来请求源站的数据，而 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 是从请求来的数据中提取生成 RSS源的信息，使用规则类似于 jQuery，应该不难上手。</p>
+<p>具体代码就不详述了，因为编写的规则不难而且也可以参考先前的代码。</p>
+<p>不过，有一点需要注意的是，在提取详细信息的时候，需要替换一下 description 里的链接地址。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">replace(<span class="regexp">/src="\//g</span>, <span class="string">`src="<span class="subst">$&#123;url.resolve(host, <span class="string">'.'</span>)&#125;</span>`</span>)</span><br><span class="line">replace(<span class="regexp">/href="\//g</span>, <span class="string">`href="<span class="subst">$&#123;url.resolve(host, <span class="string">'.'</span>)&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
+<p>链接使用的是相对地址，而源站和 RSS阅读器站点显然不同，所以在 RSS 阅读器就看不到链接导向的内容了。<br>替换（添加上源站网址）之后，就可以在 RSS阅读器访问到相应内容啦。</p>
+<p>其他的，考虑一下意外情况（如：获取信息有误），那么可以生成一个简单的提示让读者访问源站。</p>
+<p>编写完成后，本地进行调试无误后，就可以添加上<a href="https://docs.rsshub.app/joinus/#ti-jiao-xin-de-rsshub-gui-ze-tian-jia-jiao-ben-wen-dang" target="_blank" rel="noopener">脚本文档</a></p>
+<p>之后，执行 <code>npm run format</code> 自动标准化代码格式，提交到 fork 的仓库后，然后在这个仓库内进行 pull request 就行了！</p>
+<p>至此，为 RSSHub 的 pr 的经历就告一段落了。<a href="https://github.com/DIYgod" target="_blank" rel="noopener">DIYgod</a> 诚不欺我，确实只需要会一点 Javascript 就可以提一个简单的 pr 了:)</p>
+<h2 id="一些感受"><a href="#一些感受" class="headerlink" title="一些感受"></a><a id="feelings"></a>一些感受</h2><p>除此之外，感觉看了下 <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener">RSSHub</a> 的路由文档，能涨不少见识。<br>能认识到不同领域的不少网站，在需要了解某一领域/某方面知识时，可以做一个简单的参考，比如：设计、科学期刊、出行旅游等路由。可以通过这些分类的网站去了解信息。<br>固然，不能排除有为了水 pr 或者打广告等原因写的路由规则，这个在所难免，还是得靠自己分辨。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>pr 被合并啦 :)</p>
+<img src="/2020/07/19/pull-request-for-RSSHub/merged.png" class="">
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>plusmultiply0</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/">https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2021 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/attempt/"># attempt</a>
+                    
+                        <a href="/tags/Github/"># Github</a>
+                    
+                        <a href="/tags/RSS/"># RSS</a>
+                    
+                        <a href="/tags/NodeJs/"># NodeJs</a>
+                    
+                        <a href="/tags/JavaScript/"># JavaScript</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/07/24/translation-javascript-eight-tips/">[译]有关 JavaScript 的八个小技巧</a>
+            
+            
+            <a class="next" rel="next" href="/2020/06/24/notes-and-tips-about-Github/">有关 Git&Github 的tips总结</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© plusmultiply0 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

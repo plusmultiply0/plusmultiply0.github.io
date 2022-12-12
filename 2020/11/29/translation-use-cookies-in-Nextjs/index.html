@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="plusmultiply0">
+
+
+
+    <meta name="description" content="personal blog">
+
+
+    <meta name="keywords" content="blog,notes,life">
+
+
+<title>[译]如何在 Nextjs 中使用 cookies 来持久化保存用户信息 | plusmultiply0&#39;s blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="plusmultiply0's blog" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Plusmultiply0&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Plusmultiply0&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Archives</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[译]如何在 Nextjs 中使用 cookies 来持久化保存用户信息</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">plusmultiply0</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十一月 29, 2020&nbsp;&nbsp;19:06:15</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/translation/">translation</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="使用-LocalStorage"><a href="#使用-LocalStorage" class="headerlink" title="使用 LocalStorage"></a>使用 LocalStorage</h2><p>在 React 或单页应用中有许多方式来持久化保存用户信息。大多数时候，开发者通常使用 localStorage 来保存以及按需加载用户数据。虽然这个方法可行，但不太好，因为它会让用户易于遭到攻击。使用 cookies 会是相对安全的选择。就个人而言，我倾向于混合使用 cookies 和 JWT 的 <a href="https://jwt.io/" target="_blank" rel="noopener">JSON Web tokens</a> 来持久化用户会话以及，当会话过期时，强制用户重新登录。如何使用 JWT 的 <a href="https://jwt.io/" target="_blank" rel="noopener">JSON Web tokens</a> 不在本文的介绍范围内。</p>
+<p>由于 localStorage 在服务器端是未定义的（因为服务器端没有 localStorage），所以在渲染路由前是不可能访问到 localStorage 的。如前所述，我们最好的做法是，在渲染路由前，检查用户的 cookie 是否可用。</p>
+<h2 id="在-React-NextJS-中使用-cookies"><a href="#在-React-NextJS-中使用-cookies" class="headerlink" title="在 React/NextJS 中使用 cookies"></a>在 React/NextJS 中使用 cookies</h2><p>为了在 NextJS 中使用 cookies，我们需要安装两个 packages。在本文中，我们将会使用 <strong>cookie</strong> 和 <strong>react-cookie</strong>。<strong>react-cookie</strong> 允许我们从客户端设置 cookie，而 <strong>cookie</strong> 则让我们能从服务器端访问设置的 cookie。运行以下命令安装 packages。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install react-cookie cookie</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://npmjs.com/package/cookie-cutter" target="_blank" rel="noopener">Cookie-cutter</a> 功能与 react-cookie 相同，但是包体积更小。</p>
+<h2 id="设置-cookie"><a href="#设置-cookie" class="headerlink" title="设置 cookie"></a>设置 cookie</h2><p>安装了上面的两个 packages 后，现在来设置一个 cookie。通常，我们会在用户成功注册或登录时设置一个 cookie。要在登录时设置一个 cookie，可以遵循下面的例子。  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/login.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; useCookies &#125; <span class="keyword">from</span> <span class="string">"react-cookie"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Login = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [setCookie] = useCookies([<span class="string">"user"</span>])</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> handleSignIn = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> response = <span class="keyword">await</span> yourLoginFunction(username) <span class="comment">//执行用以登录的 API 调用</span></span><br><span class="line">      <span class="keyword">const</span> data = response.data</span><br><span class="line"></span><br><span class="line">      setCookie(<span class="string">"user"</span>, <span class="built_in">JSON</span>.stringify(data), &#123;</span><br><span class="line">        path: <span class="string">"/"</span>,</span><br><span class="line">        maxAge: <span class="number">3600</span>, <span class="comment">// cookeie 一小时后过期</span></span><br><span class="line">        sameSite: <span class="literal">true</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;label htmlFor=<span class="string">"username"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"text"</span> placeholder=<span class="string">"enter username"</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Login</span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码片中，我们调用了 <code>react-cookies</code> 包中的 <code>setCookie</code> 钩子并为其设置了默认值。在我们的示例中，默认值为 <strong>user</strong>。然后，<br>我们通过调用登录函数，发起一个请求用以用户登录。我们从 API 调用中获取 response 后，将 response.data 字符串化（cookies 应格式化为文本）并存储在 cookie 中。</p>
+<p>我们也传递了额外的选项参数到 cookie 中，如：<strong>path</strong>，确保你的 cookie 在所有的路由中均可访问； <strong>maxAge</strong>，定义了从设置 cookie 开始到过期的时间，即 cookie 的有效期；<strong>sameSite</strong>，Samesite 指示 cookie 仅能用于设置了 cookie 的站点——将其设置为 true 非常重要，因为可以避免其在 Firefox 日志出现错误。</p>
+<h2 id="赋予应用访问-Cookie-的权限"><a href="#赋予应用访问-Cookie-的权限" class="headerlink" title="赋予应用访问 Cookie 的权限"></a>赋予应用访问 Cookie 的权限</h2><p>为了确保应用中的所有路由都能访问到 cookie，我们需要将 App 组件包装在提供 cookie 的组件内。</p>
+<p>在 <code>_app.js</code> 文件中，添加下列代码。  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pages/_app.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; CookiesProvider &#125; <span class="keyword">from</span> <span class="string">"react-cookie"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">MyApp</span>(<span class="params">&#123; pageProps &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;CookiesProvider&gt;</span><br><span class="line">      &lt;Component &#123;...pageProps&#125; /&gt;</span><br><span class="line">    &lt;<span class="regexp">/CookiesProvider&gt;</span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置解析-cookie-的函数"><a href="#设置解析-cookie-的函数" class="headerlink" title="设置解析 cookie 的函数"></a><a href="#setting-up-the-function-to-parse-the-cookie"></a>设置解析 cookie 的函数</h2><p>接下来，我们需要设置一个函数用来检查 cookie 是否存在于服务器上，（存在的话）解析 cookie 并将其作为返回值。新建一个名为 <strong>helpers</strong> 的文件夹，并在里面添加一个 <strong>index.js</strong> 文件。</p>
+<p>在文件内，添加如下代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// helpers/index.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cookie <span class="keyword">from</span> <span class="string">"cookie"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">parseCookies</span>(<span class="params">req</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> cookie.parse(req ? req.headers.cookie || <span class="string">""</span> : <span class="built_in">document</span>.cookie)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的函数接收一个 request 对象，然后检查 request 的 headers 以找到存储的 cookie。</p>
+<h2 id="在组件中访问-cookie"><a href="#在组件中访问-cookie" class="headerlink" title="在组件中访问 cookie"></a>在组件中访问 cookie</h2><p>最后，在渲染请求的路由前，我们将使用组件中的 <code>getInitialProps</code> 来检查用户在服务器端是否存在有效的 cookie。另外，你可以使用 <code>getServerSideProps</code> 作为替代。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; parseCookies &#125; <span class="keyword">from</span> <span class="string">"../helpers/"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">HomePage</span>(<span class="params">&#123; data &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;Homepage &lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">        &lt;p&gt;Data from cookie: &#123;data.user&#125;&lt;/</span>p&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">HomePage.getInitialProps = <span class="keyword">async</span> (&#123; req &#125;) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> data = parseCookies(req)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (res) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.keys(data).length === <span class="number">0</span> &amp;&amp; data.constructor === <span class="built_in">Object</span>) &#123;</span><br><span class="line">      res.writeHead(<span class="number">301</span>, &#123; <span class="attr">Location</span>: <span class="string">"/"</span> &#125;)</span><br><span class="line">      res.end()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    data: data &amp;&amp; data,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>getInitialProps</code> 中，我们把在 NextJS 服务器端可用的 request 对象（req）传递给 <code>parseCookies</code> 函数。 该函数将 cookie 返回给我们，我们就可以将 cookie 作为参数发送给客户端。</p>
+<p>我们同样会在服务器端检查 response 对象是否可用。<strong>res</strong> 对象（response）仅在服务器端可用。如果用户使用 <strong>next/link</strong> 或 <strong>next/router</strong> 访问到 <strong>HomePage</strong> 路由，<strong>res</strong> 对象将不可用。</p>
+<p>通过使用 <strong>res</strong> 对象，我们可以检查是否存在 cookies 以及它们是否有效。如果 <code>data</code> 是空对象，则意味着 cookie 无效。如果 cookie 无效，我们将重定向用户返回至主页而不是在重定向用户前显示刷新的主页。</p>
+<p>注意到，后续使用 <strong>next/link</strong> 或 <strong>next/router</strong> 以及包含 <code>getInitialProps</code> 的页面请求会在客户端被完成。也就是说，对于通过使用 <strong>next/link</strong> 或 <strong>next/router</strong> 访问的其他路由，cookie 会从客户端提取而不是服务器端。</p>
+<p>这样，你可以在应用中存储用户的 cookies，过期无效 cookies 以及很好地保证应用的安全。</p>
+<hr>
+<blockquote>
+<ul>
+<li>原文地址：<a href="https://dev.to/debosthefirst/how-to-use-cookies-for-persisting-users-in-nextjs-4617" target="_blank" rel="noopener">How to use cookies for persisting users in Nextjs</a></li>
+</ul>
+</blockquote>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>plusmultiply0</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://plusmultiply0.github.io/2020/11/29/translation-use-cookies-in-Nextjs/">https://plusmultiply0.github.io/2020/11/29/translation-use-cookies-in-Nextjs/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2021 <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span></span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/thoughts/"># thoughts</a>
+                    
+                        <a href="/tags/tips/"># tips</a>
+                    
+                        <a href="/tags/translation/"># translation</a>
+                    
+                        <a href="/tags/React/"># React</a>
+                    
+                        <a href="/tags/NextJs/"># NextJs</a>
+                    
+                        <a href="/tags/cookie/"># cookie</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/02/09/translation-Why-You-Should-Use-Picture-Tag-Instead-of-Img-Tag/">[译]为什么你应该使用 Picture 标签而不是 Img 标签</a>
+            
+            
+            <a class="next" rel="next" href="/2020/10/25/transaltion-Introduction-to-Blitz-js/">[译]Blitz.js简介：一个新兴的 React 全栈框架</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© plusmultiply0 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
