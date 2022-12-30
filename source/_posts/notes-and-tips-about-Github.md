@@ -87,3 +87,19 @@ git config --global --unset https.proxy
 
 根据上述操作后，基本可以解决问题，
 但是为要求为生成的ssh key每次输入passphase，这个暂时没有好的解决办法。
+
+## OpenSSL SSL_read: Connection was reset, errno 10054
+最近使用git push时遇到的问题，解决方法如下，输入如下命令
+```
+git config --global http.sslVerify "false"
+```
+
+## github 443 timed out
+也是git push时遇到的问题，解决方法就是重设代理，可以先用第一个命令获得代理，再用后两个命令重新设置一次就可以。
+```
+git config --global --get http.proxy
+
+git config --global http.proxy socks5://127.0.0.1:10808
+
+git config --global https.proxy socks5://127.0.0.1:10808
+```
