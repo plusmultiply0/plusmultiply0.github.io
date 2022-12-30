@@ -258,7 +258,11 @@
 <li>将生成的SSH key添加到Github账号——<a href="https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="noopener">文档</a></li>
 </ul>
 <p>根据上述操作后，基本可以解决问题，<br>但是为要求为生成的ssh key每次输入passphase，这个暂时没有好的解决办法。</p>
+<h2 id="OpenSSL-SSL-read-Connection-was-reset-errno-10054"><a href="#OpenSSL-SSL-read-Connection-was-reset-errno-10054" class="headerlink" title="OpenSSL SSL_read: Connection was reset, errno 10054"></a>OpenSSL SSL_read: Connection was reset, errno 10054</h2><p>最近使用git push时遇到的问题，解决方法如下，输入如下命令</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global http.sslVerify <span class="string">"false"</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="github-443-timed-out"><a href="#github-443-timed-out" class="headerlink" title="github 443 timed out"></a>github 443 timed out</h2><p>也是git push时遇到的问题，解决方法就是重设代理，可以先用第一个命令获得代理，再用后两个命令重新设置一次就可以。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> --get http<span class="variable">.proxy</span></span><br><span class="line"></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> http<span class="variable">.proxy</span> socks5:<span class="comment">//127.0.0.1:10808</span></span><br><span class="line"></span><br><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> https<span class="variable">.proxy</span> socks5:<span class="comment">//127.0.0.1:10808</span></span><br></pre></td></tr></table></figure>
         </div>
 
         
