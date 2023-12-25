@@ -6,7 +6,7 @@
   <link href="https://plusmultiply0.github.io/atom.xml" rel="self"/>
   
   <link href="https://plusmultiply0.github.io/"/>
-  <updated>2023-06-16T04:46:23.000Z</updated>
+  <updated>2023-12-25T03:16:18.000Z</updated>
   <id>https://plusmultiply0.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>大学生活总结</title>
+    <link href="https://plusmultiply0.github.io/2023/12/25/The-summary-and-reflection-of-university/"/>
+    <id>https://plusmultiply0.github.io/2023/12/25/The-summary-and-reflection-of-university/</id>
+    <published>2023-12-25T03:16:18.000Z</published>
+    <updated>2023-12-25T03:16:18.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="summary" scheme="https://plusmultiply0.github.io/tags/summary/"/>
+    
+  </entry>
   
   <entry>
     <title>毕业设计小结</title>
@@ -405,9 +430,9 @@
     <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
     
     
-    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
-    
     <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
+    
+    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
     
     <category term="RSS" scheme="https://plusmultiply0.github.io/tags/RSS/"/>
     
