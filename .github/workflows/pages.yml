@@ -9,15 +9,15 @@ jobs:
   pages:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
-      - name: Use Node.js 20.x
-        uses: actions/setup-node@v2
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
         with:
-          node-version: 'v20.12.1'
+          node-version: 'v18.12.1'
       - name: Cache NPM dependencies
         uses: actions/cache@v2
         with:
