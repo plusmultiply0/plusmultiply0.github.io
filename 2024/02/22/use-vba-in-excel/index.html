@@ -16,7 +16,7 @@
     <meta name="keywords" content="blog,notes,life">
 
 
-<title>为 RSSHub 贡献 pr | plusmultiply0&#39;s blog</title>
+<title>使用vba小记 | plusmultiply0&#39;s blog</title>
 
 
 
@@ -178,7 +178,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">为 RSSHub 贡献 pr</h1>
+            <h1 class="post-title">使用vba小记</h1>
             
                 <div class="post-meta">
                     
@@ -187,7 +187,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">七月 19, 2020&nbsp;&nbsp;15:55:41</a>
+                        Date: <a href="#">二月 22, 2024&nbsp;&nbsp;16:29:15</a>
                         </span>
                     
                     
@@ -203,42 +203,14 @@
         </header>
 
         <div class="post-content">
-            <blockquote>
-<p>记一次为 RSSHub 提 pr 的经历</p>
-</blockquote>
-<img src="/2020/07/19/pull-request-for-RSSHub/RSSHub.png" class="">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看到别的同事工作的数量奇多且质量很高，私下向一些同事请教，基本无果，除了知道使用vb来辅助操作表格。于是，上微信读书搜索了相关的书籍。昨晚浏览了一本《别怕，Excel VBA其实很简单》，简单了解了一下vb的语法和编程背景。VBA其实就专门用于Office软件编程的VB语言。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>今早起来，打开Excel创建了VBA编程环境，然后打开chatgpt，一边将预先想好的构思分步转化文字，根据gpt的提示，进行编码。具体的功能其实很简单，就是简化常用的一些机械操作，比如：设置好序号行，同除一万，添加单位之类的。</p>
+<p>Excel上的编辑器里编码完可以直接点击运行测试结果，具体要融入生产环境，也就是方便日常的使用，可以自定义Excel的功能区，具体可以参考<a href="https://www.lanrenexcel.com/customization-ribbon/" target="_blank" rel="noopener">这篇文章</a>。最后的结果就是多了专门放置自定义vba过程的选项卡，需要使用的时候点击选项卡再根据名称选择点击具体功能即可。</p>
+<p>Excel上使用vba还是很方便的，wps上就没那么方便。上网搜了很多方案基本都不能给wps添加自定义功能区，后来试了下方方格子，发现它有个收纳箱，可以在指定标签下自行添加VBA过程，比Excel需要多点击一次，不过可以把功能集成到右键菜单，貌似又比Excel好一些。测试功能的时候遇到错误号1004，问了客服发现可能是安装没装对，于是重装方方格子，遂解决。</p>
+<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>chatgpt真的好用，90%的情况都是如此，剩下的10%就很让人郁闷了，不过还好可以问StackOverflow，两者结合起来，大部分问题都能解决。</p>
+<p>遇到问题莫慌，实在不行还可以问客服，加QQ加微信都问题不大，总比自己瞎摸索要好。</p>
+<p>初步实现了一些功能，感觉还不够，可能会有更加机械化和常规的操作可以用程序实现，还得多思考和实践。</p>
 
-<p><strong>内容索引</strong></p>
-<ul>
-<li><a href="#start">开始</a></li>
-<li><a href="#process">具体过程</a></li>
-<li><a href="#feelings">一些感受</a></li>
-</ul>
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a><a id="start"></a>开始</h2><p>最近为 <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener">RSSHub</a> 提交了一个 pr，是关于学校图书馆新闻动态的 RSS 订阅。</p>
-<p><a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener">RSSHub</a> 可以为各种各样的网站生成 RSS，再用 RSS 阅读器订阅就可以很方便的浏览网站的更新信息。</p>
-<p>简单的浏览了一下文档，issues 和 pull requests 里都没有发现我校的身影，<br>而且文档里有这么一句话</p>
-<blockquote>
-<p>如果你会写 JavaScript，请按照规则提交 pull request</p>
-</blockquote>
-<p>看上去提 pr 应该不会很难:)</p>
-<p>于是浏览了一下我校的各个网站，决定为我校写一个图书馆新闻动态的 RSS 订阅规则。</p>
-<p>那么，开始动手吧。</p>
-<h2 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a><a id="process"></a>具体过程</h2><p>先在 Github 上 fork 一下项目，然后 <code>git clone</code> 到本地。</p>
-<p>然后，参照文档和别人已经写好的内容添加<a href="https://docs.rsshub.app/joinus/#ti-jiao-xin-de-rsshub-gui-ze-tian-jia-jiao-ben-lu-you" target="_blank" rel="noopener">脚本路由</a>。</p>
-<p>现在，开始来写具体的脚本。</p>
-<p>分析一下大致思路，<br>先使用 <a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 获取源站的网页，然后用 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 提取网页中需要的信息（如：新闻的链接、标题等）。又因为，我们需要用 RSS 获取到新闻内容，所以我们还需要根据新闻的链接再次使用 <a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 请求具体的某个新闻的网页，然后使用 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 按照 <a href="https://docs.rsshub.app/joinus/#ti-jiao-xin-de-rsshub-gui-ze-bian-xie-jiao-ben-sheng-cheng-rss-yuan" target="_blank" rel="noopener">生成 RSS 源的规则</a> 提取需要的信息编码即可。</p>
-<p>貌似有 <a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 和 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 两个陌生面孔，不用慌，先扫一下技术文档并且参照一下别人写好的代码。我们就会发现，<br><a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener">got</a> 基本只用来请求源站的数据，而 <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="noopener">cheerio</a> 是从请求来的数据中提取生成 RSS源的信息，使用规则类似于 jQuery，应该不难上手。</p>
-<p>具体代码就不详述了，因为编写的规则不难而且也可以参考先前的代码。</p>
-<p>不过，有一点需要注意的是，在提取详细信息的时候，需要替换一下 description 里的链接地址。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">replace(<span class="regexp">/src="\//g</span>, <span class="string">`src="<span class="subst">$&#123;url.resolve(host, <span class="string">'.'</span>)&#125;</span>`</span>)</span><br><span class="line">replace(<span class="regexp">/href="\//g</span>, <span class="string">`href="<span class="subst">$&#123;url.resolve(host, <span class="string">'.'</span>)&#125;</span>`</span>)</span><br></pre></td></tr></table></figure>
-<p>链接使用的是相对地址，而源站和 RSS阅读器站点显然不同，所以在 RSS 阅读器就看不到链接导向的内容了。<br>替换（添加上源站网址）之后，就可以在 RSS阅读器访问到相应内容啦。</p>
-<p>其他的，考虑一下意外情况（如：获取信息有误），那么可以生成一个简单的提示让读者访问源站。</p>
-<p>编写完成后，本地进行调试无误后，就可以添加上<a href="https://docs.rsshub.app/joinus/#ti-jiao-xin-de-rsshub-gui-ze-tian-jia-jiao-ben-wen-dang" target="_blank" rel="noopener">脚本文档</a></p>
-<p>之后，执行 <code>npm run format</code> 自动标准化代码格式，提交到 fork 的仓库后，然后在这个仓库内进行 pull request 就行了！</p>
-<p>至此，为 RSSHub 的 pr 的经历就告一段落了。<a href="https://github.com/DIYgod" target="_blank" rel="noopener">DIYgod</a> 诚不欺我，确实只需要会一点 Javascript 就可以提一个简单的 pr 了:)</p>
-<h2 id="一些感受"><a href="#一些感受" class="headerlink" title="一些感受"></a><a id="feelings"></a>一些感受</h2><p>除此之外，感觉看了下 <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener">RSSHub</a> 的路由文档，能涨不少见识。<br>能认识到不同领域的不少网站，在需要了解某一领域/某方面知识时，可以做一个简单的参考，比如：设计、科学期刊、出行旅游等路由。可以通过这些分类的网站去了解信息。<br>固然，不能排除有为了水 pr 或者打广告等原因写的路由规则，这个在所难免，还是得靠自己分辨。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>pr 被合并啦 :)</p>
-<img src="/2020/07/19/pull-request-for-RSSHub/merged.png" class="">
         </div>
 
         
@@ -252,7 +224,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/">https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/</a></span>
+                        <span><a href="https://plusmultiply0.github.io/2024/02/22/use-vba-in-excel/">https://plusmultiply0.github.io/2024/02/22/use-vba-in-excel/</a></span>
                     </p>
                 
                 
@@ -276,15 +248,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/Github/"># Github</a>
-                    
-                        <a href="/tags/attempt/"># attempt</a>
-                    
-                        <a href="/tags/RSS/"># RSS</a>
-                    
-                        <a href="/tags/NodeJs/"># NodeJs</a>
-                    
-                        <a href="/tags/JavaScript/"># JavaScript</a>
+                        <a href="/tags/summary/"># summary</a>
                     
                         
                 </span>
@@ -297,10 +261,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/07/24/translation-javascript-eight-tips/">[译]有关 JavaScript 的八个小技巧</a>
+                <a class="prev" rel="prev" href="/2024/12/27/summary-of-2024/">2024年终总结</a>
             
             
-            <a class="next" rel="next" href="/2020/06/24/notes-and-tips-about-Github/">有关 Git&Github 的tips总结</a>
+            <a class="next" rel="next" href="/2023/12/29/reading-summary-of-2023/">2023年阅读小结</a>
             
         </section>
 
