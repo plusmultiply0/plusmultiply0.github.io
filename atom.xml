@@ -6,7 +6,7 @@
   <link href="https://plusmultiply0.github.io/atom.xml" rel="self"/>
   
   <link href="https://plusmultiply0.github.io/"/>
-  <updated>2024-12-27T06:57:03.000Z</updated>
+  <updated>2024-12-27T12:41:47.000Z</updated>
   <id>https://plusmultiply0.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2024年阅读小结</title>
+    <link href="https://plusmultiply0.github.io/2024/12/27/reading-summary-of-2024/"/>
+    <id>https://plusmultiply0.github.io/2024/12/27/reading-summary-of-2024/</id>
+    <published>2024-12-27T12:41:47.000Z</published>
+    <updated>2024-12-27T12:41:47.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;今年同样是坚持读书的一年，准确来说是坚持听书的一年。统计工作如下。&lt;/p&gt;
+&lt;h2 id=&quot;概览&quot;&gt;&lt;a href=&quot;#概览&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="summary" scheme="https://plusmultiply0.github.io/tags/summary/"/>
+    
+  </entry>
   
   <entry>
     <title>2024年终总结</title>
@@ -28,7 +54,8 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;今年也没有一直记录日记，不过一些大事还是记录下来了。&lt;/p&gt;
+&lt;h2 id=&quot;回顾今年&quot;&gt;&lt;a href=&quot;#回顾今年&quot;</summary>
         
       
     
@@ -532,9 +559,9 @@
     <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
     
     
-    <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
-    
     <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
+    
+    <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
     
     <category term="RSS" scheme="https://plusmultiply0.github.io/tags/RSS/"/>
     
@@ -571,39 +598,6 @@
     <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
     
     <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo 博客搭建&amp;升级记录</title>
-    <link href="https://plusmultiply0.github.io/2020/05/28/hexo-blog-notes/"/>
-    <id>https://plusmultiply0.github.io/2020/05/28/hexo-blog-notes/</id>
-    <published>2020-05-28T08:22:38.000Z</published>
-    <updated>2020-05-28T08:22:38.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;对自己搭建博客以及后续升级/添加功能的记录，仅供参考:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;!-- 
-- [博客部署小记](#blogstart)
-- [规避部署重复输入账号密码](#avoidpwd)
--</summary>
-        
-      
-    
-    
-    
-    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
-    
-    
-    <category term="blog" scheme="https://plusmultiply0.github.io/tags/blog/"/>
-    
-    <category term="hexo" scheme="https://plusmultiply0.github.io/tags/hexo/"/>
     
   </entry>
   
