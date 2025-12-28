@@ -6,7 +6,7 @@
   <link href="https://plusmultiply0.github.io/atom.xml" rel="self"/>
   
   <link href="https://plusmultiply0.github.io/"/>
-  <updated>2024-12-27T12:41:47.000Z</updated>
+  <updated>2025-12-28T12:32:13.000Z</updated>
   <id>https://plusmultiply0.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025年终小结</title>
+    <link href="https://plusmultiply0.github.io/2025/12/28/summary-of-2025/"/>
+    <id>https://plusmultiply0.github.io/2025/12/28/summary-of-2025/</id>
+    <published>2025-12-28T12:32:13.000Z</published>
+    <updated>2025-12-28T12:32:13.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;考试结束，前来完成年终总结&lt;/p&gt;
+&lt;h2 id=&quot;回顾今年&quot;&gt;&lt;a href=&quot;#回顾今年&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="summary" scheme="https://plusmultiply0.github.io/tags/summary/"/>
+    
+  </entry>
   
   <entry>
     <title>2024年阅读小结</title>
@@ -568,36 +594,6 @@
     <category term="NodeJs" scheme="https://plusmultiply0.github.io/tags/NodeJs/"/>
     
     <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>有关 Git&amp;Github 的tips总结</title>
-    <link href="https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/"/>
-    <id>https://plusmultiply0.github.io/2020/06/24/notes-and-tips-about-Github/</id>
-    <published>2020-06-24T15:09:12.000Z</published>
-    <updated>2020-06-24T15:09:12.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;记录关于Github/Git上有趣、有帮助的小tips~~&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;在-profile-显示编码时间统计&quot;&gt;&lt;a href=&quot;#在-profile-显示编码时间统计&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
-    
-    
-    <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
-    
-    <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
     
   </entry>
   
