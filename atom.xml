@@ -6,7 +6,7 @@
   <link href="https://plusmultiply0.github.io/atom.xml" rel="self"/>
   
   <link href="https://plusmultiply0.github.io/"/>
-  <updated>2025-12-28T12:32:13.000Z</updated>
+  <updated>2025-12-29T01:36:51.000Z</updated>
   <id>https://plusmultiply0.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025阅读小结</title>
+    <link href="https://plusmultiply0.github.io/2025/12/29/reading-summary-of-2025/"/>
+    <id>https://plusmultiply0.github.io/2025/12/29/reading-summary-of-2025/</id>
+    <published>2025-12-29T01:36:51.000Z</published>
+    <updated>2025-12-29T01:36:51.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;今年上半年看了一些书，下半年看的比较少。索性一次性全部列出了。&lt;/p&gt;
+&lt;h2 id=&quot;一些计算&quot;&gt;&lt;a href=&quot;#一些计算&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
+    
+    
+    <category term="summary" scheme="https://plusmultiply0.github.io/tags/summary/"/>
+    
+  </entry>
   
   <entry>
     <title>2025年终小结</title>
@@ -556,42 +582,6 @@
     <category term="tips" scheme="https://plusmultiply0.github.io/tags/tips/"/>
     
     <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
-    
-    <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>为 RSSHub 贡献 pr</title>
-    <link href="https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/"/>
-    <id>https://plusmultiply0.github.io/2020/07/19/pull-request-for-RSSHub/</id>
-    <published>2020-07-19T07:55:41.000Z</published>
-    <updated>2020-07-19T07:55:41.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;记一次为 RSSHub 提 pr 的经历&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img src=&quot;/2020/07/19/pull-request-for-RSSHub/RSSHub.png&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="notes" scheme="https://plusmultiply0.github.io/categories/notes/"/>
-    
-    
-    <category term="attempt" scheme="https://plusmultiply0.github.io/tags/attempt/"/>
-    
-    <category term="Github" scheme="https://plusmultiply0.github.io/tags/Github/"/>
-    
-    <category term="RSS" scheme="https://plusmultiply0.github.io/tags/RSS/"/>
-    
-    <category term="NodeJs" scheme="https://plusmultiply0.github.io/tags/NodeJs/"/>
     
     <category term="JavaScript" scheme="https://plusmultiply0.github.io/tags/JavaScript/"/>
     
